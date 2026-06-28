@@ -1,21 +1,30 @@
 .about {
   padding: 60px 28px;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 48px;
 }
 
 .about__title {
   font-size: 26px;
   color: var(--ink);
-  margin: 0;
+  margin: 0 0 30px;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
+/* photo and bio sit in a row, tops aligned with each other */
+.about__grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.about__text {
+  max-width: 640px;
+}
+
 /* film-frame portrait — a single contact-sheet cell, the one pop of color */
 .about__portrait {
-  margin: 22px 0 0;
+  margin: 0;
   max-width: 320px;
 }
 
@@ -66,9 +75,9 @@
 }
 
 @media (max-width: 860px) {
-  .about {
+  .about__grid {
     grid-template-columns: 1fr;
-    gap: 34px;
+    gap: 30px;
   }
   /* center the portrait above the bio when stacked */
   .about__portrait {
