@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <section className="hero shell">
       <div>
-        <div className="hero__eyebrow">PRODUCT BUILDER</div>
+        <div className="hero__eyebrow">PRODUCT &amp; CREATIVE TECHNOLOGIST</div>
         <h1 className="hero__title">
           I design and build
           <br />

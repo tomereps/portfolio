@@ -14,7 +14,7 @@ export default function Nav() {
           <a className="nav__name" href="/">
             Tomer Epshtein<span>.</span>
           </a>
-          <div className="nav__tagline">product builder · ai · ux · systems</div>
+          <div className="nav__tagline">product · creative solutions · vfx</div>
         </div>
 
         <nav className="nav__links">
