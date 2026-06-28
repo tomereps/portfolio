@@ -62,3 +62,60 @@ a:focus-visible {
     animation: none !important;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/*  Mobile refinements. The per-component CSS handles column stacking  */
+/*  at 860px; this tightens spacing and type for phone-width screens.  */
+/* ------------------------------------------------------------------ */
+@media (max-width: 600px) {
+  .nav__inner {
+    padding: 14px 18px;
+  }
+
+  .hero {
+    padding: 44px 18px 28px;
+    gap: 30px;
+  }
+  .hero__title {
+    font-size: 33px;
+  }
+  .hero__lede {
+    font-size: 16px;
+  }
+  .hero__actions {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .work {
+    padding: 24px 18px 8px;
+  }
+  .work__head {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .about {
+    padding: 44px 18px;
+    gap: 26px;
+  }
+
+  .skills__inner {
+    padding: 40px 18px;
+  }
+
+  .contact {
+    padding: 48px 18px 32px;
+  }
+  .contact__card {
+    padding: 32px 22px;
+    border-radius: 14px;
+  }
+  .contact__title {
+    font-size: 25px;
+  }
+  /* the decorative strip overlaps the buttons on narrow screens */
+  .contact__strip {
+    display: none;
+  }
+}

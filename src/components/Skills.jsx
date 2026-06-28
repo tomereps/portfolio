@@ -1,9 +1,9 @@
 import './Skills.css';
 
 const GROUPS = [
-  ['Product', ['Product thinking', 'UX / UI design', 'Scoping & tradeoffs', 'User research']],
-  ['Build', ['React / React Native', 'AI / LLM integration', 'Supabase', 'Rapid prototyping']],
-  ['Craft', ['VFX compositing', 'Color grading', 'Visual systems', 'Storytelling']],
+  ['Product', ['Product thinking', 'UX / UI design', 'Scoping & tradeoffs']],
+  ['Build', ['AI / LLM integration', 'Ships end-to-end']],
+  ['Craft', ['Color grading', 'Visual systems', 'Storytelling']],
 ];
 
 export default function Skills() {

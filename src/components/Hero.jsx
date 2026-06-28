@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import FrameStrip from './FrameStrip';
 import './Hero.css';
 
@@ -10,13 +9,6 @@ const STEPS = [
 ];
 
 export default function Hero() {
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => setActive((a) => (a + 1) % 7), 900);
-    return () => clearInterval(t);
-  }, []);
-
   return (
     <section className="hero shell">
       <div>
@@ -36,7 +28,7 @@ export default function Hero() {
           <a className="hero__cta" href="#work">
             See what I've shipped <span aria-hidden>→</span>
           </a>
-          <FrameStrip active={active} />
+          <FrameStrip active={2} />
         </div>
       </div>
 
