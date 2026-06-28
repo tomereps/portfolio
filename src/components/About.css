@@ -13,8 +13,37 @@
   letter-spacing: -0.02em;
 }
 
-.about__strip {
-  margin-top: 18px;
+/* film-frame portrait — a single contact-sheet cell, the one pop of color */
+.about__portrait {
+  margin: 22px 0 0;
+  max-width: 320px;
+}
+
+.about__frame {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 1px 0 rgba(20, 20, 40, 0.03);
+}
+
+.about__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.about__caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  margin-top: 11px;
 }
 
 .about__lead {
@@ -40,5 +69,10 @@
   .about {
     grid-template-columns: 1fr;
     gap: 34px;
+  }
+  /* center the portrait above the bio when stacked */
+  .about__portrait {
+    margin-left: auto;
+    margin-right: auto;
   }
 }

@@ -1,14 +1,26 @@
-import FrameStrip from './FrameStrip';
 import './About.css';
+import profile from '../assets/profile.png';
 
 export default function About() {
   return (
     <section id="about" className="about shell">
-      <div>
+      <div className="about__left">
         <h2 className="about__title">About</h2>
-        <div className="about__strip">
-          <FrameStrip count={9} active={4} />
-        </div>
+        <figure className="about__portrait">
+          <div className="about__frame">
+            <img
+              className="about__img"
+              src={profile}
+              alt="Portrait of Tomer Epshtein"
+              width="640"
+              height="640"
+            />
+          </div>
+          <figcaption className="about__caption">
+            <span>TOMER EPSHTEIN</span>
+            <span>FRAME 01 · COLOR</span>
+          </figcaption>
+        </figure>
       </div>
       <div>
         <p className="about__lead">
