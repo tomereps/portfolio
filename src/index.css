@@ -70,6 +70,13 @@ a:focus-visible {
 @media (max-width: 600px) {
   .nav__inner {
     padding: 14px 18px;
+    gap: 16px;
+  }
+  .nav__links {
+    flex-shrink: 0;
+  }
+  .nav__tagline {
+    font-size: 10px;
   }
 
   .hero {
@@ -113,6 +120,10 @@ a:focus-visible {
   }
   .contact__title {
     font-size: 25px;
+  }
+  /* keep Email me / LinkedIn side by side, not stacked */
+  .contact__actions {
+    flex-wrap: nowrap;
   }
   /* the decorative strip overlaps the buttons on narrow screens */
   .contact__strip {

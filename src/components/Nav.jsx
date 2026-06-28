@@ -1,9 +1,7 @@
 import './Nav.css';
+import cvUrl from '../../TomerEP_CV.pdf';
 
 const LINKS = ['Work', 'About', 'Skills', 'Contact'];
-
-// TODO: drop the real CV at public/cv.pdf, then point this at "/cv.pdf".
-const CV_URL = '#contact';
 
 export default function Nav() {
   return (
@@ -23,7 +21,11 @@ export default function Nav() {
               {l}
             </a>
           ))}
-          <a className="nav__cta" href={CV_URL}>
+          <a
+            className="nav__cta"
+            href={cvUrl}
+            download="Tomer-Epshtein-CV.pdf"
+          >
             Download CV
           </a>
         </nav>

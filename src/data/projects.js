@@ -66,20 +66,6 @@ export const shipped = [
   },
 ];
 
-/* Exploration — deliberately separated from shipped work, never an equal third. */
-export const exploring = {
-  slug: 'chore-quest',
-  name: 'Chore Quest',
-  status: 'Exploration',
-  tag: 'prototype',
-  bg: 'linear-gradient(135deg,#eef4ff,#e8fff1)',
-  fg: '#4f6b8a',
-  frame: 'chores  →  a game kids actually want to play',
-  desc: 'A concept turning household chores into a plan-and-reward game for families — explored while building with my own kids.',
-  outcome: 'Concept + prototype. Where I test ideas before committing.',
-  stack: ['React Native', 'AR', 'Gamification'],
-};
-
 /* Ordered section metadata for the case-study template. */
 export const caseStudyOrder = [
   { key: 'problem', label: 'The problem', num: '01' },
