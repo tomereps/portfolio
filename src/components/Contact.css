@@ -1,0 +1,76 @@
+.contact {
+  padding: 70px 28px 40px;
+}
+
+.contact__card {
+  background: var(--ink);
+  border-radius: 18px;
+  padding: 52px 44px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+}
+
+.contact__title {
+  font-size: 32px;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.contact__lede {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #b9b9cc;
+  margin-top: 16px;
+}
+
+.contact__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}
+
+.contact__btn {
+  padding: 12px 22px;
+  border-radius: 9px;
+  font-size: 14.5px;
+  text-decoration: none;
+}
+
+.contact__btn--primary {
+  background: #fff;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.contact__btn--ghost {
+  border: 1px solid #3a3a4a;
+  color: #fff;
+  font-weight: 500;
+}
+
+.contact__strip {
+  position: absolute;
+  right: 36px;
+  bottom: 30px;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.contact__footer {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--faint);
+  text-align: center;
+  margin-top: 30px;
+}

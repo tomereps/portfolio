@@ -1,0 +1,4 @@
+# Screenshots and CV.pdf go here.
+# - Card preview bands in src/components/ProjectCard.jsx use gradient placeholders;
+#   swap in real screenshots when ready.
+# - Drop the CV at public/cv.pdf and point CV_URL in src/components/Nav.jsx at "/cv.pdf".

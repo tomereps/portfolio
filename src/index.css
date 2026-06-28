@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens — near-monochrome paper, single indigo accent.      */
+/*  Color discipline is the point: he's a colorist.                   */
+/* ------------------------------------------------------------------ */
+:root {
+  --ink: #13131a;
+  --sub: #5b5b6b;
+  --faint: #8a8a99;
+  --line: #e7e7ee;
+  --paper: #fbfbfd;
+  --accent: #4f46e5;
+  --accent-soft: #eceafe;
+
+  --mono: 'Space Mono', 'SFMono-Regular', ui-monospace, monospace;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --maxw: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* shared centered container */
+.shell {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

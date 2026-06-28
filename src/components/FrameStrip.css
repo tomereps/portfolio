@@ -1,0 +1,32 @@
+/* ------------------------------------------------------------------ */
+/*  The signature device: a colorist's contact-sheet / film-frame      */
+/*  strip. Recurs through the page as the structural accent.           */
+/* ------------------------------------------------------------------ */
+.frame-strip {
+  display: flex;
+  gap: 3px;
+}
+
+.frame-strip__cell {
+  width: 22px;
+  height: 15px;
+  border-radius: 2px;
+  background: transparent;
+  border: 1px solid var(--line);
+  transition: background 0.35s, border-color 0.35s;
+}
+
+.frame-strip__cell--active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* compact variant used inside card preview bands */
+.frame-strip--tiny {
+  gap: 2px;
+}
+
+.frame-strip--tiny .frame-strip__cell {
+  width: 14px;
+  height: 10px;
+}
