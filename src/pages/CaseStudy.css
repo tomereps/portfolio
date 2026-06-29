@@ -18,8 +18,14 @@
 }
 
 /* ---- hero (dark, constrained to content width) -------------------- */
-.case__hero {
+.case__top {
   margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.case__hero {
   background: #0f0f17;
   border-radius: 0;
   padding: 44px 44px 52px;
@@ -115,8 +121,7 @@
 .case__meta {
   margin: 0;
   background: #fff;
-  border: 1px solid var(--line);
-  border-top: none;
+  border: none;
   border-radius: 0;
   padding: 22px 26px;
   display: grid;

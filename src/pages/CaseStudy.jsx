@@ -72,6 +72,7 @@ export default function CaseStudy() {
         <span aria-hidden>←</span> All work
       </Link>
 
+      <div className="case__top">
       <div className="case__hero">
         <div className="case__hero-text">
           <div className="case__eyebrow">CASE STUDY</div>
@@ -125,6 +126,7 @@ export default function CaseStudy() {
           ))}
         </div>
       )}
+      </div>
 
       <div className="case__sections">
         {cs.sections.map((s) => (
