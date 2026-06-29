@@ -19,20 +19,16 @@ export default function ProjectCard({ p, idx }) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      {/* a real screenshot when present, otherwise the gradient placeholder */}
-      <div className="card__band" style={p.image ? undefined : { background: p.bg }}>
+      {/* a real screenshot when present, otherwise a neutral placeholder */}
+      <div className="card__band">
         {p.image ? (
           <img className="card__img" src={p.image} alt={`${p.name} preview`} />
         ) : (
           <>
-            <div className="card__frame-text" style={{ color: p.fg }}>
-              {p.frame}
-            </div>
+            <div className="card__frame-text">{p.frame}</div>
             <div className="card__band-footer">
               <FrameStrip count={6} active={hover ? idx % 6 : -1} tiny />
-              <span className="card__tag" style={{ color: p.fg }}>
-                {p.tag}
-              </span>
+              <span className="card__tag">{p.tag}</span>
             </div>
           </>
         )}
@@ -49,14 +45,6 @@ export default function ProjectCard({ p, idx }) {
 
         <p className="card__desc">{p.desc}</p>
         {p.outcome && <p className="card__outcome">{p.outcome}</p>}
-
-        <div className="card__stack">
-          {p.stack.map((s) => (
-            <span className="card__chip" key={s}>
-              {s}
-            </span>
-          ))}
-        </div>
 
         {hasCaseStudy && (
           <Link className="card__link" to={`/work/${p.slug}`}>

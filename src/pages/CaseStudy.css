@@ -19,15 +19,18 @@
 
 .case__header {
   margin-top: 26px;
-  padding-bottom: 22px;
+  padding-bottom: 28px;
   border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 40px;
+  align-items: center;
 }
 
 .case__hero {
   display: block;
   width: 100%;
   height: auto;
-  margin-top: 28px;
   border: 1px solid var(--line);
   border-radius: 12px;
 }
@@ -163,6 +166,10 @@
 @media (max-width: 860px) {
   .case__title {
     font-size: 32px;
+  }
+  .case__header {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
   .case__section {
     grid-template-columns: 1fr;

@@ -23,7 +23,7 @@ export const shipped = [
   {
     slug: 'stents',
     name: 'Stents.ai',
-    status: 'In progress',
+    status: 'Live',
     tag: 'Scene 02 · Shot 03',
     bg: 'linear-gradient(135deg,#1b1b24,#2a2233)',
     fg: '#c9b8ff',
