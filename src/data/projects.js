@@ -4,8 +4,7 @@
 /* ------------------------------------------------------------------ */
 
 import stentsOg from '../assets/Stents/OG_IMAGE.png';
-
-const DRAFT = 'Draft — copy coming soon.';
+import sakemlyOg from '../assets/Sakemly/OG_IMAGE.png';
 
 export const shipped = [
   {
@@ -122,17 +121,82 @@ export const shipped = [
     fg: '#7ee2a8',
     frame: 'noisy group chat  →  structured, searchable knowledge',
     desc: 'Turns busy WhatsApp groups into clean, searchable summaries — so you stop scrolling 400 messages to find the one that mattered.',
+    image: sakemlyOg,
     website: '',
     demo: '',
     caseStudy: {
       intro:
-        'Sakemly turns the noise of busy WhatsApp groups into structured, searchable knowledge.',
+        'Sakemly turns the noise of busy WhatsApp groups into structured, searchable knowledge — every event, to-do and decision, without the scroll.',
+      meta: [
+        { label: 'My role', value: 'Product Builder' },
+        { label: 'Duration', value: '2024 · Shipped' },
+        { label: 'Team', value: 'Solo Project' },
+        { label: 'Tech', value: 'React Native, Supabase, AI / LLM' },
+        { label: 'Platform', value: 'iOS & Android · Community & family groups' },
+      ],
       sections: [
-        { num: '01', label: 'The problem', lead: DRAFT },
-        { num: '02', label: 'What it does', lead: DRAFT },
-        { num: '03', label: 'Scope & tradeoffs', lead: DRAFT },
-        { num: '04', label: 'Challenges solved', lead: DRAFT },
-        { num: '05', label: 'Where it stands', lead: DRAFT },
+        {
+          num: '01',
+          label: 'The problem',
+          lead: 'Active group chats — school classes, building residents, family threads — move fast and bury what matters. People miss events, forget tasks, and re-read hundreds of messages to find one detail.',
+          bullets: [
+            'Hundreds of messages, no structure',
+            'Events and to-dos get lost in the scroll',
+            'Decisions are hard to track and easy to forget',
+            'Catching up after a busy day is exhausting',
+          ],
+        },
+        {
+          num: '02',
+          label: 'What it does',
+          lead: 'Sakemly reads your group chats and turns them into clean, organized spaces — so a glance replaces a scroll.',
+          features: [
+            { title: 'Smart summaries', desc: 'Turns long chats into clear topics and key points.' },
+            { title: 'Events & to-dos', desc: 'Surfaces dates, tasks and who is responsible.' },
+            { title: 'Decisions & questions', desc: 'Tracks what was agreed and what is still open.' },
+            { title: 'Caught-up at a glance', desc: 'A simple score shows how on top of things you are.' },
+          ],
+        },
+        {
+          num: '03',
+          label: 'Scope & tradeoffs',
+          lead: 'Built around one job — making group chats scannable — and resisted turning it into a full chat client.',
+          columns: [
+            {
+              title: 'Cut',
+              items: ['A full messaging / reply client', 'Every chat platform at launch', 'Manual tagging and folders'],
+            },
+            {
+              title: 'Why',
+              items: ['Do one thing remarkably well', 'Validate with real groups first', 'Let the AI do the organizing'],
+            },
+          ],
+        },
+        {
+          num: '04',
+          label: 'Challenges solved',
+          lead: 'Real group chats are messy — slang, half-conversations, overlapping topics — so getting reliable structure out of them was the hard part.',
+          columns: [
+            {
+              title: 'What broke',
+              items: ['Noisy chats produced messy summaries', 'Important items got missed or duplicated', 'Cost and latency on long histories'],
+            },
+            {
+              title: 'How I fixed it',
+              items: ['Tighter prompts, chunked by topic', 'Structured extraction with validation', 'Caching and incremental processing'],
+            },
+          ],
+        },
+        {
+          num: '05',
+          label: 'Where it stands',
+          lead: 'Live, with real groups using it day to day.',
+          features: [
+            { title: 'Live', desc: 'Shipped on iOS and Android, used by real groups.' },
+            { title: 'Recurring use', desc: 'People come back to stay caught up.' },
+            { title: 'Next', desc: 'More platforms and smarter reminders.' },
+          ],
+        },
       ],
     },
   },
