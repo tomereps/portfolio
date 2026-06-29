@@ -1,4 +1,3 @@
-import FrameStrip from './FrameStrip';
 import './Hero.css';
 
 const STEPS = [
@@ -28,7 +27,6 @@ export default function Hero() {
           <a className="hero__cta" href="#work">
             See what I've shipped <span aria-hidden>→</span>
           </a>
-          <FrameStrip active={2} />
         </div>
       </div>
 

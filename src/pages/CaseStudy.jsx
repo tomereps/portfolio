@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { shipped, getProject, caseStudyOrder } from '../data/projects';
-import FrameStrip from '../components/FrameStrip';
 import './CaseStudy.css';
 
 const STATUS_COLORS = {
@@ -49,7 +48,6 @@ export default function CaseStudy() {
               <span className="case__status-dot" style={{ background: st.dot }} />
               {project.status}
             </span>
-            <FrameStrip count={6} active={2} />
           </div>
         </div>
 

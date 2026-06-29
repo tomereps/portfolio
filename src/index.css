@@ -125,8 +125,4 @@ a:focus-visible {
   .contact__actions {
     flex-wrap: nowrap;
   }
-  /* the decorative strip overlaps the buttons on narrow screens */
-  .contact__strip {
-    display: none;
-  }
 }

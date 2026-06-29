@@ -1,4 +1,3 @@
-import FrameStrip from './FrameStrip';
 import './Contact.css';
 
 const EMAIL = 'tomer.ep1@gmail.com';
@@ -38,9 +37,6 @@ export default function Contact() {
               LinkedIn
             </a>
           </div>
-        </div>
-        <div className="contact__strip">
-          <FrameStrip count={8} active={3} />
         </div>
       </div>
       <div className="contact__footer">
