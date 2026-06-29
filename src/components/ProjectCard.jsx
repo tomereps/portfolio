@@ -42,7 +42,7 @@ export default function ProjectCard({ p, idx }) {
         </div>
 
         <p className="card__desc">{p.desc}</p>
-        <p className="card__outcome">{p.outcome}</p>
+        {p.outcome && <p className="card__outcome">{p.outcome}</p>}
 
         <div className="card__stack">
           {p.stack.map((s) => (

@@ -19,6 +19,28 @@ const PLACEHOLDER = '_Draft — Tomer to supply the real copy._';
 
 export const shipped = [
   {
+    slug: 'stents',
+    name: 'Stents.ai',
+    status: 'In progress',
+    tag: 'Scene 02 · Shot 03',
+    bg: 'linear-gradient(135deg,#1b1b24,#2a2233)',
+    fg: '#c9b8ff',
+    frame: 'brief  →  beats  →  storyboard  →  consistent shots',
+    desc: 'An AI production pipeline that carries a creator from written brief to a consistent storyboard and video — built node by node from my own VFX workflow.',
+    stack: ['React Flow', 'AI Pipeline', 'UX', 'Video Gen'],
+    caseStudy: {
+      intro:
+        'Stents.ai carries a creator from written brief to a consistent storyboard and video, node by node.',
+      sections: {
+        problem: PLACEHOLDER,
+        built: PLACEHOLDER,
+        cut: PLACEHOLDER,
+        broke: PLACEHOLDER,
+        status: PLACEHOLDER,
+      },
+    },
+  },
+  {
     slug: 'sakemly',
     name: 'Sakemly',
     status: 'Live',
@@ -32,29 +54,6 @@ export const shipped = [
     caseStudy: {
       intro:
         'Sakemly turns the noise of busy WhatsApp groups into structured, searchable knowledge.',
-      sections: {
-        problem: PLACEHOLDER,
-        built: PLACEHOLDER,
-        cut: PLACEHOLDER,
-        broke: PLACEHOLDER,
-        status: PLACEHOLDER,
-      },
-    },
-  },
-  {
-    slug: 'stents',
-    name: 'Stents.ai',
-    status: 'In progress',
-    tag: 'Scene 02 · Shot 03',
-    bg: 'linear-gradient(135deg,#1b1b24,#2a2233)',
-    fg: '#c9b8ff',
-    frame: 'brief  →  beats  →  storyboard  →  consistent shots',
-    desc: 'An AI production pipeline that carries a creator from written brief to a consistent storyboard and video — built node by node from my own VFX workflow.',
-    outcome: "The tool I wish I'd had for 16 years on set. Built solo with AI.",
-    stack: ['React Flow', 'AI Pipeline', 'UX', 'Video Gen'],
-    caseStudy: {
-      intro:
-        'Stents.ai carries a creator from written brief to a consistent storyboard and video, node by node.',
       sections: {
         problem: PLACEHOLDER,
         built: PLACEHOLDER,
