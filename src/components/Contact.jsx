@@ -2,6 +2,8 @@ import FrameStrip from './FrameStrip';
 import './Contact.css';
 
 const EMAIL = 'tomer.ep1@gmail.com';
+// Gmail web compose, pre-addressed — avoids the unreliable mailto: app handoff
+const GMAIL_COMPOSE = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`;
 const LINKEDIN = 'https://www.linkedin.com/in/tomer-epshtein';
 
 export default function Contact() {
@@ -19,7 +21,12 @@ export default function Contact() {
             products end-to-end. If that sounds like your team, let's talk.
           </p>
           <div className="contact__actions">
-            <a className="contact__btn contact__btn--primary" href={`mailto:${EMAIL}`}>
+            <a
+              className="contact__btn contact__btn--primary"
+              href={GMAIL_COMPOSE}
+              target="_blank"
+              rel="noreferrer"
+            >
               Email me
             </a>
             <a
