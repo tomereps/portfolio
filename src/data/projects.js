@@ -5,19 +5,7 @@
 
 import stentsOg from '../assets/Stents/OG_IMAGE.png';
 
-/*
- * Case-study sections follow a fixed shape so the CaseStudy template
- * can render any project. Tomer is writing the raw material; the
- * placeholder text below is clearly marked and meant to be replaced.
- *
- *   problem      — the real user and the pain
- *   built        — what I actually shipped
- *   cut          — what I chose NOT to build, and why
- *   broke        — what broke / surprised me
- *   status       — where it stands now
- */
-
-const PLACEHOLDER = '_Draft — Tomer to supply the real copy._';
+const DRAFT = 'Draft — copy coming soon.';
 
 export const shipped = [
   {
@@ -28,19 +16,101 @@ export const shipped = [
     bg: 'linear-gradient(135deg,#1b1b24,#2a2233)',
     fg: '#c9b8ff',
     frame: 'brief  →  beats  →  storyboard  →  consistent shots',
-    desc: 'An AI production pipeline that carries a creator from written brief to a consistent storyboard and video — built node by node from my own VFX workflow.',
     image: stentsOg,
-    stack: ['React Flow', 'AI Pipeline', 'UX', 'Video Gen'],
+    desc: 'An AI production pipeline that carries a creator from written brief to a consistent storyboard and video — built node by node from my own VFX workflow.',
+
+    // TODO: confirm the real URLs before pushing.
+    website: 'https://stents.ai',
+    demo: '',
+
     caseStudy: {
       intro:
         'Stents.ai carries a creator from written brief to a consistent storyboard and video, node by node.',
-      sections: {
-        problem: PLACEHOLDER,
-        built: PLACEHOLDER,
-        cut: PLACEHOLDER,
-        broke: PLACEHOLDER,
-        status: PLACEHOLDER,
-      },
+      meta: [
+        { label: 'My role', value: 'Product Builder' },
+        { label: 'Duration', value: '2024 – Present' },
+        { label: 'Team', value: 'Solo Project' },
+        { label: 'Tech', value: 'React Flow, Supabase, AI APIs, Node.js' },
+        { label: 'Industry', value: 'AI / Creative Tools · Film & Advertising' },
+      ],
+      sections: [
+        {
+          num: '01',
+          label: 'The problem',
+          lead: 'Creative teams waste hours jumping between tools, struggling to keep consistency across text, images, storyboard and video.',
+          bullets: [
+            'Too many disconnected tools',
+            'Inconsistency in characters and shots',
+            'Hard to iterate and manage feedback',
+            'Slow from idea to final video',
+          ],
+        },
+        {
+          num: '02',
+          label: 'What I built',
+          lead: 'A node-based production platform that connects the entire creative workflow — from brief to final cut.',
+          features: [
+            { title: 'Visual workflow', desc: 'Node-by-node production pipeline.' },
+            { title: 'Consistency engine', desc: 'Characters, style and scenes stay consistent.' },
+            { title: 'AI-powered', desc: 'Leverages leading image & video models.' },
+            { title: 'For teams', desc: 'Share, review and iterate in one place.' },
+          ],
+        },
+        {
+          num: '03',
+          label: 'What I cut & why',
+          lead: 'Focused on a clean, flexible core. Cut complex timeline and editing features to ship faster and validate with real users.',
+          columns: [
+            {
+              title: 'Cut',
+              items: [
+                'Full timeline editor (v1)',
+                'Advanced 3D camera tools',
+                'Built-in asset marketplace',
+              ],
+            },
+            {
+              title: 'Why',
+              items: ['Focus on the core workflow', 'Faster development', 'Ship, learn, iterate'],
+            },
+          ],
+        },
+        {
+          num: '04',
+          label: 'What broke',
+          lead: 'Early AI outputs were inconsistent and unpredictable. Workflows got messy as projects scaled.',
+          columns: [
+            {
+              title: 'What broke',
+              items: [
+                'Character drift between shots',
+                'Wrong camera angles',
+                'Long render times',
+                'Complex branching logic',
+              ],
+            },
+            {
+              title: 'How I fixed it',
+              items: [
+                'Reference locking & seed control',
+                'Smarter prompts & constraints',
+                'Caching & async rendering',
+                'Simplified data model',
+              ],
+            },
+          ],
+        },
+        {
+          num: '05',
+          label: 'Where it stands',
+          lead: 'From brief to consistent storyboard and video — and still growing.',
+          features: [
+            { title: 'Live', desc: 'stents.ai is live and used in real projects.' },
+            { title: 'Growing', desc: 'New features and models added regularly.' },
+            { title: 'Next', desc: 'Team collaboration, advanced editing and more control.' },
+          ],
+        },
+      ],
     },
   },
   {
@@ -52,31 +122,22 @@ export const shipped = [
     fg: '#7ee2a8',
     frame: 'noisy group chat  →  structured, searchable knowledge',
     desc: 'Turns busy WhatsApp groups into clean, searchable summaries — so you stop scrolling 400 messages to find the one that mattered.',
-    stack: ['React Native', 'Supabase', 'AI / LLM', 'Summaries'],
+    website: '',
+    demo: '',
     caseStudy: {
       intro:
         'Sakemly turns the noise of busy WhatsApp groups into structured, searchable knowledge.',
-      sections: {
-        problem: PLACEHOLDER,
-        built: PLACEHOLDER,
-        cut: PLACEHOLDER,
-        broke: PLACEHOLDER,
-        status: PLACEHOLDER,
-      },
+      sections: [
+        { num: '01', label: 'The problem', lead: DRAFT },
+        { num: '02', label: 'What I built', lead: DRAFT },
+        { num: '03', label: 'What I cut & why', lead: DRAFT },
+        { num: '04', label: 'What broke', lead: DRAFT },
+        { num: '05', label: 'Where it stands', lead: DRAFT },
+      ],
     },
   },
 ];
 
-/* Ordered section metadata for the case-study template. */
-export const caseStudyOrder = [
-  { key: 'problem', label: 'The problem', num: '01' },
-  { key: 'built', label: 'What I built', num: '02' },
-  { key: 'cut', label: 'What I cut & why', num: '03' },
-  { key: 'broke', label: 'What broke', num: '04' },
-  { key: 'status', label: 'Where it stands', num: '05' },
-];
-
-/* Lookup helper used by the case-study route. */
 export function getProject(slug) {
   return shipped.find((p) => p.slug === slug);
 }
