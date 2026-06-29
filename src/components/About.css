@@ -44,28 +44,6 @@
 }
 
 /* "always building" manifesto — full-width band below About */
-.about__note {
-  margin-top: 44px;
-  border: 1px dashed var(--line);
-  border-radius: 14px;
-  padding: 28px;
-  color: var(--sub);
-}
-
-.about__note-title {
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-
-.about__note p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 0;
-  max-width: 760px;
-}
-
 .about__lead {
   font-size: 17px;
   line-height: 1.65;

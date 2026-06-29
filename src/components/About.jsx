@@ -34,15 +34,12 @@ export default function About() {
             it's the reason I can look at a tangled creative workflow and see
             exactly where the tool should go.
           </p>
+          <p className="about__body">
+            I learn by shipping, not by waiting for permission. If you're
+            building something at the intersection of AI, creative tooling, and
+            real workflows — that's exactly where I want to be.
+          </p>
         </div>
-      </div>
-      <div className="about__note">
-        <div className="about__note-title">Always building.</div>
-        <p>
-          I learn by shipping, not by waiting for permission. If you're building
-          something at the intersection of AI, creative tooling, and real
-          workflows — that's exactly where I want to be.
-        </p>
       </div>
     </section>
   );
