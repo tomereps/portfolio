@@ -59,6 +59,14 @@ export default function CaseStudy() {
         </div>
       </header>
 
+      {project.image && (
+        <img
+          className="case__hero"
+          src={project.image}
+          alt={`${project.name} — product overview`}
+        />
+      )}
+
       <div className="case__sections">
         {caseStudyOrder.map(({ key, label, num }) => (
           <section className="case__section" key={key}>

@@ -19,17 +19,23 @@ export default function ProjectCard({ p, idx }) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      {/* the gradient + accent colour are project data, so they stay inline */}
-      <div className="card__band" style={{ background: p.bg }}>
-        <div className="card__frame-text" style={{ color: p.fg }}>
-          {p.frame}
-        </div>
-        <div className="card__band-footer">
-          <FrameStrip count={6} active={hover ? idx % 6 : -1} tiny />
-          <span className="card__tag" style={{ color: p.fg }}>
-            {p.tag}
-          </span>
-        </div>
+      {/* a real screenshot when present, otherwise the gradient placeholder */}
+      <div className="card__band" style={p.image ? undefined : { background: p.bg }}>
+        {p.image ? (
+          <img className="card__img" src={p.image} alt={`${p.name} preview`} />
+        ) : (
+          <>
+            <div className="card__frame-text" style={{ color: p.fg }}>
+              {p.frame}
+            </div>
+            <div className="card__band-footer">
+              <FrameStrip count={6} active={hover ? idx % 6 : -1} tiny />
+              <span className="card__tag" style={{ color: p.fg }}>
+                {p.tag}
+              </span>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="card__body">

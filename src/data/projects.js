@@ -3,6 +3,8 @@
 /*  Edit copy here — components read from this file.                   */
 /* ------------------------------------------------------------------ */
 
+import stentsOg from '../assets/Stents/OG_IMAGE.png';
+
 /*
  * Case-study sections follow a fixed shape so the CaseStudy template
  * can render any project. Tomer is writing the raw material; the
@@ -27,6 +29,7 @@ export const shipped = [
     fg: '#c9b8ff',
     frame: 'brief  →  beats  →  storyboard  →  consistent shots',
     desc: 'An AI production pipeline that carries a creator from written brief to a consistent storyboard and video — built node by node from my own VFX workflow.',
+    image: stentsOg,
     stack: ['React Flow', 'AI Pipeline', 'UX', 'Video Gen'],
     caseStudy: {
       intro:
