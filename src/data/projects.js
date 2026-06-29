@@ -47,7 +47,7 @@ export const shipped = [
         },
         {
           num: '02',
-          label: 'What I built',
+          label: 'What it does',
           lead: 'A node-based production platform that connects the entire creative workflow — from brief to final cut.',
           features: [
             { title: 'Visual workflow', desc: 'Node-by-node production pipeline.' },
@@ -58,7 +58,7 @@ export const shipped = [
         },
         {
           num: '03',
-          label: 'What I cut & why',
+          label: 'Scope & tradeoffs',
           lead: 'Focused on a clean, flexible core. Cut complex timeline and editing features to ship faster and validate with real users.',
           columns: [
             {
@@ -77,7 +77,7 @@ export const shipped = [
         },
         {
           num: '04',
-          label: 'What broke',
+          label: 'Challenges solved',
           lead: 'Early AI outputs were inconsistent and unpredictable. Workflows got messy as projects scaled.',
           columns: [
             {
@@ -129,9 +129,9 @@ export const shipped = [
         'Sakemly turns the noise of busy WhatsApp groups into structured, searchable knowledge.',
       sections: [
         { num: '01', label: 'The problem', lead: DRAFT },
-        { num: '02', label: 'What I built', lead: DRAFT },
-        { num: '03', label: 'What I cut & why', lead: DRAFT },
-        { num: '04', label: 'What broke', lead: DRAFT },
+        { num: '02', label: 'What it does', lead: DRAFT },
+        { num: '03', label: 'Scope & tradeoffs', lead: DRAFT },
+        { num: '04', label: 'Challenges solved', lead: DRAFT },
         { num: '05', label: 'Where it stands', lead: DRAFT },
       ],
     },
