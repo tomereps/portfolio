@@ -16,10 +16,6 @@ export default function About() {
               height="640"
             />
           </div>
-          <figcaption className="about__caption">
-            <span>TOMER EPSHTEIN</span>
-            <span>FRAME 01 · COLOR</span>
-          </figcaption>
         </figure>
         <div className="about__text">
           <p className="about__lead">
@@ -39,6 +35,14 @@ export default function About() {
             exactly where the tool should go.
           </p>
         </div>
+      </div>
+      <div className="about__note">
+        <div className="about__note-title">Always building.</div>
+        <p>
+          I learn by shipping, not by waiting for permission. If you're building
+          something at the intersection of AI, creative tooling, and real
+          workflows — that's exactly where I want to be.
+        </p>
       </div>
     </section>
   );

@@ -29,38 +29,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 22px;
-  margin-bottom: 34px;
-}
-
-.work__exploring-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: var(--faint);
-  margin-bottom: 16px;
-}
-
-.work__note {
-  border: 1px dashed var(--line);
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 28px;
-  color: var(--sub);
-}
-
-.work__note-title {
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-
-.work__note p {
-  font-size: 13.5px;
-  line-height: 1.55;
-  margin: 0;
+  margin-bottom: 0;
 }
 
 @media (max-width: 860px) {

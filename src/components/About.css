@@ -13,7 +13,7 @@
 /* photo and bio sit in a row, tops aligned with each other */
 .about__grid {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 380px 1fr;
   gap: 48px;
   align-items: start;
 }
@@ -25,7 +25,7 @@
 /* film-frame portrait — a single contact-sheet cell, the one pop of color */
 .about__portrait {
   margin: 0;
-  max-width: 320px;
+  max-width: 380px;
 }
 
 .about__frame {
@@ -43,16 +43,27 @@
   border-radius: 3px;
 }
 
-.about__caption {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.06em;
-  color: var(--faint);
-  margin-top: 11px;
+/* "always building" manifesto — full-width band below About */
+.about__note {
+  margin-top: 44px;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  padding: 28px;
+  color: var(--sub);
+}
+
+.about__note-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.about__note p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 760px;
 }
 
 .about__lead {

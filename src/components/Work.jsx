@@ -15,15 +15,6 @@ export default function Work() {
           <ProjectCard key={p.slug} p={p} idx={i} />
         ))}
       </div>
-
-      <div className="work__note">
-        <div className="work__note-title">Always building.</div>
-        <p>
-          I learn by shipping, not by waiting for permission. If you're building
-          something at the intersection of AI, creative tooling, and real
-          workflows — that's exactly where I want to be.
-        </p>
-      </div>
     </section>
   );
 }
