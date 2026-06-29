@@ -5,7 +5,7 @@ import FrameStrip from '../components/FrameStrip';
 import './CaseStudy.css';
 
 const STATUS_COLORS = {
-  Live: { bg: '#e7f7ed', fg: '#1a7f46', dot: '#27ae60' },
+  Live: { bg: '#f4f6f5', fg: 'var(--sub)', dot: '#27ae60' },
   'In progress': { bg: 'var(--accent-soft)', fg: 'var(--accent)', dot: 'var(--accent)' },
 };
 

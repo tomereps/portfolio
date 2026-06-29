@@ -52,7 +52,6 @@ export const shipped = [
     fg: '#7ee2a8',
     frame: 'noisy group chat  →  structured, searchable knowledge',
     desc: 'Turns busy WhatsApp groups into clean, searchable summaries — so you stop scrolling 400 messages to find the one that mattered.',
-    outcome: 'Shipped and live. Real users, real groups, recurring use.',
     stack: ['React Native', 'Supabase', 'AI / LLM', 'Summaries'],
     caseStudy: {
       intro:

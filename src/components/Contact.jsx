@@ -2,8 +2,7 @@ import FrameStrip from './FrameStrip';
 import './Contact.css';
 
 const EMAIL = 'tomer.ep1@gmail.com';
-// TODO: replace with Tomer's real LinkedIn profile URL.
-const LINKEDIN = '#';
+const LINKEDIN = 'https://www.linkedin.com/in/tomer-epshtein';
 
 export default function Contact() {
   return (
