@@ -132,7 +132,6 @@ export default function CaseStudy() {
         {cs.sections.map((s) => (
           <section className="case__section" key={s.num}>
             <div className="case__section-head">
-              <div className="case__section-num">{s.num}</div>
               <h2 className="case__section-label">{s.label}</h2>
               <p className="case__section-lead">{s.lead}</p>
             </div>

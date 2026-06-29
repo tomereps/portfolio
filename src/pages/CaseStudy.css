@@ -158,12 +158,6 @@
   align-items: start;
 }
 
-.case__section-num {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
 
 .case__section-label {
   font-size: 22px;
