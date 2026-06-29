@@ -21,7 +21,7 @@
 .case__hero {
   margin-top: 18px;
   background: #0f0f17;
-  border-radius: 18px;
+  border-radius: 0;
   padding: 44px 44px 52px;
   display: grid;
   grid-template-columns: 1fr 1.15fr;
@@ -113,10 +113,11 @@
 
 /* ---- meta bar (raised white card overlapping the hero) ------------ */
 .case__meta {
-  margin: 16px 0 0;
+  margin: 0;
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-top: none;
+  border-radius: 0;
   padding: 22px 26px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -333,7 +334,7 @@
   .case__meta {
     grid-template-columns: 1fr 1fr;
     gap: 18px;
-    margin: 14px 0 0;
+    margin: 0;
   }
   .case__section {
     grid-template-columns: 1fr;
