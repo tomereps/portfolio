@@ -16,7 +16,7 @@ export const shipped = [
     fg: '#c9b8ff',
     frame: 'brief  →  beats  →  storyboard  →  consistent shots',
     image: stentsOg,
-    heroBg: '#0f0f17',
+    heroBg: '#080808',
     desc: 'An AI production pipeline that carries a creator from written brief to a consistent storyboard and video — built node by node from my own VFX workflow.',
 
     // TODO: confirm the real URLs before pushing.
@@ -122,7 +122,7 @@ export const shipped = [
     frame: 'noisy group chat  →  structured, searchable knowledge',
     desc: 'Turns busy WhatsApp groups into clean, searchable summaries — so you stop scrolling 400 messages to find the one that mattered.',
     image: sakemlyOg,
-    heroBg: '#022c2f',
+    heroBg: '#022c2d',
     website: '',
     demo: '',
     caseStudy: {
