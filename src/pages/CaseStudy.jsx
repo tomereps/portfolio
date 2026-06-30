@@ -75,7 +75,7 @@ export default function CaseStudy() {
 
   const cs = project.caseStudy;
   const next = shipped.find((p) => p.slug !== project.slug);
-  const hasBody = (s) => s.bullets || s.features || s.columns;
+  const hasBody = (s) => s.bullets || s.features || s.columns || s.tech;
 
   return (
     <article className="case shell">
