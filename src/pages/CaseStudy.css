@@ -218,6 +218,16 @@
   background: var(--accent);
 }
 
+/* two-column variant (tech stack) */
+.case__bullets--cols {
+  column-count: 2;
+  column-gap: 32px;
+}
+
+.case__bullets--cols li {
+  break-inside: avoid;
+}
+
 /* feature grid */
 .case__features {
   display: grid;
@@ -350,5 +360,8 @@
   .case__cols {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+  .case__bullets--cols {
+    column-count: 1;
   }
 }

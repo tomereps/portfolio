@@ -28,7 +28,7 @@ function SectionContent({ section }) {
   }
   if (section.tech) {
     return (
-      <ul className="case__bullets">
+      <ul className="case__bullets case__bullets--cols">
         {section.tech.map((t) => (
           <li key={t}>{t}</li>
         ))}
