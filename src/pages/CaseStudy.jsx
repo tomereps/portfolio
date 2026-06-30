@@ -26,6 +26,17 @@ function SectionContent({ section }) {
       </div>
     );
   }
+  if (section.tech) {
+    return (
+      <div className="case__tech">
+        {section.tech.map((t) => (
+          <span className="case__tech-chip" key={t}>
+            {t}
+          </span>
+        ))}
+      </div>
+    );
+  }
   if (section.columns) {
     return (
       <div className="case__cols">

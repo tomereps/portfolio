@@ -32,7 +32,6 @@ export const shipped = [
       meta: [
         { label: 'My role', value: 'Product Builder' },
         { label: 'Team', value: 'Solo Project' },
-        { label: 'Tech', value: 'React Flow, Supabase, AI APIs, Node.js' },
         { label: 'Industry', value: 'AI / Creative Tools · Film & Advertising' },
       ],
       sections: [
@@ -103,6 +102,12 @@ export const shipped = [
           ],
         },
         {
+          num: 'tech',
+          label: 'Tech stack',
+          lead: 'The tools I reached for to build it end-to-end, solo.',
+          tech: ['React Flow', 'Supabase', 'AI APIs', 'Node.js'],
+        },
+        {
           num: '05',
           label: 'Where it stands',
           lead: 'Live, in use, and still moving.',
@@ -137,7 +142,6 @@ export const shipped = [
       meta: [
         { label: 'My role', value: 'Product Builder' },
         { label: 'Team', value: 'Solo Project' },
-        { label: 'Tech', value: 'React Native, Supabase, AI / LLM' },
         { label: 'Platform', value: 'iOS & Android · Community & family groups' },
       ],
       sections: [
@@ -192,6 +196,12 @@ export const shipped = [
               items: ['Tighter prompts, chunked by topic', 'Structured extraction with validation', 'Caching and incremental processing'],
             },
           ],
+        },
+        {
+          num: 'tech',
+          label: 'Tech stack',
+          lead: 'A lean stack for shipping fast on iOS and Android.',
+          tech: ['React Native', 'Supabase', 'AI / LLM'],
         },
         {
           num: '05',
