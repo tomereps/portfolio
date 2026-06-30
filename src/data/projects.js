@@ -123,7 +123,7 @@ export const shipped = [
     desc: 'Turns busy WhatsApp groups into clean, searchable summaries — so you stop scrolling 400 messages to find the one that mattered.',
     image: sakemlyOg,
     heroBg: '#022c2d',
-    website: '',
+    website: 'https://sakemly.com',
     demo: '',
     caseStudy: {
       intro:
