@@ -78,7 +78,6 @@ export default function CaseStudy() {
         style={project.heroBg ? { background: project.heroBg } : undefined}
       >
         <div className="case__hero-text">
-          <div className="case__eyebrow">CASE STUDY</div>
           <h1 className="case__title">{project.name}</h1>
           <p className="case__intro">{cs.intro}</p>
           <span className="case__badge">
@@ -131,6 +130,8 @@ export default function CaseStudy() {
         </div>
       )}
       </div>
+
+      <h2 className="case__deep-title">Case study</h2>
 
       <div className="case__sections">
         {cs.sections.map((s) => (
