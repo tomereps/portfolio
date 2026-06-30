@@ -43,6 +43,14 @@
   margin: 44px 0 0;
 }
 
+.case__overview {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--sub);
+  max-width: 720px;
+  margin: 14px 0 0;
+}
+
 .case__title {
   font-size: 52px;
   line-height: 1.02;

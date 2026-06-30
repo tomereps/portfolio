@@ -27,6 +27,8 @@ export const shipped = [
     caseStudy: {
       intro:
         'Stents.ai carries a creator from written brief to a consistent storyboard and video, node by node.',
+      overview:
+        'This one is personal: after sixteen years as a compositor and colorist, I knew exactly where creative production breaks down. Stents.ai is my answer — an AI pipeline built solo, node by node, that takes a project from brief to consistent storyboard and video without the tool-juggling.',
       meta: [
         { label: 'My role', value: 'Product Builder' },
         { label: 'Team', value: 'Solo Project' },
@@ -37,7 +39,7 @@ export const shipped = [
         {
           num: '01',
           label: 'The problem',
-          lead: 'Creative teams waste hours jumping between tools, struggling to keep consistency across text, images, storyboard and video.',
+          lead: 'The hard part was never any single step — it was holding the whole pipeline together.',
           bullets: [
             'Too many disconnected tools',
             'Inconsistency in characters and shots',
@@ -48,7 +50,7 @@ export const shipped = [
         {
           num: '02',
           label: 'What it does',
-          lead: 'A node-based production platform that connects the entire creative workflow — from brief to final cut.',
+          lead: 'One connected workflow, from the first brief to the final cut.',
           features: [
             { title: 'Visual workflow', desc: 'Node-by-node production pipeline.' },
             { title: 'Consistency engine', desc: 'Characters, style and scenes stay consistent.' },
@@ -59,7 +61,7 @@ export const shipped = [
         {
           num: '03',
           label: 'Scope & tradeoffs',
-          lead: 'Focused on a clean, flexible core. Cut complex timeline and editing features to ship faster and validate with real users.',
+          lead: 'I kept the core sharp by saying no to the obvious-but-distracting features.',
           columns: [
             {
               title: 'Cut',
@@ -78,7 +80,7 @@ export const shipped = [
         {
           num: '04',
           label: 'Challenges solved',
-          lead: 'Early AI outputs were inconsistent and unpredictable. Workflows got messy as projects scaled.',
+          lead: 'Raw AI output is unpredictable — most of the work was making it consistent.',
           columns: [
             {
               title: 'What broke',
@@ -103,7 +105,7 @@ export const shipped = [
         {
           num: '05',
           label: 'Where it stands',
-          lead: 'From brief to consistent storyboard and video — and still growing.',
+          lead: 'Live, in use, and still moving.',
           features: [
             { title: 'Live', desc: 'stents.ai is live and used in real projects.' },
             { title: 'Growing', desc: 'New features and models added regularly.' },
@@ -130,6 +132,8 @@ export const shipped = [
     caseStudy: {
       intro:
         'Sakemly turns the noise of busy WhatsApp groups into structured, searchable knowledge — every event, to-do and decision, without the scroll.',
+      overview:
+        'Sakemly started from a frustration I lived with daily — too many busy WhatsApp groups, and the one message that actually mattered always buried under hundreds. I built it to turn that noise into something you can scan in seconds.',
       meta: [
         { label: 'My role', value: 'Product Builder' },
         { label: 'Team', value: 'Solo Project' },
@@ -140,7 +144,7 @@ export const shipped = [
         {
           num: '01',
           label: 'The problem',
-          lead: 'Active group chats — school classes, building residents, family threads — move fast and bury what matters. People miss events, forget tasks, and re-read hundreds of messages to find one detail.',
+          lead: 'Active group chats move faster than anyone can keep up with.',
           bullets: [
             'Hundreds of messages, no structure',
             'Events and to-dos get lost in the scroll',
@@ -151,7 +155,7 @@ export const shipped = [
         {
           num: '02',
           label: 'What it does',
-          lead: 'Sakemly reads your group chats and turns them into clean, organized spaces — so a glance replaces a scroll.',
+          lead: 'It reads the chat and hands back only the parts that matter.',
           features: [
             { title: 'Smart summaries', desc: 'Turns long chats into clear topics and key points.' },
             { title: 'Events & to-dos', desc: 'Surfaces dates, tasks and who is responsible.' },
@@ -162,7 +166,7 @@ export const shipped = [
         {
           num: '03',
           label: 'Scope & tradeoffs',
-          lead: 'Built around one job — making group chats scannable — and resisted turning it into a full chat client.',
+          lead: 'I built one thing well instead of a second messaging app.',
           columns: [
             {
               title: 'Cut',
@@ -177,7 +181,7 @@ export const shipped = [
         {
           num: '04',
           label: 'Challenges solved',
-          lead: 'Real group chats are messy — slang, half-conversations, overlapping topics — so getting reliable structure out of them was the hard part.',
+          lead: 'Turning messy, human conversation into reliable structure was the hard part.',
           columns: [
             {
               title: 'What broke',
@@ -192,7 +196,7 @@ export const shipped = [
         {
           num: '05',
           label: 'Where it stands',
-          lead: 'Live, with real groups using it day to day.',
+          lead: "Shipped, and part of people's daily routine.",
           features: [
             { title: 'Live', desc: 'Shipped on iOS and Android, used by real groups.' },
             { title: 'Recurring use', desc: 'People come back to stay caught up.' },

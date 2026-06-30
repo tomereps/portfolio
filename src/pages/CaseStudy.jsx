@@ -132,6 +132,7 @@ export default function CaseStudy() {
       </div>
 
       <h2 className="case__deep-title">Case study</h2>
+      {cs.overview && <p className="case__overview">{cs.overview}</p>}
 
       <div className="case__sections">
         {cs.sections.map((s) => (
