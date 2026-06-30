@@ -105,7 +105,16 @@ export const shipped = [
           num: 'tech',
           label: 'Tech stack',
           lead: 'The tools I reached for to build it end-to-end, solo.',
-          tech: ['React Flow', 'Supabase', 'AI APIs', 'Node.js'],
+          tech: [
+            'React',
+            'React Flow',
+            'Supabase',
+            'fal.ai',
+            'Three.js',
+            'Polar',
+            'Resend',
+            'PostHog',
+          ],
         },
         {
           num: '05',

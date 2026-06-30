@@ -130,9 +130,9 @@
   border: none;
   border-radius: 0;
   padding: 22px 26px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 56px;
 }
 
 .case__meta-label {
