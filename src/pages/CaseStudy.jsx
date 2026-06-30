@@ -28,13 +28,11 @@ function SectionContent({ section }) {
   }
   if (section.tech) {
     return (
-      <div className="case__tech">
+      <ul className="case__bullets">
         {section.tech.map((t) => (
-          <span className="case__tech-chip" key={t}>
-            {t}
-          </span>
+          <li key={t}>{t}</li>
         ))}
-      </div>
+      </ul>
     );
   }
   if (section.columns) {
