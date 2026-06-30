@@ -93,6 +93,7 @@ export default function CaseStudy() {
                   href={project.website}
                   target="_blank"
                   rel="noreferrer"
+                  style={project.accent ? { background: project.accent } : undefined}
                 >
                   Visit {project.name} <span aria-hidden>↗</span>
                 </a>
