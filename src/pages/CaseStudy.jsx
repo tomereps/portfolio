@@ -73,7 +73,10 @@ export default function CaseStudy() {
       </Link>
 
       <div className="case__top">
-      <div className="case__hero">
+      <div
+        className="case__hero"
+        style={project.heroBg ? { background: project.heroBg } : undefined}
+      >
         <div className="case__hero-text">
           <div className="case__eyebrow">CASE STUDY</div>
           <h1 className="case__title">{project.name}</h1>

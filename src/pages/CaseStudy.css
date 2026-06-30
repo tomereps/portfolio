@@ -125,7 +125,7 @@
   border-radius: 0;
   padding: 22px 26px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 22px;
 }
 

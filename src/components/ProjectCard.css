@@ -7,6 +7,9 @@
   box-shadow: 0 1px 0 rgba(20, 20, 40, 0.02);
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .card:hover {

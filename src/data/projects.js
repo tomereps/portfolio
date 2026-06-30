@@ -16,6 +16,7 @@ export const shipped = [
     fg: '#c9b8ff',
     frame: 'brief  →  beats  →  storyboard  →  consistent shots',
     image: stentsOg,
+    heroBg: '#0f0f17',
     desc: 'An AI production pipeline that carries a creator from written brief to a consistent storyboard and video — built node by node from my own VFX workflow.',
 
     // TODO: confirm the real URLs before pushing.
@@ -27,7 +28,6 @@ export const shipped = [
         'Stents.ai carries a creator from written brief to a consistent storyboard and video, node by node.',
       meta: [
         { label: 'My role', value: 'Product Builder' },
-        { label: 'Duration', value: '2024 – Present' },
         { label: 'Team', value: 'Solo Project' },
         { label: 'Tech', value: 'React Flow, Supabase, AI APIs, Node.js' },
         { label: 'Industry', value: 'AI / Creative Tools · Film & Advertising' },
@@ -122,6 +122,7 @@ export const shipped = [
     frame: 'noisy group chat  →  structured, searchable knowledge',
     desc: 'Turns busy WhatsApp groups into clean, searchable summaries — so you stop scrolling 400 messages to find the one that mattered.',
     image: sakemlyOg,
+    heroBg: '#022c2f',
     website: '',
     demo: '',
     caseStudy: {
@@ -129,7 +130,6 @@ export const shipped = [
         'Sakemly turns the noise of busy WhatsApp groups into structured, searchable knowledge — every event, to-do and decision, without the scroll.',
       meta: [
         { label: 'My role', value: 'Product Builder' },
-        { label: 'Duration', value: '2024 · Shipped' },
         { label: 'Team', value: 'Solo Project' },
         { label: 'Tech', value: 'React Native, Supabase, AI / LLM' },
         { label: 'Platform', value: 'iOS & Android · Community & family groups' },

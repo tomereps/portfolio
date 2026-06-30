@@ -13,12 +13,8 @@ export default function ProjectCard({ p, idx }) {
   const [hover, setHover] = useState(false);
   const hasCaseStudy = Boolean(p.caseStudy);
 
-  return (
-    <article
-      className={`card ${statusClass(p.status)}`}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
+  const inner = (
+    <>
       {/* a real screenshot when present, otherwise a neutral placeholder */}
       <div className="card__band">
         {p.image ? (
@@ -47,14 +43,38 @@ export default function ProjectCard({ p, idx }) {
         {p.outcome && <p className="card__outcome">{p.outcome}</p>}
 
         {hasCaseStudy && (
-          <Link className="card__link" to={`/work/${p.slug}`}>
+          <span className="card__link">
             Read the case study
             <span className="card__link-arrow" aria-hidden>
               →
             </span>
-          </Link>
+          </span>
         )}
       </div>
+    </>
+  );
+
+  // whole card is the link when there's a case study
+  if (hasCaseStudy) {
+    return (
+      <Link
+        className={`card ${statusClass(p.status)}`}
+        to={`/work/${p.slug}`}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
+        {inner}
+      </Link>
+    );
+  }
+
+  return (
+    <article
+      className={`card ${statusClass(p.status)}`}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      {inner}
     </article>
   );
 }
