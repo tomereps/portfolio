@@ -53,7 +53,7 @@ export const shipped = [
           features: [
             { title: 'Visual workflow', desc: 'Node-by-node production pipeline.' },
             { title: 'Consistency engine', desc: 'Characters, style and scenes stay consistent.' },
-            { title: 'AI-powered', desc: 'Leverages leading image & video models.' },
+            { title: 'Two modes', desc: 'A free-form node canvas, or a guided 6-step director.' },
             { title: 'For teams', desc: 'Share, review and iterate in one place.' },
           ],
         },
@@ -85,8 +85,8 @@ export const shipped = [
               title: 'What broke',
               items: [
                 'Character drift between shots',
-                'Wrong camera angles',
-                'Long render times',
+                'Swapping characters while keeping their pose',
+                'Automating workflows in unexpected environments',
                 'Complex branching logic',
               ],
             },
@@ -94,8 +94,8 @@ export const shipped = [
               title: 'How I fixed it',
               items: [
                 'Reference locking & seed control',
-                'Smarter prompts & constraints',
-                'Caching & async rendering',
+                'Pose-locked composition with reference swaps',
+                'Reusable, composable node pipelines',
                 'Simplified data model',
               ],
             },
@@ -214,7 +214,6 @@ export const shipped = [
           tech: [
             'React Native',
             'Expo',
-            'TypeScript',
             'Node / Express',
             'Railway',
             'Anthropic Claude',
