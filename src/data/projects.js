@@ -198,11 +198,21 @@ export const shipped = [
           columns: [
             {
               title: 'What broke',
-              items: ['Long exports overwhelmed the model', 'Duplicate and fragmented items', 'No way to trust where an item came from'],
+              items: [
+                'Export friction — chats only update when re-shared',
+                'Long exports overwhelmed the model',
+                'Duplicate and fragmented items',
+                'No way to trust where an item came from',
+              ],
             },
             {
               title: 'How I fixed it',
-              items: ['Day-sized chunking of the chat', 'Merge & dedupe, folding to-dos under events', 'Message-level provenance — jump to the source'],
+              items: [
+                'A freshness dial + activity-weighted refresh nudges',
+                'Day-sized chunking of the chat',
+                'Merge & dedupe, folding to-dos under events',
+                'Message-level provenance — jump to the source',
+              ],
             },
           ],
 
