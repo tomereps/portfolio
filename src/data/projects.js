@@ -60,25 +60,25 @@ export const shipped = [
         {
           num: '03',
           label: 'Scope & tradeoffs',
-          lead: 'I kept the core sharp by saying no to the obvious-but-distracting features.',
+          lead: "Don't rebuild what specialized tools already do best — focus the build on what makes Stents different.",
           columns: [
             {
               title: 'Cut',
-              items: [
-                'Full timeline editor (v1)',
-                'Advanced 3D camera tools',
-                'Built-in asset marketplace',
-              ],
+              items: ['Roto & bezier tools', 'Roto-paint', 'Becoming a full editing suite'],
             },
             {
               title: 'Why',
-              items: ['Focus on the core workflow', 'Faster development', 'Ship, learn, iterate'],
+              items: [
+                'Slow to build, niche payoff',
+                'Photoshop does it best — Stents bridges to it',
+                'The node graph is the real differentiator',
+              ],
             },
           ],
         },
         {
           num: '04',
-          label: 'Challenges solved',
+          label: 'Challenges',
           lead: 'Raw AI output is unpredictable — most of the work was making it consistent.',
           columns: [
             {
@@ -193,7 +193,7 @@ export const shipped = [
         },
         {
           num: '04',
-          label: 'Challenges solved',
+          label: 'Challenges',
           lead: 'Turning a raw chat export into reliable, trustworthy structure was the hard part.',
           columns: [
             {
