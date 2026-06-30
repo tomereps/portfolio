@@ -20,7 +20,7 @@
 
 /* "viewer" preview band — holds a screenshot or a neutral placeholder */
 .card__band {
-  height: 300px;
+  aspect-ratio: 1200 / 631;
   position: relative;
   display: flex;
   align-items: center;
