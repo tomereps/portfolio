@@ -147,7 +147,7 @@ export const shipped = [
       intro:
         'Sakemly turns the noise of busy WhatsApp groups into structured, searchable knowledge — every event, to-do and decision, without the scroll.',
       overview:
-        'Sakemly started from a frustration I lived with daily — too many busy WhatsApp groups, and the one message that actually mattered always buried under hundreds. I built it to turn that noise into something you can scan in seconds.',
+        'Sakemly started from a frustration I lived with daily — too many busy WhatsApp groups, and the one message that mattered always buried under hundreds. I built it to turn that noise into something you can scan in seconds, privacy-first: no bot in your chats, and nothing read without your say-so.',
       meta: [
         { label: 'My role', value: 'Product Builder' },
         { label: 'Team', value: 'Solo Project' },
@@ -170,47 +170,56 @@ export const shipped = [
           label: 'What it does',
           lead: 'It reads the chat and hands back only the parts that matter.',
           features: [
-            { title: 'Smart summaries', desc: 'Turns long chats into clear topics and key points.' },
-            { title: 'Events & to-dos', desc: 'Surfaces dates, tasks and who is responsible.' },
+            { title: 'Smart summaries', desc: 'Turns a chat export into clear topics and key points.' },
+            { title: 'Events & to-dos', desc: 'Pulls out dates, tasks and who is responsible.' },
             { title: 'Decisions & questions', desc: 'Tracks what was agreed and what is still open.' },
-            { title: 'Caught-up at a glance', desc: 'A simple score shows how on top of things you are.' },
+            { title: 'Caught-up at a glance', desc: 'A health dial shows how current each space is.' },
           ],
         },
         {
           num: '03',
           label: 'Scope & tradeoffs',
-          lead: 'I built one thing well instead of a second messaging app.',
+          lead: 'I made privacy a hard constraint, not a feature — and kept the product to one job.',
           columns: [
             {
               title: 'Cut',
-              items: ['A full messaging / reply client', 'Every chat platform at launch', 'Manual tagging and folders'],
+              items: ['A bot that lives in your groups', 'Auto-reading every message', 'A full messaging / reply client'],
             },
             {
               title: 'Why',
-              items: ['Do one thing remarkably well', 'Validate with real groups first', 'Let the AI do the organizing'],
+              items: ['You choose exactly what to share', 'Nothing is read automatically', 'Do one thing remarkably well'],
             },
           ],
         },
         {
           num: '04',
           label: 'Challenges solved',
-          lead: 'Turning messy, human conversation into reliable structure was the hard part.',
+          lead: 'Turning a raw chat export into reliable, trustworthy structure was the hard part.',
           columns: [
             {
               title: 'What broke',
-              items: ['Noisy chats produced messy summaries', 'Important items got missed or duplicated', 'Cost and latency on long histories'],
+              items: ['Long exports overwhelmed the model', 'Duplicate and fragmented items', 'No way to trust where an item came from'],
             },
             {
               title: 'How I fixed it',
-              items: ['Tighter prompts, chunked by topic', 'Structured extraction with validation', 'Caching and incremental processing'],
+              items: ['Day-sized chunking of the chat', 'Merge & dedupe, folding to-dos under events', 'Message-level provenance — jump to the source'],
             },
           ],
+
         },
         {
           num: 'tech',
           label: 'Tech stack',
           lead: 'A lean stack for shipping fast on iOS and Android.',
-          tech: ['React Native', 'Supabase', 'AI / LLM'],
+          tech: [
+            'React Native',
+            'Expo',
+            'TypeScript',
+            'Node / Express',
+            'Railway',
+            'Anthropic Claude',
+            'Supabase',
+          ],
         },
         {
           num: '05',
