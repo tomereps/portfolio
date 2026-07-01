@@ -64,14 +64,13 @@ export const shipped = [
           columns: [
             {
               title: 'Cut',
-              items: ['Roto & bezier tools', 'Roto-paint', 'Becoming a full editing suite'],
+              items: ['Roto & bezier tools', 'Roto-paint'],
             },
             {
               title: 'Why',
               items: [
                 'Slow to build, niche payoff',
                 'Photoshop does it best — Stents bridges to it',
-                'The node graph is the real differentiator',
               ],
             },
           ],
