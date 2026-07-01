@@ -58,37 +58,41 @@ export default function DeepDive() {
       )}
 
       {dd.competitors && (
-        <section className="dd__section">
+        <section className="dd__section dd__split">
           <h2 className="dd__section-title">Market analysis</h2>
-          <ul className="dd__list dd__comps">
-            {dd.competitors.map((c) => (
-              <li key={c.name}>
-                <strong className="dd__comp-name">{c.name}</strong> — {c.note}
-              </li>
-            ))}
-          </ul>
-          {dd.positioning && <p className="dd__positioning">{dd.positioning}</p>}
+          <div className="dd__split-body">
+            <ul className="dd__list dd__comps">
+              {dd.competitors.map((c) => (
+                <li key={c.name}>
+                  <strong className="dd__comp-name">{c.name}</strong> — {c.note}
+                </li>
+              ))}
+            </ul>
+            {dd.positioning && <p className="dd__positioning">{dd.positioning}</p>}
+          </div>
         </section>
       )}
 
       {dd.screenshots && (
-        <section className="dd__section">
+        <section className="dd__section dd__split">
           <h2 className="dd__section-title">Inside the product</h2>
-          <div className="dd__shots">
-            {dd.screenshots.map((s, i) => (
-              <figure className="dd__shot" key={s.caption || i}>
-                {s.src ? (
-                  <img
-                    className="dd__shot-img"
-                    src={s.src}
-                    alt={s.caption || `${project.name} screenshot`}
-                  />
-                ) : (
-                  <div className="dd__shot-ph">Screenshot</div>
-                )}
-                {s.caption && <figcaption className="dd__shot-cap">{s.caption}</figcaption>}
-              </figure>
-            ))}
+          <div className="dd__split-body">
+            <div className="dd__shots">
+              {dd.screenshots.map((s, i) => (
+                <figure className="dd__shot" key={s.caption || i}>
+                  {s.src ? (
+                    <img
+                      className="dd__shot-img"
+                      src={s.src}
+                      alt={s.caption || `${project.name} screenshot`}
+                    />
+                  ) : (
+                    <div className="dd__shot-ph">Screenshot</div>
+                  )}
+                  {s.caption && <figcaption className="dd__shot-cap">{s.caption}</figcaption>}
+                </figure>
+              ))}
+            </div>
           </div>
         </section>
       )}
