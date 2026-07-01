@@ -41,14 +41,16 @@ export default function DeepDive() {
             {dd.prd.map((b) => (
               <div className="dd__block" key={b.label}>
                 <div className="dd__block-label">{b.label}</div>
-                {b.body && <p className="dd__block-body">{b.body}</p>}
-                {b.items && (
-                  <ul className="dd__list">
-                    {b.items.map((it) => (
-                      <li key={it}>{it}</li>
-                    ))}
-                  </ul>
-                )}
+                <div className="dd__block-content">
+                  {b.body && <p className="dd__block-body">{b.body}</p>}
+                  {b.items && (
+                    <ul className="dd__list">
+                      {b.items.map((it) => (
+                        <li key={it}>{it}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </div>
             ))}
           </div>
