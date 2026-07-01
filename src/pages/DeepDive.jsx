@@ -57,15 +57,14 @@ export default function DeepDive() {
 
       {dd.competitors && (
         <section className="dd__section">
-          <h2 className="dd__section-title">Where it sits</h2>
-          <div className="dd__comps">
+          <h2 className="dd__section-title">Market analysis</h2>
+          <ul className="dd__list dd__comps">
             {dd.competitors.map((c) => (
-              <div className="dd__comp" key={c.name}>
-                <div className="dd__comp-name">{c.name}</div>
-                <p className="dd__comp-note">{c.note}</p>
-              </div>
+              <li key={c.name}>
+                <strong className="dd__comp-name">{c.name}</strong> — {c.note}
+              </li>
             ))}
-          </div>
+          </ul>
           {dd.positioning && <p className="dd__positioning">{dd.positioning}</p>}
         </section>
       )}

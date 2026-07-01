@@ -38,7 +38,13 @@ export const shipped = [
         },
         {
           label: 'The problem',
-          body: 'The workflow is stitched across tools that were never meant to connect; characters and style drift between shots, and iterating or aligning a team is slow.',
+          body: 'Getting from idea to finished video today means fighting your tools as much as the work.',
+          items: [
+            'Powerful node tools like ComfyUI are too complex for most creators',
+            'The alternative — jumping between disconnected apps — constantly breaks your flow',
+            'Characters and style drift between shots',
+            'Iterating and keeping a team aligned is slow',
+          ],
         },
         {
           label: 'Core requirements',
