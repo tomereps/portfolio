@@ -297,10 +297,6 @@ export const shipped = [
       ],
       competitors: [
         {
-          name: 'Meta AI in WhatsApp',
-          note: "Meta's own in-app summaries — convenient, but it's Meta reading everything; Sakemly is privacy-first and user-controlled.",
-        },
-        {
           name: 'Group-summary bots',
           note: 'Bots you add to a group to auto-summarize — Sakemly deliberately avoids putting a bot in your chats.',
         },
