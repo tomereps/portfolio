@@ -142,6 +142,12 @@ export default function CaseStudy() {
 
       <h2 className="case__deep-title">Case study</h2>
       {cs.overview && <p className="case__overview">{cs.overview}</p>}
+      {project.deepDive && (
+        <Link className="case__deeper" to={`/work/${project.slug}/deep`}>
+          Go deeper — PRD, competitors &amp; product thinking{' '}
+          <span aria-hidden>→</span>
+        </Link>
+      )}
 
       <div className="case__sections">
         {cs.sections.map((s) => (

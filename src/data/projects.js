@@ -24,6 +24,91 @@ export const shipped = [
     website: 'https://stents.ai',
     demo: '',
 
+    deepDive: {
+      tagline:
+        'The product thinking behind Stents — what it is, what I chose to build, and how it wins.',
+      prd: [
+        {
+          label: 'Vision',
+          body: 'One AI-native pipeline that carries a creator from a written brief to a finished, consistent short-form video — without juggling a dozen disconnected tools.',
+        },
+        {
+          label: 'Target user',
+          body: 'Solo creators and small production teams making short-form video — ads, social, pitches — who need speed and shot-to-shot consistency, not a full studio pipeline.',
+        },
+        {
+          label: 'The problem',
+          body: 'The workflow is stitched across tools that were never meant to connect; characters and style drift between shots, and iterating or aligning a team is slow.',
+        },
+        {
+          label: 'Core requirements',
+          items: [
+            'A node canvas with typed handles: script → cast → storyboard → animate → edit',
+            'A consistency engine so characters, style and scenes hold across shots',
+            'Two modes — a free-form canvas for power users, a guided Director wizard for structured runs',
+            'Multi-model AI routing, swappable as providers and models change',
+          ],
+        },
+        {
+          label: 'Out of scope (deliberate)',
+          items: [
+            'Pixel-craft tools (roto, bezier, roto-paint) — bridge to Photoshop instead',
+            'A full editing suite or timeline',
+            'A native / mobile app — browser-first',
+          ],
+        },
+        {
+          label: 'Key decisions & tradeoffs',
+          items: [
+            'Hosted AI over self-hosted models — speed and best-in-class quality, at the cost of provider dependency (mitigated by a provider-agnostic layer)',
+            'Browser-first — reach and iteration speed over native performance',
+          ],
+        },
+        {
+          label: 'Success metrics',
+          body: 'Tracked in PostHog, focused on retention and engagement — returning creators and how deeply they use each session — over vanity signups.',
+        },
+        {
+          label: 'Risks & open questions',
+          items: [
+            'AI cost and latency at scale',
+            'Model volatility — providers move fast',
+            'Consistency is the make-or-break technical bet',
+          ],
+        },
+      ],
+      competitors: [
+        {
+          name: 'Figma Weave',
+          note: "Figma's node-based AI creative canvas — closest on the node model, but a design-tool play, not a brief-to-video production pipeline.",
+        },
+        {
+          name: 'Lightricks (LTX Studio)',
+          note: 'End-to-end AI filmmaking on their own model — strong, but model-locked; Stents is model-agnostic and orchestration-first.',
+        },
+        {
+          name: 'Artlist',
+          note: 'A creative-assets platform layering in AI generation — breadth of assets, not a connected production workflow.',
+        },
+        {
+          name: 'Dreamina API',
+          note: "ByteDance's image and video generation via API — a model source Stents can route to, not a pipeline itself.",
+        },
+        {
+          name: 'ComfyUI',
+          note: 'Open node-based AI workflows — powerful, but dev / power-user and image-centric, with no guided production path.',
+        },
+      ],
+      positioning:
+        'Stents competes less on the model and more on orchestration and consistency — turning best-in-class models into a repeatable path from brief to finished video.',
+      screenshots: [
+        { caption: 'Node canvas' },
+        { caption: 'Director Mode' },
+        { caption: 'Storyboard & shots' },
+        { caption: 'Consistency controls' },
+      ],
+    },
+
     caseStudy: {
       intro:
         'Stents.ai carries a creator from written brief to a consistent storyboard and video, node by node.',
