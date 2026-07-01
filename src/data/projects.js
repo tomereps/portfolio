@@ -233,6 +233,95 @@ export const shipped = [
     accent: '#3da68d',
     website: 'https://sakemly.com',
     demo: '',
+    deepDive: {
+      tagline:
+        'The product thinking behind Sakemly — turning private group chats into structure, without a bot.',
+      prd: [
+        {
+          label: 'Vision',
+          body: 'Turn the noise of busy group chats into a clean, private digest — every event, to-do and decision — without a bot ever reading your messages.',
+        },
+        {
+          label: 'Target user',
+          body: 'People juggling several active WhatsApp groups — parents in class groups, building residents, family threads — who keep missing what actually matters.',
+        },
+        {
+          label: 'The problem',
+          body: 'Group chats move faster than anyone can follow, and the usual "fixes" ask you to hand a bot the keys to everything.',
+          items: [
+            'Hundreds of messages a day, no structure',
+            'Events, to-dos and decisions get lost in the scroll',
+            'Catching up after a busy day is exhausting',
+            'Existing tools mean a bot auto-reading your private chats',
+          ],
+        },
+        {
+          label: 'Core requirements',
+          items: [
+            'Import a WhatsApp export — no bot, no auto-reading',
+            'Extract events, to-dos, decisions, questions and topics',
+            'Message-level provenance — jump back to the source',
+            'A freshness dial and reminders to keep spaces current',
+            'Encrypted storage; the user controls every import',
+          ],
+        },
+        {
+          label: 'Out of scope (deliberate)',
+          items: [
+            'A bot that sits in your groups or auto-reads messages',
+            'A full messaging or reply client',
+            'Every chat platform at launch — WhatsApp first',
+          ],
+        },
+        {
+          label: 'Key decisions & tradeoffs',
+          items: [
+            'Privacy-first, manual import — you choose what to share, accepting some friction',
+            'Claude for extraction — reliable structure over a cheaper custom model',
+            'Day-sized chunking — keeps long histories within model limits and cost',
+          ],
+        },
+        {
+          label: 'Success metrics',
+          body: 'Retention and recurring use are the signal — people coming back to stay caught up, and spaces kept fresh over time.',
+        },
+        {
+          label: 'Risks & open questions',
+          items: [
+            'Import friction — will people keep re-sharing their chats?',
+            'AI cost and latency on long histories',
+            'Extraction accuracy on messy, multilingual chats',
+            'Trust — privacy has to be provably real',
+          ],
+        },
+      ],
+      competitors: [
+        {
+          name: 'Meta AI in WhatsApp',
+          note: "Meta's own in-app summaries — convenient, but it's Meta reading everything; Sakemly is privacy-first and user-controlled.",
+        },
+        {
+          name: 'Group-summary bots',
+          note: 'Bots you add to a group to auto-summarize — Sakemly deliberately avoids putting a bot in your chats.',
+        },
+        {
+          name: 'General AI chatbots (ChatGPT / Claude)',
+          note: 'You can paste a chat, but get a one-off blob — no structure, provenance, spaces or freshness tracking.',
+        },
+        {
+          name: 'Notes & task apps (Notion, Todoist)',
+          note: 'Where people manually track group tasks and decisions — Sakemly does the extraction for you.',
+        },
+      ],
+      positioning:
+        'Sakemly wins on privacy and structure — turning a chat you choose to share into organized, source-linked knowledge, with no bot ever in your groups.',
+      screenshots: [
+        { caption: 'Home & spaces' },
+        { caption: 'Topics' },
+        { caption: 'To-dos' },
+        { caption: 'Reminders' },
+      ],
+    },
     caseStudy: {
       intro:
         'Sakemly turns the noise of busy WhatsApp groups into structured, searchable knowledge — every event, to-do and decision, without the scroll.',
