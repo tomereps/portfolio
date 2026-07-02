@@ -294,7 +294,7 @@
 
 .case__shots {
   display: grid;
-  grid-template-columns: repeat(4, 210px);
+  grid-template-columns: repeat(4, 235px);
   justify-content: space-between;
   margin-top: 14px;
 }
