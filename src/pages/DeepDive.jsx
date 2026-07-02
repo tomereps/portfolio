@@ -73,30 +73,6 @@ export default function DeepDive() {
         </section>
       )}
 
-      {dd.screenshots && (
-        <section className="dd__section dd__split">
-          <h2 className="dd__section-title">Inside the product</h2>
-          <div className="dd__split-body">
-            <div className="dd__shots">
-              {dd.screenshots.map((s, i) => (
-                <figure className="dd__shot" key={s.caption || i}>
-                  {s.src ? (
-                    <img
-                      className="dd__shot-img"
-                      src={s.src}
-                      alt={s.caption || `${project.name} screenshot`}
-                    />
-                  ) : (
-                    <div className="dd__shot-ph">Screenshot</div>
-                  )}
-                  {s.caption && <figcaption className="dd__shot-cap">{s.caption}</figcaption>}
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       <div className="dd__foot">
         <Link className="dd__foot-link" to={`/work/${project.slug}`}>
           <span aria-hidden>←</span> Back to the {project.name} case study

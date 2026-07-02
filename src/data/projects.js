@@ -18,6 +18,12 @@ export const shipped = [
     image: stentsOg,
     heroBg: '#080808',
     accent: '#f5a623',
+    screenshots: [
+      { caption: 'Node canvas' },
+      { caption: 'Director Mode' },
+      { caption: 'Storyboard & shots' },
+      { caption: 'Consistency controls' },
+    ],
     desc: 'An AI production pipeline that carries a creator from written brief to a consistent storyboard and video — built node by node from my own VFX workflow.',
 
     // TODO: confirm the real URLs before pushing.
@@ -107,12 +113,6 @@ export const shipped = [
       ],
       positioning:
         'Stents competes less on the model and more on orchestration and consistency — turning best-in-class models into a repeatable path from brief to finished video.',
-      screenshots: [
-        { caption: 'Node canvas' },
-        { caption: 'Director Mode' },
-        { caption: 'Storyboard & shots' },
-        { caption: 'Consistency controls' },
-      ],
     },
 
     caseStudy: {
@@ -172,7 +172,7 @@ export const shipped = [
           lead: 'Raw AI output is unpredictable — most of the work was making it consistent.',
           columns: [
             {
-              title: 'What broke',
+              title: 'The hard parts',
               items: [
                 'Character drift between shots',
                 'Swapping characters while keeping their pose',
@@ -231,6 +231,12 @@ export const shipped = [
     image: sakemlyOg,
     heroBg: '#022c2d',
     accent: '#3da68d',
+    screenshots: [
+      { caption: 'Home & spaces' },
+      { caption: 'Topics' },
+      { caption: 'To-dos' },
+      { caption: 'Reminders' },
+    ],
     website: 'https://sakemly.com',
     demo: '',
     deepDive: {
@@ -311,12 +317,6 @@ export const shipped = [
       ],
       positioning:
         'Sakemly wins on privacy and structure — turning a chat you choose to share into organized, source-linked knowledge, with no bot ever in your groups.',
-      screenshots: [
-        { caption: 'Home & spaces' },
-        { caption: 'Topics' },
-        { caption: 'To-dos' },
-        { caption: 'Reminders' },
-      ],
     },
     caseStudy: {
       intro:
@@ -372,7 +372,7 @@ export const shipped = [
           lead: 'Turning a raw chat export into reliable, trustworthy structure was the hard part.',
           columns: [
             {
-              title: 'What broke',
+              title: 'The hard parts',
               items: [
                 'Export friction — chats only update when re-shared',
                 'Long exports overwhelmed the model',

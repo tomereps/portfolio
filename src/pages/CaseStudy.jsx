@@ -165,6 +165,30 @@ export default function CaseStudy() {
         ))}
       </div>
 
+      {project.screenshots && (
+        <section className="case__shots-section">
+          <h2 className="case__deep-title">Inside the app</h2>
+          <div className="case__shots">
+            {project.screenshots.map((s, i) => (
+              <figure className="case__shot" key={s.caption || i}>
+                {s.src ? (
+                  <img
+                    className="case__shot-img"
+                    src={s.src}
+                    alt={s.caption || `${project.name} screenshot`}
+                  />
+                ) : (
+                  <div className="case__shot-ph">Screenshot</div>
+                )}
+                {s.caption && (
+                  <figcaption className="case__shot-cap">{s.caption}</figcaption>
+                )}
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
       <div className="case__cta">
         <div>
           <div className="case__cta-title">Have an idea to build?</div>
