@@ -290,7 +290,7 @@
 
 .case__shots {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-top: 14px;
 }
@@ -299,14 +299,19 @@
   margin: 0;
 }
 
-.case__shot-img,
-.case__shot-ph {
+.case__shot-img {
   display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+
+.case__shot-ph {
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: 10px;
   border: 1px solid var(--line);
-  object-fit: cover;
 }
 
 .case__shot-ph {

@@ -5,6 +5,10 @@
 
 import stentsOg from '../assets/Stents/OG_IMAGE.png';
 import sakemlyOg from '../assets/Sakemly/OG_IMAGE.png';
+import ssHome from '../assets/Sakemly/shot_home.jpeg';
+import ssTopics from '../assets/Sakemly/shot_topics.jpeg';
+import ssTodos from '../assets/Sakemly/shot_todos.jpeg';
+import ssReminders from '../assets/Sakemly/shot_reminders.jpeg';
 
 export const shipped = [
   {
@@ -232,10 +236,10 @@ export const shipped = [
     heroBg: '#022c2d',
     accent: '#3da68d',
     screenshots: [
-      { caption: 'Home & spaces' },
-      { caption: 'Topics' },
-      { caption: 'To-dos' },
-      { caption: 'Reminders' },
+      { src: ssHome, caption: 'Home & spaces' },
+      { src: ssTopics, caption: 'Topics' },
+      { src: ssTodos, caption: 'To-dos' },
+      { src: ssReminders, caption: 'Reminders' },
     ],
     website: 'https://sakemly.com',
     demo: '',
