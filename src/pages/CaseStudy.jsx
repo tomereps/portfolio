@@ -189,6 +189,13 @@ export default function CaseStudy() {
         </section>
       )}
 
+      {project.deepDive && (
+        <Link className="case__deeper case__deeper--foot" to={`/work/${project.slug}/deep`}>
+          Go deeper — PRD, competitors &amp; product thinking{' '}
+          <span aria-hidden>→</span>
+        </Link>
+      )}
+
       <div className="case__cta">
         <div>
           <div className="case__cta-title">Have an idea to build?</div>
