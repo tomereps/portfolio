@@ -18,7 +18,7 @@ export default function Hero() {
           AI tools, end&nbsp;to&nbsp;end.
         </h1>
         <p className="hero__lede">
-          Sixteen years in VFX taught me to solve hard visual problems under
+          A long career in VFX taught me to solve hard visual problems under
           deadline. Now I turn messy, complex workflows into products people
           actually use — and I ship them myself.
         </p>
