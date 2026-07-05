@@ -13,14 +13,13 @@ export default function Hero() {
       <div>
         <div className="hero__eyebrow">PRODUCT &amp; CREATIVE TECHNOLOGIST</div>
         <h1 className="hero__title">
-          I design and build
+          Complex workflows.
           <br />
-          AI tools, end&nbsp;to&nbsp;end.
+          Simple products.
         </h1>
         <p className="hero__lede">
-          A long career in VFX taught me to solve hard visual problems under
-          deadline. Now I turn messy, complex workflows into products people
-          actually use — and I ship them myself.
+          After years of solving visual challenges in VFX, I now design and
+          build AI products that simplify complex work.
         </p>
 
         <div className="hero__actions">
