@@ -19,8 +19,10 @@ export default function About() {
         </figure>
         <div className="about__text">
           <p className="about__lead">
-            I spent sixteen years as a lead compositor and colorist — making
-            thousands of shots look effortless under brutal deadlines.
+            16 years creating visuals across film, TV, commercials, gaming and
+            AI. From compositing and color grading to building production
+            workflows, my focus has always been making images that tell the
+            story.
           </p>
           <p className="about__body">
             That work was relentless problem-solving: take a messy, broken input
