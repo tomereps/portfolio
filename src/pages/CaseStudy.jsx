@@ -87,12 +87,12 @@ export default function CaseStudy() {
         style={project.heroBg ? { background: project.heroBg } : undefined}
       >
         <div className="case__hero-text">
-          <h1 className="case__title">{project.name}</h1>
-          <p className="case__intro">{cs.intro}</p>
-          <span className="case__badge">
+          <div className="case__eyebrow">
             <span className="case__badge-dot" />
             {project.status}
-          </span>
+          </div>
+          <h1 className="case__title">{project.name}</h1>
+          <p className="case__intro">{cs.intro}</p>
           {(project.website || project.demo) && (
             <div className="case__actions">
               {project.website && (
