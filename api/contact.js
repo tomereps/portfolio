@@ -3,8 +3,8 @@
 
 const TO = 'tomer.ep1@gmail.com';
 
-// Sent from a domain already verified in Resend (sakemly.com).
-const FROM = 'Portfolio Contact <contact@sakemly.com>';
+// Sent from tomereps.com, verified in the portfolio's own Resend account.
+const FROM = 'Portfolio Contact <contact@tomereps.com>';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
