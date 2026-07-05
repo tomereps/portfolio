@@ -15,7 +15,7 @@ export default function Hero() {
         <h1 className="hero__title">
           Complex workflows.
           <br />
-          Simple products.
+          Clear products.
         </h1>
         <p className="hero__lede">
           After years of solving visual challenges in VFX, I now design and
