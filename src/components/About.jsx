@@ -19,27 +19,29 @@ export default function About() {
         </figure>
         <div className="about__text">
           <p className="about__lead">
-            16 years creating visuals across film, TV, commercials, gaming and
-            AI. From compositing and color grading to building production
-            workflows, my focus has always been making images that tell the
-            story.
+            I've spent my career creating visuals across film, TV, commercials
+            and gaming. Whether in 3D, motion graphics, compositing, color
+            grading or AI, my focus has always been creating images that tell
+            the story.
           </p>
           <p className="about__body">
-            That work was relentless problem-solving: take a messy, broken input
-            and make it land — pixel-perfect, on time, every time. Somewhere
-            along the way I realized the part I loved most wasn't the shot. It
-            was building the system that made the shot possible.
+            Somewhere along the way, I realized the part I loved most wasn't the
+            shot itself. It was building the systems that made the shot possible
+            — improving workflows and finding better ways for artists to do
+            their best work.
           </p>
           <p className="about__body">
-            So I started building products. Not a course, not a side hobby —
-            real things, shipped end-to-end. The VFX background isn't behind me;
-            it's the reason I can look at a tangled creative workflow and see
-            exactly where the tool should go.
+            That curiosity led me into product management and product
+            development. Today I build AI products from idea to launch,
+            combining hands-on production experience with a deep interest in
+            user experience and design.
           </p>
           <p className="about__body">
-            I learn by shipping, not by waiting for permission. If you're
-            building something at the intersection of AI, creative tooling, and
-            real workflows — that's exactly where I want to be.
+            I'm always learning by building, shipping, testing, and improving.
+          </p>
+          <p className="about__body">
+            If you're building at the intersection of AI, education, creative
+            tools and real workflows — that's exactly where I want to be.
           </p>
         </div>
       </div>
