@@ -144,7 +144,7 @@ export default function CaseStudy() {
       {cs.overview && <p className="case__overview">{cs.overview}</p>}
       {project.deepDive && (
         <Link className="case__deeper" to={`/work/${project.slug}/deep`}>
-          Go deeper — PRD, competitors &amp; product thinking{' '}
+          Go deeper: PRD, competitors &amp; product thinking{' '}
           <span aria-hidden>→</span>
         </Link>
       )}
@@ -191,7 +191,7 @@ export default function CaseStudy() {
 
       {project.deepDive && (
         <Link className="case__deeper case__deeper--foot" to={`/work/${project.slug}/deep`}>
-          Go deeper — PRD, competitors &amp; product thinking{' '}
+          Go deeper: PRD, competitors &amp; product thinking{' '}
           <span aria-hidden>→</span>
         </Link>
       )}

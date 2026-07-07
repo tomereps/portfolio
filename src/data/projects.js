@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------ */
 /*  Single source of truth for project + case-study content.          */
-/*  Edit copy here — components read from this file.                   */
+/*  Edit copy here, components read from this file.                    */
 /* ------------------------------------------------------------------ */
 
 import stentsOg from '../assets/Stents/OG_IMAGE.png';
@@ -28,198 +28,47 @@ export const shipped = [
       { caption: 'Storyboard & shots' },
       { caption: 'Consistency controls' },
     ],
-    desc: 'An AI production pipeline that carries a creator from written brief to a consistent storyboard and video — built node by node from my own VFX workflow.',
-
-    // TODO: confirm the real URLs before pushing.
+    desc: 'An AI production pipeline that carries a creator from written brief to a consistent storyboard and video, built node by node from my own VFX workflow.',
     website: 'https://stents.ai',
     demo: '',
-
     deepDive: {
       tagline:
-        'The product thinking behind Stents — what it is, what I chose to build, and how it wins.',
+        'The product thinking behind Stents, what it is, what I chose to build, and how it wins.',
       prd: [
-        {
-          label: 'Vision',
-          body: 'One AI-native pipeline that carries a creator from a written brief to a finished, consistent short-form video — without juggling a dozen disconnected tools.',
-        },
-        {
-          label: 'Target user',
-          body: 'Solo creators and small production teams making short-form video — ads, social, pitches — who need speed and shot-to-shot consistency, not a full studio pipeline.',
-        },
-        {
-          label: 'The problem',
-          body: 'Getting from idea to finished video today means fighting your tools as much as the work.',
-          items: [
-            'Powerful node tools like ComfyUI are too complex for most creators',
-            'The alternative — jumping between disconnected apps — constantly breaks your flow',
-            'Characters and style drift between shots',
-            'Iterating and keeping a team aligned is slow',
-          ],
-        },
-        {
-          label: 'Core requirements',
-          items: [
-            'A node canvas with typed handles: script → cast → storyboard → animate → edit',
-            'A consistency engine so characters, style and scenes hold across shots',
-            'Two modes — a free-form canvas for power users, a guided Director wizard for structured runs',
-            'Multi-model AI routing, swappable as providers and models change',
-          ],
-        },
-        {
-          label: 'Out of scope (deliberate)',
-          items: [
-            'Pixel-craft tools (roto, bezier, roto-paint) — bridge to Photoshop instead',
-            'A full editing suite or timeline',
-            'A native / mobile app — browser-first',
-          ],
-        },
-        {
-          label: 'Key decisions & tradeoffs',
-          items: [
-            'Hosted AI over self-hosted models — speed and best-in-class quality, at the cost of provider dependency (mitigated by a provider-agnostic layer)',
-            'Browser-first — reach and iteration speed over native performance',
-          ],
-        },
-        {
-          label: 'Success metrics',
-          body: 'Tracked in PostHog, focused on retention and engagement — returning creators and how deeply they use each session — over vanity signups.',
-        },
-        {
-          label: 'Risks & open questions',
-          items: [
-            'AI cost and latency at scale',
-            'Model volatility — providers move fast',
-            'Consistency is the make-or-break technical bet',
-          ],
-        },
+        { label: 'Vision', body: 'One AI-native pipeline that carries a creator from a written brief to a finished, consistent short-form video, without juggling a dozen disconnected tools.' },
+        { label: 'Target user', body: 'Solo creators and small production teams making short-form video (ads, social, pitches) who need speed and shot-to-shot consistency, not a full studio pipeline.' },
+        { label: 'The problem', body: 'Getting from idea to finished video today means fighting your tools as much as the work.', items: ['Powerful node tools like ComfyUI are too complex for most creators', 'The alternative, jumping between disconnected apps, constantly breaks your flow', 'Characters and style drift between shots', 'Iterating and keeping a team aligned is slow'] },
+        { label: 'Core requirements', items: ['A node canvas with typed handles: script → cast → storyboard → animate → edit', 'A consistency engine so characters, style and scenes hold across shots', 'Two modes: a free-form canvas for power users, a guided Director wizard for structured runs', 'Multi-model AI routing, swappable as providers and models change'] },
+        { label: 'Out of scope (deliberate)', items: ['Pixel-craft tools (roto, bezier, roto-paint), bridge to Photoshop instead', 'A full editing suite or timeline', 'A native / mobile app, browser-first'] },
+        { label: 'Key decisions & tradeoffs', items: ['Hosted AI over self-hosted models: speed and best-in-class quality, at the cost of provider dependency (mitigated by a provider-agnostic layer)', 'Browser-first: reach and iteration speed over native performance'] },
+        { label: 'Success metrics', body: 'Tracked in PostHog, focused on retention and engagement (returning creators and how deeply they use each session) over vanity signups.' },
+        { label: 'Risks & open questions', items: ['AI cost and latency at scale', 'Model volatility: providers move fast', 'Consistency is the make-or-break technical bet'] },
       ],
       competitors: [
-        {
-          name: 'Figma Weave',
-          note: "Figma's node-based AI creative canvas — closest on the node model, but a design-tool play, not a brief-to-video production pipeline.",
-        },
-        {
-          name: 'Lightricks (LTX Studio)',
-          note: 'End-to-end AI filmmaking on their own model — strong, but model-locked; Stents is model-agnostic and orchestration-first.',
-        },
-        {
-          name: 'Artlist',
-          note: 'A creative-assets platform layering in AI generation — breadth of assets, not a connected production workflow.',
-        },
-        {
-          name: 'Dreamina API',
-          note: "ByteDance's image and video generation via API — a model source Stents can route to, not a pipeline itself.",
-        },
-        {
-          name: 'ComfyUI',
-          note: 'Open node-based AI workflows — powerful, but dev / power-user and image-centric, with no guided production path.',
-        },
+        { name: 'Figma Weave', note: "Figma's node-based AI creative canvas: closest on the node model, but a design-tool play, not a brief-to-video production pipeline." },
+        { name: 'Lightricks (LTX Studio)', note: 'End-to-end AI filmmaking on their own model: strong, but model-locked; Stents is model-agnostic and orchestration-first.' },
+        { name: 'Artlist', note: 'A creative-assets platform layering in AI generation: breadth of assets, not a connected production workflow.' },
+        { name: 'Dreamina API', note: "ByteDance's image and video generation via API: a model source Stents can route to, not a pipeline itself." },
+        { name: 'ComfyUI', note: 'Open node-based AI workflows: powerful, but dev / power-user and image-centric, with no guided production path.' },
       ],
       positioning:
-        'Stents competes less on the model and more on orchestration and consistency — turning best-in-class models into a repeatable path from brief to finished video.',
+        'Stents competes less on the model and more on orchestration and consistency, turning best-in-class models into a repeatable path from brief to finished video.',
     },
-
     caseStudy: {
-      intro:
-        'Stents.ai carries a creator from written brief to a consistent storyboard and video, node by node.',
-      overview:
-        'This one is personal: after sixteen years as a compositor and colorist, I knew exactly where creative production breaks down. Stents.ai is my answer — an AI pipeline built solo, node by node, that takes a project from brief to consistent storyboard and video without the tool-juggling.',
+      intro: 'Stents.ai carries a creator from written brief to a consistent storyboard and video, node by node.',
+      overview: 'This one is personal: after sixteen years as a compositor and colorist, I knew exactly where creative production breaks down. Stents.ai is my answer, an AI pipeline built solo, node by node, that takes a project from brief to consistent storyboard and video without the tool-juggling.',
       meta: [
         { label: 'My role', value: 'Product Builder' },
         { label: 'Team', value: 'Solo Project' },
         { label: 'Industry', value: 'AI / Creative Tools · Film & Advertising' },
       ],
       sections: [
-        {
-          num: '01',
-          label: 'The problem',
-          lead: 'The hard part was never any single step — it was holding the whole pipeline together.',
-          bullets: [
-            'Too many disconnected tools',
-            'Inconsistency in characters and shots',
-            'Hard to iterate and manage feedback',
-            'Slow from idea to final video',
-          ],
-        },
-        {
-          num: '02',
-          label: 'What it does',
-          lead: 'One connected workflow, from the first brief to the final cut.',
-          features: [
-            { title: 'Visual workflow', desc: 'Node-by-node production pipeline.' },
-            { title: 'Consistency engine', desc: 'Characters, style and scenes stay consistent.' },
-            { title: 'Two modes', desc: 'A free-form node canvas, or a guided 6-step director.' },
-            { title: 'For teams', desc: 'Share, review and iterate in one place.' },
-          ],
-        },
-        {
-          num: '03',
-          label: 'Scope & tradeoffs',
-          lead: "Don't rebuild what specialized tools already do best — focus the build on what makes Stents different.",
-          columns: [
-            {
-              title: 'Cut',
-              items: ['Roto & bezier tools', 'Roto-paint'],
-            },
-            {
-              title: 'Why',
-              items: [
-                'Slow to build, niche payoff',
-                'Photoshop does it best — Stents bridges to it',
-              ],
-            },
-          ],
-        },
-        {
-          num: '04',
-          label: 'Challenges',
-          lead: 'Raw AI output is unpredictable — most of the work was making it consistent.',
-          columns: [
-            {
-              title: 'The hard parts',
-              items: [
-                'Character drift between shots',
-                'Swapping characters while keeping their pose',
-                'Automating workflows in unexpected environments',
-                'Complex branching logic',
-              ],
-            },
-            {
-              title: 'How I fixed it',
-              items: [
-                'Reference locking & seed control',
-                'Pose-locked composition with reference swaps',
-                'Reusable, composable node pipelines',
-                'Simplified data model',
-              ],
-            },
-          ],
-        },
-        {
-          num: 'tech',
-          label: 'Tech stack',
-          lead: 'The tools I reached for to build it end-to-end, solo.',
-          tech: [
-            'React',
-            'React Flow',
-            'Supabase',
-            'fal.ai',
-            'Three.js',
-            'Polar',
-            'Resend',
-            'PostHog',
-          ],
-        },
-        {
-          num: '05',
-          label: 'Where it stands',
-          lead: 'Live, in use, and still moving.',
-          features: [
-            { title: 'Live', desc: 'stents.ai is live and used in real projects.' },
-            { title: 'Growing', desc: 'New features and models added regularly.' },
-            { title: 'Next', desc: 'Team collaboration, advanced editing and more control.' },
-          ],
-        },
+        { num: '01', label: 'The problem', lead: 'The hard part was never any single step; it was holding the whole pipeline together.', bullets: ['Too many disconnected tools', 'Inconsistency in characters and shots', 'Hard to iterate and manage feedback', 'Slow from idea to final video'] },
+        { num: '02', label: 'What it does', lead: 'One connected workflow, from the first brief to the final cut.', features: [{ title: 'Visual workflow', desc: 'Node-by-node production pipeline.' }, { title: 'Consistency engine', desc: 'Characters, style and scenes stay consistent.' }, { title: 'Two modes', desc: 'A free-form node canvas, or a guided 6-step director.' }, { title: 'For teams', desc: 'Share, review and iterate in one place.' }] },
+        { num: '03', label: 'Scope & tradeoffs', lead: "Don't rebuild what specialized tools already do best; focus the build on what makes Stents different.", columns: [{ title: 'Cut', items: ['Roto & bezier tools', 'Roto-paint'] }, { title: 'Why', items: ['Slow to build, niche payoff', 'Photoshop does it best; Stents bridges to it'] }] },
+        { num: '04', label: 'Challenges', lead: 'Raw AI output is unpredictable; most of the work was making it consistent.', columns: [{ title: 'The hard parts', items: ['Character drift between shots', 'Swapping characters while keeping their pose', 'Automating workflows in unexpected environments', 'Complex branching logic'] }, { title: 'How I fixed it', items: ['Reference locking & seed control', 'Pose-locked composition with reference swaps', 'Reusable, composable node pipelines', 'Simplified data model'] }] },
+        { num: 'tech', label: 'Tech stack', lead: 'The tools I reached for to build it end-to-end, solo.', tech: ['React', 'React Flow', 'Supabase', 'fal.ai', 'Three.js', 'Polar', 'Resend', 'PostHog'] },
+        { num: '05', label: 'Where it stands', lead: 'Live, in use, and still moving.', features: [{ title: 'Live', desc: 'stents.ai is live and used in real projects.' }, { title: 'Growing', desc: 'New features and models added regularly.' }, { title: 'Next', desc: 'Team collaboration, advanced editing and more control.' }] },
       ],
     },
   },
@@ -231,7 +80,7 @@ export const shipped = [
     bg: 'linear-gradient(135deg,#0d2818,#123a22)',
     fg: '#7ee2a8',
     frame: 'noisy group chat  →  structured, searchable knowledge',
-    desc: 'Turns busy WhatsApp groups into clean, searchable summaries — so you stop scrolling 400 messages to find the one that mattered.',
+    desc: 'Turns busy WhatsApp groups into clean, searchable summaries, so you stop scrolling 400 messages to find the one that mattered.',
     image: sakemlyOg,
     heroBg: '#022c2d',
     accent: '#3da68d',
@@ -245,180 +94,40 @@ export const shipped = [
     demo: '',
     deepDive: {
       tagline:
-        'The product thinking behind Sakemly — turning private group chats into structure, without a bot.',
+        'The product thinking behind Sakemly, turning private group chats into structure, without a bot.',
       prd: [
-        {
-          label: 'Vision',
-          body: 'Turn the noise of busy group chats into a clean, private digest — every event, to-do and decision — without a bot ever reading your messages.',
-        },
-        {
-          label: 'Target user',
-          body: 'People juggling several active WhatsApp groups — parents in class groups, building residents, family threads — who keep missing what actually matters.',
-        },
-        {
-          label: 'The problem',
-          body: 'Group chats move faster than anyone can follow, and the usual "fixes" ask you to hand a bot the keys to everything.',
-          items: [
-            'Hundreds of messages a day, no structure',
-            'Events, to-dos and decisions get lost in the scroll',
-            'Catching up after a busy day is exhausting',
-            'Existing tools mean a bot auto-reading your private chats',
-          ],
-        },
-        {
-          label: 'Core requirements',
-          items: [
-            'Import a WhatsApp export — no bot, no auto-reading',
-            'Extract events, to-dos, decisions, questions and topics',
-            'Message-level provenance — jump back to the source',
-            'A freshness dial and reminders to keep spaces current',
-            'Encrypted storage; the user controls every import',
-          ],
-        },
-        {
-          label: 'Out of scope (deliberate)',
-          items: [
-            'A bot that sits in your groups or auto-reads messages',
-            'A full messaging or reply client',
-            'Every chat platform at launch — WhatsApp first',
-          ],
-        },
-        {
-          label: 'Key decisions & tradeoffs',
-          items: [
-            'Privacy-first, manual import — you choose what to share, accepting some friction',
-            'Claude for extraction — reliable structure over a cheaper custom model',
-            'Day-sized chunking — keeps long histories within model limits and cost',
-          ],
-        },
-        {
-          label: 'Success metrics',
-          body: 'Retention and recurring use are the signal — people coming back to stay caught up, and spaces kept fresh over time.',
-        },
-        {
-          label: 'Risks & open questions',
-          items: [
-            'Import friction — will people keep re-sharing their chats?',
-            'AI cost and latency on long histories',
-            'Extraction accuracy on messy, multilingual chats',
-            'Trust — privacy has to be provably real',
-          ],
-        },
+        { label: 'Vision', body: 'Turn the noise of busy group chats into a clean, private digest (every event, to-do and decision) without a bot ever reading your messages.' },
+        { label: 'Target user', body: 'People juggling several active WhatsApp groups (parents in class groups, building residents, family threads) who keep missing what actually matters.' },
+        { label: 'The problem', body: 'Group chats move faster than anyone can follow, and the usual "fixes" ask you to hand a bot the keys to everything.', items: ['Hundreds of messages a day, no structure', 'Events, to-dos and decisions get lost in the scroll', 'Catching up after a busy day is exhausting', 'Existing tools mean a bot auto-reading your private chats'] },
+        { label: 'Core requirements', items: ['Import a WhatsApp export: no bot, no auto-reading', 'Extract events, to-dos, decisions, questions and topics', 'Message-level provenance: jump back to the source', 'A freshness dial and reminders to keep spaces current', 'Encrypted storage; the user controls every import'] },
+        { label: 'Out of scope (deliberate)', items: ['A bot that sits in your groups or auto-reads messages', 'A full messaging or reply client', 'Every chat platform at launch: WhatsApp first'] },
+        { label: 'Key decisions & tradeoffs', items: ['Privacy-first, manual import: you choose what to share, accepting some friction', 'Claude for extraction: reliable structure over a cheaper custom model', 'Day-sized chunking: keeps long histories within model limits and cost'] },
+        { label: 'Success metrics', body: 'Retention and recurring use are the signal: people coming back to stay caught up, and spaces kept fresh over time.' },
+        { label: 'Risks & open questions', items: ['Import friction: will people keep re-sharing their chats?', 'AI cost and latency on long histories', 'Extraction accuracy on messy, multilingual chats', 'Trust: privacy has to be provably real'] },
       ],
       competitors: [
-        {
-          name: 'Group-summary bots',
-          note: 'Bots you add to a group to auto-summarize — Sakemly deliberately avoids putting a bot in your chats.',
-        },
-        {
-          name: 'General AI chatbots (ChatGPT / Claude)',
-          note: 'You can paste a chat, but get a one-off blob — no structure, provenance, spaces or freshness tracking.',
-        },
-        {
-          name: 'Notes & task apps (Notion, Todoist)',
-          note: 'Where people manually track group tasks and decisions — Sakemly does the extraction for you.',
-        },
+        { name: 'Group-summary bots', note: 'Bots you add to a group to auto-summarize: Sakemly deliberately avoids putting a bot in your chats.' },
+        { name: 'General AI chatbots (ChatGPT / Claude)', note: 'You can paste a chat, but get a one-off blob: no structure, provenance, spaces or freshness tracking.' },
+        { name: 'Notes & task apps (Notion, Todoist)', note: 'Where people manually track group tasks and decisions: Sakemly does the extraction for you.' },
       ],
       positioning:
-        'Sakemly wins on privacy and structure — turning a chat you choose to share into organized, source-linked knowledge, with no bot ever in your groups.',
+        'Sakemly wins on privacy and structure, turning a chat you choose to share into organized, source-linked knowledge, with no bot ever in your groups.',
     },
     caseStudy: {
-      intro:
-        'Sakemly turns the noise of busy WhatsApp groups into structured, searchable knowledge — every event, to-do and decision, without the scroll.',
-      overview:
-        'Sakemly started from a frustration I lived with daily — too many busy WhatsApp groups, and the one message that mattered always buried under hundreds. I built it to turn that noise into something you can scan in seconds, privacy-first: no bot in your chats, and nothing read without your say-so.',
+      intro: 'Sakemly turns the noise of busy WhatsApp groups into structured, searchable knowledge: every event, to-do and decision, without the scroll.',
+      overview: 'Sakemly started from a frustration I lived with daily: too many busy WhatsApp groups, and the one message that mattered always buried under hundreds. I built it to turn that noise into something you can scan in seconds, privacy-first: no bot in your chats, and nothing read without your say-so.',
       meta: [
         { label: 'My role', value: 'Product Builder' },
         { label: 'Team', value: 'Solo Project' },
         { label: 'Platform', value: 'iOS & Android · Community & family groups' },
       ],
       sections: [
-        {
-          num: '01',
-          label: 'The problem',
-          lead: 'Active group chats move faster than anyone can keep up with.',
-          bullets: [
-            'Hundreds of messages, no structure',
-            'Events and to-dos get lost in the scroll',
-            'Decisions are hard to track and easy to forget',
-            'Catching up after a busy day is exhausting',
-          ],
-        },
-        {
-          num: '02',
-          label: 'What it does',
-          lead: 'It reads the chat and hands back only the parts that matter.',
-          features: [
-            { title: 'Smart summaries', desc: 'Turns a chat export into clear topics and key points.' },
-            { title: 'Events & to-dos', desc: 'Pulls out dates, tasks and who is responsible.' },
-            { title: 'Decisions & questions', desc: 'Tracks what was agreed and what is still open.' },
-            { title: 'Caught-up at a glance', desc: 'A health dial shows how current each space is.' },
-          ],
-        },
-        {
-          num: '03',
-          label: 'Scope & tradeoffs',
-          lead: 'I made privacy a hard constraint, not a feature — and kept the product to one job.',
-          columns: [
-            {
-              title: 'Cut',
-              items: ['A bot that lives in your groups', 'Auto-reading every message', 'A full messaging / reply client'],
-            },
-            {
-              title: 'Why',
-              items: ['You choose exactly what to share', 'Nothing is read automatically', 'Do one thing remarkably well'],
-            },
-          ],
-        },
-        {
-          num: '04',
-          label: 'Challenges',
-          lead: 'Turning a raw chat export into reliable, trustworthy structure was the hard part.',
-          columns: [
-            {
-              title: 'The hard parts',
-              items: [
-                'Export friction — chats only update when re-shared',
-                'Long exports overwhelmed the model',
-                'Duplicate and fragmented items',
-                'No way to trust where an item came from',
-              ],
-            },
-            {
-              title: 'How I fixed it',
-              items: [
-                'A freshness dial + activity-weighted refresh nudges',
-                'Day-sized chunking of the chat',
-                'Merge & dedupe, folding to-dos under events',
-                'Message-level provenance — jump to the source',
-              ],
-            },
-          ],
-
-        },
-        {
-          num: 'tech',
-          label: 'Tech stack',
-          lead: 'A lean stack for shipping fast on iOS and Android.',
-          tech: [
-            'React Native',
-            'Expo',
-            'Node / Express',
-            'Railway',
-            'Anthropic Claude',
-            'Supabase',
-          ],
-        },
-        {
-          num: '05',
-          label: 'Where it stands',
-          lead: "Shipped, and part of people's daily routine.",
-          features: [
-            { title: 'Live', desc: 'Shipped on iOS and Android, used by real groups.' },
-            { title: 'Recurring use', desc: 'People come back to stay caught up.' },
-            { title: 'Next', desc: 'More platforms and smarter reminders.' },
-          ],
-        },
+        { num: '01', label: 'The problem', lead: 'Active group chats move faster than anyone can keep up with.', bullets: ['Hundreds of messages, no structure', 'Events and to-dos get lost in the scroll', 'Decisions are hard to track and easy to forget', 'Catching up after a busy day is exhausting'] },
+        { num: '02', label: 'What it does', lead: 'It reads the chat and hands back only the parts that matter.', features: [{ title: 'Smart summaries', desc: 'Turns a chat export into clear topics and key points.' }, { title: 'Events & to-dos', desc: 'Pulls out dates, tasks and who is responsible.' }, { title: 'Decisions & questions', desc: 'Tracks what was agreed and what is still open.' }, { title: 'Caught-up at a glance', desc: 'A health dial shows how current each space is.' }] },
+        { num: '03', label: 'Scope & tradeoffs', lead: 'I made privacy a hard constraint, not a feature, and kept the product to one job.', columns: [{ title: 'Cut', items: ['A bot that lives in your groups', 'Auto-reading every message', 'A full messaging / reply client'] }, { title: 'Why', items: ['You choose exactly what to share', 'Nothing is read automatically', 'Do one thing remarkably well'] }] },
+        { num: '04', label: 'Challenges', lead: 'Turning a raw chat export into reliable, trustworthy structure was the hard part.', columns: [{ title: 'The hard parts', items: ['Export friction: chats only update when re-shared', 'Long exports overwhelmed the model', 'Duplicate and fragmented items', 'No way to trust where an item came from'] }, { title: 'How I fixed it', items: ['A freshness dial + activity-weighted refresh nudges', 'Day-sized chunking of the chat', 'Merge & dedupe, folding to-dos under events', 'Message-level provenance: jump to the source'] }] },
+        { num: 'tech', label: 'Tech stack', lead: 'A lean stack for shipping fast on iOS and Android.', tech: ['React Native', 'Expo', 'Node / Express', 'Railway', 'Anthropic Claude', 'Supabase'] },
+        { num: '05', label: 'Where it stands', lead: "Shipped, and part of people's daily routine.", features: [{ title: 'Live', desc: 'Shipped on iOS and Android, used by real groups.' }, { title: 'Recurring use', desc: 'People come back to stay caught up.' }, { title: 'Next', desc: 'More platforms and smarter reminders.' }] },
       ],
     },
   },

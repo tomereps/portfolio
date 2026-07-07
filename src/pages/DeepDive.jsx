@@ -64,7 +64,7 @@ export default function DeepDive() {
             <ul className="dd__list dd__comps">
               {dd.competitors.map((c) => (
                 <li key={c.name}>
-                  <strong className="dd__comp-name">{c.name}</strong> — {c.note}
+                  <strong className="dd__comp-name">{c.name}</strong>: {c.note}
                 </li>
               ))}
             </ul>

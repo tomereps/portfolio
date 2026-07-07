@@ -75,7 +75,7 @@ export default function Contact() {
         </div>
       </div>
       <div className="contact__footer">
-        © 2026 Tomer Epshtein — built, not templated.
+        © 2026 Tomer Epshtein · built, not templated.
       </div>
 
       {open && (
@@ -88,7 +88,7 @@ export default function Contact() {
             {status === 'sent' ? (
               <div className="modal__done">
                 <div className="modal__done-title">Message sent</div>
-                <p className="modal__done-text">Thanks — I'll get back to you soon.</p>
+                <p className="modal__done-text">Thanks, I'll get back to you soon.</p>
                 <button
                   type="button"
                   className="contact__btn contact__btn--primary modal__submit"
@@ -114,7 +114,7 @@ export default function Contact() {
                 </label>
                 {status === 'error' && (
                   <p className="modal__error">
-                    Something went wrong — please try again, or reach me on LinkedIn.
+                    Something went wrong. Please try again, or reach me on LinkedIn.
                   </p>
                 )}
                 <button

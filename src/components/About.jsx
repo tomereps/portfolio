@@ -26,9 +26,9 @@ export default function About() {
           </p>
           <p className="about__body">
             Somewhere along the way, I realized the part I loved most wasn't the
-            shot itself. It was building the systems that made the shot possible
-            — improving workflows and finding better ways for artists to do
-            their best work.
+            shot itself. It was building the systems that made the shot
+            possible, improving workflows and finding better ways for artists to
+            do their best work.
           </p>
           <p className="about__body">
             That curiosity led me into product management and product
@@ -41,7 +41,7 @@ export default function About() {
           </p>
           <p className="about__body">
             If you're building at the intersection of AI, education, creative
-            tools and real workflows — that's exactly where I want to be.
+            tools and real workflows, that's exactly where I want to be.
           </p>
         </div>
       </div>
