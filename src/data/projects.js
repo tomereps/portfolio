@@ -56,7 +56,7 @@ export const shipped = [
     },
     caseStudy: {
       intro: 'Stents.ai carries a creator from written brief to a consistent storyboard and video, node by node.',
-      overview: 'This one is personal: after sixteen years as a compositor and colorist, I knew exactly where creative production breaks down. Stents.ai is my answer, an AI pipeline built solo, node by node, that takes a project from brief to consistent storyboard and video without the tool-juggling.',
+      overview: 'This project started when I was looking to create an AI node based system that resembles the regular compositing workflow. It immediately evolved into a full AI production system, that combined all the tools in one place, from brief to storyboard to final edit.',
       meta: [
         { label: 'My role', value: 'Product Builder' },
         { label: 'Team', value: 'Solo Project' },
