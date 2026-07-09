@@ -9,6 +9,7 @@ import ssHome from '../assets/Sakemly/shot_home.jpeg';
 import ssTopics from '../assets/Sakemly/shot_topics.jpeg';
 import ssTodos from '../assets/Sakemly/shot_todos.jpeg';
 import ssReminders from '../assets/Sakemly/shot_reminders.jpeg';
+import stNodeGraph from '../assets/Stents/Screenshots/NodeGraph.jpg';
 import stStoryboard from '../assets/Stents/Screenshots/Storyboard_Render.jpg';
 import stEdit from '../assets/Stents/Screenshots/Edit.jpg';
 
@@ -26,6 +27,7 @@ export const shipped = [
     accent: '#f5a623',
     shotLayout: 'wide',
     screenshots: [
+      { src: stNodeGraph, caption: 'Node canvas' },
       { src: stStoryboard, caption: 'Storyboard & render' },
       { src: stEdit, caption: 'Edit' },
     ],
