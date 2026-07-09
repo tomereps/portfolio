@@ -311,6 +311,12 @@
   margin-top: 14px;
 }
 
+/* landscape app screenshots: two per row, full width */
+.case__shots--wide {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
 .case__shot {
   margin: 0;
 }
@@ -449,5 +455,8 @@
   }
   .case__shots {
     grid-template-columns: 1fr 1fr;
+  }
+  .case__shots--wide {
+    grid-template-columns: 1fr;
   }
 }

@@ -9,6 +9,8 @@ import ssHome from '../assets/Sakemly/shot_home.jpeg';
 import ssTopics from '../assets/Sakemly/shot_topics.jpeg';
 import ssTodos from '../assets/Sakemly/shot_todos.jpeg';
 import ssReminders from '../assets/Sakemly/shot_reminders.jpeg';
+import stStoryboard from '../assets/Stents/Screenshots/Storyboard_Render.jpg';
+import stEdit from '../assets/Stents/Screenshots/Edit.jpg';
 
 export const shipped = [
   {
@@ -22,11 +24,10 @@ export const shipped = [
     image: stentsOg,
     heroBg: '#080808',
     accent: '#f5a623',
+    shotLayout: 'wide',
     screenshots: [
-      { caption: 'Node canvas' },
-      { caption: 'Director Mode' },
-      { caption: 'Storyboard & shots' },
-      { caption: 'Consistency controls' },
+      { src: stStoryboard, caption: 'Storyboard & render' },
+      { src: stEdit, caption: 'Edit' },
     ],
     desc: 'An AI production pipeline that carries a creator from written brief to a consistent storyboard and video, built node by node from my own VFX workflow.',
     website: 'https://stents.ai',

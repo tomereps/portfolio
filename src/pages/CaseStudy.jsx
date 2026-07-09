@@ -168,7 +168,11 @@ export default function CaseStudy() {
       {project.screenshots && (
         <section className="case__shots-section">
           <h2 className="case__deep-title">Inside the app</h2>
-          <div className="case__shots">
+          <div
+            className={`case__shots${
+              project.shotLayout === 'wide' ? ' case__shots--wide' : ''
+            }`}
+          >
             {project.screenshots.map((s, i) => (
               <figure className="case__shot" key={s.caption || i}>
                 {s.src ? (
