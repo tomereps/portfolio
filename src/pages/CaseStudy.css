@@ -311,10 +311,10 @@
   margin-top: 14px;
 }
 
-/* landscape app screenshots: two per row, full width */
+/* landscape app screenshots: three per row, full width */
 .case__shots--wide {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .case__shot {
