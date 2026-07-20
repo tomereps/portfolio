@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { shipped, getProject } from '../data/projects';
 import './CaseStudy.css';
@@ -57,10 +57,20 @@ function SectionContent({ section }) {
 export default function CaseStudy() {
   const { slug } = useParams();
   const project = getProject(slug);
+  const [lightbox, setLightbox] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
+
+  useEffect(() => {
+    if (lightbox === null) return undefined;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setLightbox(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lightbox]);
 
   if (!project) {
     return (
@@ -176,11 +186,21 @@ export default function CaseStudy() {
             {project.screenshots.map((s, i) => (
               <figure className="case__shot" key={s.caption || i}>
                 {s.src ? (
-                  <img
-                    className="case__shot-img"
-                    src={s.src}
-                    alt={s.caption || `${project.name} screenshot`}
-                  />
+                  <button
+                    type="button"
+                    className="case__shot-btn"
+                    onClick={() => setLightbox(i)}
+                    aria-label={`View ${s.caption || 'screenshot'} full screen`}
+                  >
+                    <img
+                      className="case__shot-img"
+                      src={s.src}
+                      alt={s.caption || `${project.name} screenshot`}
+                    />
+                    <span className="case__shot-expand" aria-hidden>
+                      ⤢
+                    </span>
+                  </button>
                 ) : (
                   <div className="case__shot-ph">Screenshot</div>
                 )}
@@ -220,6 +240,35 @@ export default function CaseStudy() {
           <Link className="case__next-link" to={`/work/${next.slug}`}>
             {next.name} <span aria-hidden>→</span>
           </Link>
+        </div>
+      )}
+
+      {lightbox !== null && project.screenshots[lightbox]?.src && (
+        <div
+          className="case__lightbox"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="case__lightbox-close"
+            onClick={() => setLightbox(null)}
+            aria-label="Close full screen"
+          >
+            ×
+          </button>
+          <figure className="case__lightbox-figure" onClick={(e) => e.stopPropagation()}>
+            <img
+              className="case__lightbox-img"
+              src={project.screenshots[lightbox].src}
+              alt={project.screenshots[lightbox].caption || `${project.name} screenshot`}
+            />
+            {project.screenshots[lightbox].caption && (
+              <figcaption className="case__lightbox-cap">
+                {project.screenshots[lightbox].caption}
+              </figcaption>
+            )}
+          </figure>
         </div>
       )}
     </article>
