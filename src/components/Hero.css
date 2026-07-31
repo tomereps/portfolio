@@ -5,8 +5,18 @@
 /* ------------------------------------------------------------------ */
 .hero {
   position: relative;
-  overflow: hidden;
-  padding: 96px 28px 76px;
+  /* keep the exact height the hero had when it still held the CTA, so
+     removing the button doesn't move the texture (which is sized to the
+     section). 504px = the pre-removal section height. */
+  min-height: 504px;
+  /* clip horizontally only, so the texture can hang slightly below the hero
+     (its bottom node sits ~72px past the section edge) without being cropped
+     and without a horizontal scrollbar */
+  overflow-x: clip;
+  /* side padding lives on .hero__inner (inside the shell) so the content
+     lines up with every other section; the section itself stays full-width
+     so the texture can bleed to the viewport edge */
+  padding: 96px 0 76px;
 }
 
 /* trace texture, right side only, behind the content. The webp is
@@ -22,11 +32,18 @@
   /* nudged left and down, scaled down 10% from the bottom-left so the top
      traces drop clear of the headline (out from under the "products" s) */
   transform-origin: left bottom;
-  transform: translate(-40px, 92px) scale(0.9);
+  transform: translate(-30px, 72px) scale(0.9);
   opacity: 0.6;
-  /* gentle left fade only, so the traces can reach into the text */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 8%, #000 40%);
-  mask-image: linear-gradient(to right, transparent 0%, transparent 8%, #000 40%);
+  /* fade on the left (clear of the text) and the bottom (so the trailing
+     traces don't make the hero feel too tall); intersect keeps both */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, transparent 8%, #000 40%),
+    linear-gradient(to bottom, #000 68%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, transparent 8%, #000 40%),
+    linear-gradient(to bottom, #000 68%, transparent 100%);
+  mask-composite: intersect;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,6 +56,7 @@
 .hero__inner {
   position: relative;
   z-index: 1;
+  padding: 0 28px;
 }
 
 .hero__title {
@@ -50,53 +68,12 @@
   color: var(--ink);
 }
 
-/* the single accent touch: the closing period in indigo */
-.hero__dot {
-  color: var(--accent);
-}
-
 .hero__lede {
   font-size: 19px;
   line-height: 1.6;
   color: var(--sub);
   max-width: 52ch;
   margin: 28px 0 0;
-}
-
-.hero__actions {
-  margin-top: 34px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.hero__cta {
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  padding: 11px 20px;
-  border-radius: var(--r-control);
-  font-size: 14.5px;
-  font-weight: 500;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    transform 0.14s var(--ease);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .hero__cta:hover {
-    background: var(--accent);
-    color: var(--on-accent);
-  }
-}
-
-.hero__cta:active {
-  transform: scale(0.97);
 }
 
 /* Below ~1100px the body copy widens into the texture's space and the traces
@@ -106,17 +83,17 @@
   .hero__bg {
     display: none;
   }
+  /* no texture here, so drop the reserved height and let the copy set it */
+  .hero {
+    min-height: 0;
+  }
 }
 
 @media (max-width: 600px) {
   .hero {
-    padding: 60px 18px 48px;
+    padding: 60px 0 48px;
   }
   .hero__lede {
     font-size: 16px;
-  }
-  .hero__actions {
-    flex-wrap: wrap;
-    gap: 14px;
   }
 }

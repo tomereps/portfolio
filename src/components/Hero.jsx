@@ -10,17 +10,12 @@ export default function Hero() {
         <h1 className="hero__title">
           Complex workflows.
           <br />
-          Clear products<span className="hero__dot">.</span>
+          Clear products.
         </h1>
         <p className="hero__lede">
           After years of solving visual challenges in VFX, I now design and
           build AI products that simplify complex work.
         </p>
-        <div className="hero__actions">
-          <a className="hero__cta" href="#work">
-            See what I&apos;ve shipped <span aria-hidden>&rarr;</span>
-          </a>
-        </div>
       </div>
     </section>
   );
