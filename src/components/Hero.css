@@ -5,18 +5,38 @@
 /* ------------------------------------------------------------------ */
 .hero {
   position: relative;
-  /* keep the exact height the hero had when it still held the CTA, so
-     removing the button doesn't move the texture (which is sized to the
-     section). 504px = the pre-removal section height. */
-  min-height: 504px;
-  /* clip horizontally only, so the texture can hang slightly below the hero
-     (its bottom node sits ~72px past the section edge) without being cropped
-     and without a horizontal scrollbar */
-  overflow-x: clip;
-  /* side padding lives on .hero__inner (inside the shell) so the content
-     lines up with every other section; the section itself stays full-width
-     so the texture can bleed to the viewport edge */
-  padding: 96px 0 76px;
+  /* fixed section height; the copy is centered within it rather than pinned
+     to the top. 504px was the height the hero had when it still held the
+     CTA; +77px added (52+25) to give the texture more room before it's
+     clipped (that space is coming out of Work's top padding next, not
+     adding net dead space). */
+  min-height: 581px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* clip the texture to the section box so it dissolves at the bottom rather
+     than hanging into the next section; also stops any horizontal scrollbar */
+  overflow: clip;
+  padding: 40px 0;
+}
+
+/* the fade belongs to the section, not the texture: a scrim pinned to the
+   hero's bottom edge that the traces slide under and dissolve into the page.
+   Sits above the texture but below the copy (which is z-index 1). */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 30%;
+  /* caps at 75% paper (not full), so the traces settle to ~25% visible at
+     the bottom instead of vanishing completely */
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--paper) 75%, transparent)
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* trace texture, right side only, behind the content. The webp is
@@ -32,18 +52,12 @@
   /* nudged left and down, scaled down 10% from the bottom-left so the top
      traces drop clear of the headline (out from under the "products" s) */
   transform-origin: left bottom;
-  transform: translate(-30px, 72px) scale(0.9);
+  transform: translate(-30px, 100px) scale(0.9);
   opacity: 0.6;
-  /* fade on the left (clear of the text) and the bottom (so the trailing
-     traces don't make the hero feel too tall); intersect keeps both */
-  -webkit-mask-image:
-    linear-gradient(to right, transparent 0%, transparent 8%, #000 40%),
-    linear-gradient(to bottom, #000 68%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to right, transparent 0%, transparent 8%, #000 40%),
-    linear-gradient(to bottom, #000 68%, transparent 100%);
-  mask-composite: intersect;
+  /* only the left fade lives on the texture (to clear the type); the bottom
+     fade is now the section scrim (.hero::after) */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 8%, #000 40%);
+  mask-image: linear-gradient(to right, transparent 0%, transparent 8%, #000 40%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,6 +70,9 @@
 .hero__inner {
   position: relative;
   z-index: 1;
+  /* full width so, as a flex item, it doesn't shrink to its content; the
+     .shell max-width + auto margins then re-center it on the page grid */
+  width: 100%;
   padding: 0 28px;
 }
 
