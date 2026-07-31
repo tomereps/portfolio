@@ -1,7 +1,6 @@
 /* ------------------------------------------------------------------ */
-/*  Asymmetric split: copy carries the left, the film-strip photograph  */
-/*  anchors the right page edge. The photo is the physical version of   */
-/*  the FrameStrip motif the rest of the page uses as a rule.           */
+/*  Asymmetric split: copy carries the left, the hero visual anchors    */
+/*  the right page edge.                                                 */
 /* ------------------------------------------------------------------ */
 .hero {
   padding: 64px 28px 56px;

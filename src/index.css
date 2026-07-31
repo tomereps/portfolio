@@ -11,7 +11,7 @@
 /*  Radius rule (one system, no exceptions):                           */
 /*    --r-control  controls: buttons, inputs, chips                    */
 /*    --r-panel    surfaces: cards, images, modal                      */
-/*    --r-frame    the FrameStrip motif only                           */
+/*    --r-frame    the portrait photo frame                            */
 /* ------------------------------------------------------------------ */
 :root {
   color-scheme: light dark;
