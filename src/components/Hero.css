@@ -19,8 +19,10 @@
   width: min(80%, 1200px);
   pointer-events: none;
   background: url(/texture.webp) no-repeat right center / cover;
-  /* nudged left and down; allowed to overlap into the type */
-  transform: translate(-40px, 54px);
+  /* nudged left and down, scaled down 10% from the bottom-left so the top
+     traces drop clear of the headline (out from under the "products" s) */
+  transform-origin: left bottom;
+  transform: translate(-40px, 92px) scale(0.9);
   opacity: 0.6;
   /* gentle left fade only, so the traces can reach into the text */
   -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 8%, #000 40%);
