@@ -6,7 +6,7 @@
   font-size: 26px;
   color: var(--ink);
   margin: 0 0 30px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
@@ -29,18 +29,18 @@
 }
 
 .about__frame {
-  background: #fff;
+  background: var(--paper);
   border: 1px solid var(--line);
-  border-radius: 5px;
+  border-radius: var(--r-frame);
   padding: 10px;
-  box-shadow: 0 1px 0 rgba(20, 20, 40, 0.03);
+  box-shadow: 0 1px 0 rgb(var(--shadow) / 0.03);
 }
 
 .about__img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 3px;
+  border-radius: var(--r-frame);
 }
 
 /* "always building" manifesto — full-width band below About */

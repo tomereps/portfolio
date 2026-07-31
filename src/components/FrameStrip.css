@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------ */
-/*  The signature device: a colorist's contact-sheet / film-frame      */
-/*  strip. Recurs through the page as the structural accent.           */
+/*  The signature device: a colorist's contact-sheet / film-frame       */
+/*  strip. Recurs down the page as the structural accent.               */
 /* ------------------------------------------------------------------ */
 .frame-strip {
   display: flex;
@@ -8,12 +8,9 @@
 }
 
 .frame-strip__cell {
-  width: 22px;
-  height: 15px;
-  border-radius: 2px;
+  border-radius: var(--r-frame);
   background: transparent;
   border: 1px solid var(--line);
-  transition: background 0.35s, border-color 0.35s;
 }
 
 .frame-strip__cell--active {
@@ -21,12 +18,29 @@
   border-color: var(--accent);
 }
 
-/* compact variant used inside card preview bands */
-.frame-strip--tiny {
-  gap: 2px;
+/* section break: spans the shell, lit cell marks progress down the page */
+.frame-strip--divider {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 28px;
 }
 
-.frame-strip--tiny .frame-strip__cell {
-  width: 14px;
-  height: 10px;
+.frame-strip--divider .frame-strip__cell {
+  flex: 1;
+  height: 16px;
+}
+
+/* fixed-cell form for inline chrome inside panels */
+.frame-strip--inline .frame-strip__cell {
+  width: 22px;
+  height: 15px;
+}
+
+@media (max-width: 600px) {
+  .frame-strip--divider {
+    padding: 0 18px;
+  }
+  .frame-strip--divider .frame-strip__cell {
+    height: 12px;
+  }
 }

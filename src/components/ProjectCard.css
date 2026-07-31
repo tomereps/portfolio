@@ -1,10 +1,13 @@
 .card {
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: var(--r-panel);
   overflow: hidden;
-  background: #fff;
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-  box-shadow: 0 1px 0 rgba(20, 20, 40, 0.02);
+  background: var(--paper);
+  transition:
+    transform 0.2s var(--ease),
+    box-shadow 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+  box-shadow: 0 1px 0 rgb(var(--shadow) / 0.02);
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -12,21 +15,26 @@
   cursor: pointer;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px -22px rgba(20, 20, 40, 0.28);
-  border-color: #d9d9e6;
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -22px rgb(var(--shadow) / 0.28);
+    border-color: var(--line-strong);
+  }
 }
 
-/* "viewer" preview band — holds a screenshot or a neutral placeholder */
+/* press feedback that also works as the tap state on touch, where the
+   hover lift never fires */
+.card:active {
+  transform: translateY(-1px);
+}
+
+/* "viewer" preview band, holds the product screenshot */
 .card__band {
   aspect-ratio: 1200 / 631;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-  background: #fff;
+  background: var(--paper-2);
   border-bottom: 1px solid var(--line);
 }
 
@@ -39,38 +47,18 @@
   object-position: center;
 }
 
-.card__frame-text {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--faint);
-  text-align: center;
-  padding: 0 16px;
-}
-
-.card__band-footer {
-  position: absolute;
-  bottom: 10px;
-  left: 12px;
-  right: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card__tag {
-  font-family: var(--mono);
-  font-size: 9.5px;
-  color: var(--faint);
-}
-
 .card__body {
   padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .card__head {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
   margin-bottom: 8px;
 }
 
@@ -78,23 +66,27 @@
   margin: 0;
   font-size: 18px;
   color: var(--ink);
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .card__status {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 3px 9px;
-  border-radius: 99px;
+  border-radius: var(--r-control);
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 5px;
 }
 
+/* the one dot on the page: it carries real state, not decoration */
 .card__status-dot {
   width: 5px;
   height: 5px;
-  border-radius: 99px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .card__desc {
@@ -116,52 +108,39 @@
   font-weight: 500;
 }
 
-.card__stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 16px;
-}
-
-.card__chip {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  color: var(--faint);
-  border: 1px solid var(--line);
-  padding: 3px 8px;
-  border-radius: 6px;
-}
-
 .card__link {
   color: var(--accent);
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
   display: flex;
   width: fit-content;
   margin-left: auto;
+  margin-top: auto;
   align-items: center;
   gap: 7px;
 }
 
 .card__link-arrow {
-  transition: transform 0.2s;
+  transition: transform 0.2s var(--ease);
 }
 
-.card:hover .card__link-arrow {
-  transform: translateX(3px);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__link-arrow {
+    transform: translateX(3px);
+  }
 }
 
 /* status colour variants */
-.status--live {
-  background: #f4f6f5;
-  color: var(--sub);
+.status--live .card__status {
+  background: color-mix(in srgb, var(--ok) 13%, transparent);
+  color: var(--ok);
 }
 .status--live .card__status-dot {
-  background: #27ae60;
+  background: var(--ok);
 }
 
-.status--progress {
+.status--progress .card__status {
   background: var(--accent-soft);
   color: var(--accent);
 }
@@ -169,10 +148,10 @@
   background: var(--accent);
 }
 
-.status--exploration {
-  background: #f1f1f4;
-  color: #6b6b7b;
+.status--exploration .card__status {
+  background: var(--paper-2);
+  color: var(--sub);
 }
 .status--exploration .card__status-dot {
-  background: #9a9aaa;
+  background: var(--faint);
 }

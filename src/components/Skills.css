@@ -1,66 +1,73 @@
+/* ------------------------------------------------------------------ */
+/*  An index, not a card grid. Group name holds a narrow left column,   */
+/*  the capabilities set across the wide one, one hairline per row.     */
+/* ------------------------------------------------------------------ */
 .skills {
-  background: #f6f6fa;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  background: var(--paper-2);
 }
 
 .skills__inner {
-  padding: 54px 28px;
+  padding: 64px 28px 68px;
 }
 
 .skills__title {
   font-size: 26px;
   color: var(--ink);
-  margin: 0 0 28px;
-  font-weight: 800;
+  margin: 0 0 8px;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
-.skills__grid {
+.skills__list {
+  margin: 0;
+}
+
+.skills__row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 22px;
+  grid-template-columns: minmax(110px, 0.24fr) 1fr;
+  gap: 24px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.skills__row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .skills__group {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 20px;
-}
-
-.skills__group-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--accent);
-  margin-bottom: 14px;
+  letter-spacing: -0.01em;
 }
 
 .skills__items {
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-wrap: wrap;
+  column-gap: 34px;
+  row-gap: 10px;
 }
 
 .skills__item {
-  font-size: 14.5px;
+  font-size: 17px;
+  line-height: 1.4;
   color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.skills__item-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 99px;
-  background: var(--accent);
-  flex-shrink: 0;
+  letter-spacing: -0.015em;
 }
 
 @media (max-width: 860px) {
-  .skills__grid {
+  .skills__row {
     grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 18px 0;
+  }
+  .skills__items {
+    column-gap: 22px;
+  }
+  .skills__item {
+    font-size: 15.5px;
   }
 }

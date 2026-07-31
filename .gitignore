@@ -25,5 +25,12 @@ dist-ssr
 
 # AI agent skills (local only, not part of the build)
 .agents/
+agent/
 .claude/skills/
+.claude/settings.local.json
 .impeccable/
+skills-lock.json
+
+# generated-placeholder hero master (webp derivatives are committed; this
+# 1.4MB source is a stand-in for the real Figma hero and is not shipped)
+src/assets/hero/hero-raw.png

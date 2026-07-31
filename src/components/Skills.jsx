@@ -1,3 +1,4 @@
+import Reveal from './Reveal';
 import './Skills.css';
 
 const GROUPS = [
@@ -11,21 +12,21 @@ export default function Skills() {
     <section id="skills" className="skills">
       <div className="skills__inner shell">
         <h2 className="skills__title">What I bring</h2>
-        <div className="skills__grid">
-          {GROUPS.map(([title, items]) => (
-            <div className="skills__group" key={title}>
-              <div className="skills__group-label">{title.toUpperCase()}</div>
-              <div className="skills__items">
+
+        <dl className="skills__list">
+          {GROUPS.map(([group, items], i) => (
+            <Reveal key={group} className="skills__row" delay={i * 80}>
+              <dt className="skills__group">{group}</dt>
+              <dd className="skills__items">
                 {items.map((s) => (
-                  <div className="skills__item" key={s}>
-                    <span className="skills__item-dot" />
+                  <span className="skills__item" key={s}>
                     {s}
-                  </div>
+                  </span>
                 ))}
-              </div>
-            </div>
+              </dd>
+            </Reveal>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );

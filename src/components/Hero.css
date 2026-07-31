@@ -1,34 +1,35 @@
+/* ------------------------------------------------------------------ */
+/*  Asymmetric split: copy carries the left, the film-strip photograph  */
+/*  anchors the right page edge. The photo is the physical version of   */
+/*  the FrameStrip motif the rest of the page uses as a rule.           */
+/* ------------------------------------------------------------------ */
 .hero {
-  padding: 84px 28px 52px;
-}
-
-.hero__eyebrow {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  margin-bottom: 22px;
+  padding: 64px 28px 56px;
+  display: grid;
+  grid-template-columns: 1.08fr 0.82fr;
+  gap: 56px;
+  align-items: center;
 }
 
 .hero__title {
-  font-size: 50px;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: clamp(38px, 4.6vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
   color: var(--ink);
   margin: 0;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .hero__lede {
   font-size: 18px;
   line-height: 1.6;
   color: var(--sub);
-  max-width: 480px;
-  margin-top: 22px;
+  max-width: 46ch;
+  margin: 22px 0 0;
 }
 
 .hero__actions {
-  margin-top: 30px;
+  margin-top: 32px;
   display: flex;
   align-items: center;
   gap: 18px;
@@ -38,17 +39,96 @@
   border: 1px solid var(--accent);
   color: var(--accent);
   padding: 11px 20px;
-  border-radius: 9px;
+  border-radius: var(--r-control);
   font-size: 14.5px;
   font-weight: 500;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.14s var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero__cta:hover {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+}
+
+/* tactile press: the label scales back like a real key */
+.hero__cta:active {
+  transform: scale(0.97);
+}
+
+.hero__figure {
+  margin: 0;
+  border-radius: var(--r-panel);
+  overflow: hidden;
+  background: var(--paper-2);
+}
+
+.hero__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 62vh;
+  object-fit: cover;
+  object-position: 70% center;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Entry cascade. Justification: gives the headline a beat before the  */
+/*  supporting copy and the CTA arrive, so the eye lands in order.      */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__title,
+  .hero__lede,
+  .hero__actions,
+  .hero__figure {
+    animation: hero-in 0.6s var(--ease) both;
+  }
+  .hero__lede {
+    animation-delay: 0.1s;
+  }
+  .hero__actions {
+    animation-delay: 0.16s;
+  }
+  .hero__figure {
+    animation-delay: 0.06s;
+  }
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (max-width: 860px) {
-  .hero__title {
-    font-size: 38px;
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 44px 18px 36px;
+  }
+  .hero__lede {
+    font-size: 16px;
+  }
+  .hero__actions {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .hero__img {
+    max-height: 46vh;
+    object-position: center 32%;
   }
 }

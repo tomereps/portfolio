@@ -1,5 +1,5 @@
 .work {
-  padding: 30px 28px 10px;
+  padding: 52px 28px 10px;
 }
 
 .work__head {
@@ -15,14 +15,14 @@
   font-size: 26px;
   color: var(--ink);
   margin: 0;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .work__count {
   font-family: var(--mono);
-  font-size: 11px;
-  color: var(--faint);
+  font-size: 12px;
+  color: var(--sub);
 }
 
 .work__grid {
@@ -30,6 +30,15 @@
   grid-template-columns: 1fr 1fr;
   gap: 22px;
   margin-bottom: 0;
+}
+
+/* the reveal wrapper is the grid item, so the card has to fill it */
+.work__grid > .reveal {
+  display: flex;
+}
+
+.work__grid > .reveal > .card {
+  flex: 1;
 }
 
 @media (max-width: 860px) {

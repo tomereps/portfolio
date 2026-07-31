@@ -10,11 +10,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
-.dd__back:hover {
-  color: var(--ink);
+@media (hover: hover) and (pointer: fine) {
+  .dd__back:hover {
+    color: var(--ink);
+  }
 }
 
 .dd__header {
@@ -37,14 +39,14 @@
   letter-spacing: -0.03em;
   color: var(--ink);
   margin: 0;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .dd__tagline {
   font-size: 17px;
   line-height: 1.6;
   color: var(--sub);
-  max-width: 640px;
+  max-width: 54ch;
   margin: 16px 0 0;
 }
 
@@ -55,7 +57,7 @@
 
 .dd__section-title {
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin: 0 0 8px;
@@ -102,7 +104,7 @@
   line-height: 1.7;
   color: var(--sub);
   margin: 0;
-  max-width: 660px;
+  max-width: 54ch;
 }
 
 .dd__block-body + .dd__list {
@@ -113,7 +115,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  max-width: 660px;
+  max-width: 54ch;
 }
 
 .dd__list li {
@@ -136,7 +138,7 @@
   top: 9px;
   width: 5px;
   height: 5px;
-  border-radius: 99px;
+  border-radius: 50%;
   background: var(--accent);
 }
 
@@ -158,11 +160,12 @@
   margin: 20px 0 0;
   padding: 18px 22px;
   background: var(--accent-soft);
-  border-radius: 12px;
+  border-radius: var(--r-panel);
   font-size: 15px;
   line-height: 1.6;
   color: var(--ink);
   font-weight: 500;
+  max-width: 60ch; /* padded panel, so a touch wider than bare prose */
 }
 
 /* ---- screenshots --------------------------------------------------- */
@@ -182,13 +185,13 @@
   display: block;
   width: 100%;
   aspect-ratio: 16 / 10;
-  border-radius: 10px;
+  border-radius: var(--r-panel);
   border: 1px solid var(--line);
   object-fit: cover;
 }
 
 .dd__shot-ph {
-  background: #f4f4f7;
+  background: var(--paper-2);
   display: flex;
   align-items: center;
   justify-content: center;

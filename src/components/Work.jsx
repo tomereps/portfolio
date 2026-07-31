@@ -1,4 +1,5 @@
 import ProjectCard from './ProjectCard';
+import Reveal from './Reveal';
 import { shipped } from '../data/projects';
 import './Work.css';
 
@@ -12,7 +13,9 @@ export default function Work() {
 
       <div className="work__grid">
         {shipped.map((p, i) => (
-          <ProjectCard key={p.slug} p={p} idx={i} />
+          <Reveal key={p.slug} delay={i * 90}>
+            <ProjectCard p={p} />
+          </Reveal>
         ))}
       </div>
     </section>

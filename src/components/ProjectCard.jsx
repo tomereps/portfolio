@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import FrameStrip from './FrameStrip';
 import './ProjectCard.css';
 
 function statusClass(status) {
@@ -9,26 +7,24 @@ function statusClass(status) {
   return 'status--exploration';
 }
 
-export default function ProjectCard({ p, idx }) {
-  const [hover, setHover] = useState(false);
+export default function ProjectCard({ p }) {
   const hasCaseStudy = Boolean(p.caseStudy);
 
   const inner = (
     <>
-      {/* a real screenshot when present, otherwise a neutral placeholder */}
-      <div className="card__band">
-        {p.image ? (
-          <img className="card__img" src={p.image} alt={`${p.name} preview`} />
-        ) : (
-          <>
-            <div className="card__frame-text">{p.frame}</div>
-            <div className="card__band-footer">
-              <FrameStrip count={6} active={hover ? idx % 6 : -1} tiny />
-              <span className="card__tag">{p.tag}</span>
-            </div>
-          </>
-        )}
-      </div>
+      {p.image && (
+        <div className="card__band">
+          <img
+            className="card__img"
+            src={p.image}
+            alt={`${p.name} product screenshot`}
+            width="1100"
+            height="578"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      )}
 
       <div className="card__body">
         <div className="card__head">
@@ -46,7 +42,7 @@ export default function ProjectCard({ p, idx }) {
           <span className="card__link">
             Read the case study
             <span className="card__link-arrow" aria-hidden>
-              →
+              &rarr;
             </span>
           </span>
         )}
@@ -57,24 +53,11 @@ export default function ProjectCard({ p, idx }) {
   // whole card is the link when there's a case study
   if (hasCaseStudy) {
     return (
-      <Link
-        className={`card ${statusClass(p.status)}`}
-        to={`/work/${p.slug}`}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
+      <Link className={`card ${statusClass(p.status)}`} to={`/work/${p.slug}`}>
         {inner}
       </Link>
     );
   }
 
-  return (
-    <article
-      className={`card ${statusClass(p.status)}`}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
-      {inner}
-    </article>
-  );
+  return <article className={`card ${statusClass(p.status)}`}>{inner}</article>;
 }

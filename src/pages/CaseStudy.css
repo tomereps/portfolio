@@ -10,23 +10,25 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
-.case__back:hover {
-  color: var(--ink);
+@media (hover: hover) and (pointer: fine) {
+  .case__back:hover {
+    color: var(--ink);
+  }
 }
 
 /* ---- hero (dark, constrained to content width) -------------------- */
 .case__top {
   margin-top: 18px;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: var(--r-panel);
   overflow: hidden;
 }
 
 .case__hero {
-  background: #0f0f17;
+  background: var(--panel-invert);
   border-radius: 0;
   padding: 44px 44px 52px;
   display: grid;
@@ -37,7 +39,7 @@
 
 .case__deep-title {
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin: 44px 0 0;
@@ -48,6 +50,7 @@
   line-height: 1.7;
   color: var(--sub);
   margin: 14px 0 0;
+  max-width: 56ch;
 }
 
 .case__deeper {
@@ -60,11 +63,13 @@
   font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s ease;
 }
 
-.case__deeper:hover {
-  border-bottom-color: var(--accent);
+@media (hover: hover) and (pointer: fine) {
+  .case__deeper:hover {
+    border-bottom-color: var(--accent);
+  }
 }
 
 .case__deeper--foot {
@@ -80,7 +85,9 @@
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #b9b9cc;
+  /* hero bg is a per-project brand color (set inline), so text is white-based
+     rather than neutral gray, which washes out on a saturated ground */
+  color: rgb(255 255 255 / 0.72);
 }
 
 .case__title {
@@ -89,15 +96,15 @@
   letter-spacing: -0.03em;
   color: #fff;
   margin: 0;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .case__intro {
   font-size: 17px;
   line-height: 1.6;
-  color: #b9b9cc;
+  color: rgb(255 255 255 / 0.76);
   margin: 16px 0 0;
-  max-width: 440px;
+  max-width: 42ch;
 }
 
 .case__badge {
@@ -105,19 +112,19 @@
   align-items: center;
   gap: 7px;
   margin-top: 22px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #e7e7ee;
+  background: rgb(255 255 255 / 0.08);
+  color: var(--panel-invert-ink);
   font-size: 12px;
   font-weight: 500;
   padding: 5px 12px;
-  border-radius: 99px;
+  border-radius: var(--r-control);
 }
 
 .case__badge-dot {
   width: 6px;
   height: 6px;
-  border-radius: 99px;
-  background: #27ae60;
+  border-radius: 50%;
+  background: var(--ok);
 }
 
 .case__actions {
@@ -129,7 +136,7 @@
 
 .case__btn {
   padding: 12px 22px;
-  border-radius: 10px;
+  border-radius: var(--r-control);
   font-size: 14.5px;
   font-weight: 600;
   text-decoration: none;
@@ -144,8 +151,8 @@
 }
 
 .case__btn--ghost {
-  border: 1px solid #3a3a4a;
-  color: #fff;
+  border: 1px solid var(--panel-invert-line);
+  color: var(--panel-invert-ink);
   font-weight: 500;
 }
 
@@ -159,7 +166,7 @@
 /* ---- meta bar (raised white card overlapping the hero) ------------ */
 .case__meta {
   margin: 0;
-  background: #fff;
+  background: var(--paper);
   border: none;
   border-radius: 0;
   padding: 22px 26px;
@@ -170,7 +177,7 @@
 
 .case__meta-label {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 12px;
   letter-spacing: 0.04em;
   color: var(--faint);
   margin-bottom: 6px;
@@ -200,7 +207,7 @@
 
 .case__section-label {
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin: 0 0 12px;
@@ -211,12 +218,13 @@
   line-height: 1.65;
   color: var(--sub);
   margin: 0;
+  max-width: 56ch;
 }
 
 .case__section-body {
-  background: #f7f7fa;
+  background: var(--paper-2);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: var(--r-panel);
   padding: 24px 26px;
 }
 
@@ -247,7 +255,7 @@
   top: 8px;
   width: 5px;
   height: 5px;
-  border-radius: 99px;
+  border-radius: 50%;
   background: var(--accent);
 }
 
@@ -329,7 +337,7 @@
   border: none;
   background: none;
   cursor: zoom-in;
-  border-radius: 10px;
+  border-radius: var(--r-panel);
   overflow: hidden;
 }
 
@@ -337,7 +345,7 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: var(--r-panel);
   border: 1px solid var(--line);
 }
 
@@ -350,19 +358,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: var(--r-control);
   background: rgba(15, 15, 23, 0.62);
   color: #fff;
   font-size: 15px;
   line-height: 1;
   opacity: 0;
-  transition: opacity 0.18s;
+  transition: opacity 0.18s ease;
   pointer-events: none;
 }
 
-.case__shot-btn:hover .case__shot-expand,
+/* keyboard focus always reveals it; hover only on real pointers */
 .case__shot-btn:focus-visible .case__shot-expand {
   opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .case__shot-btn:hover .case__shot-expand {
+    opacity: 1;
+  }
 }
 
 /* ---- lightbox ----------------------------------------------------- */
@@ -402,7 +416,7 @@
   height: auto;
   max-height: 82vh;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: var(--r-panel);
 }
 
 .case__lightbox-cap {
@@ -426,21 +440,24 @@
   cursor: pointer;
   padding: 4px;
   opacity: 0.8;
+  transition: opacity 0.15s ease;
 }
 
-.case__lightbox-close:hover {
-  opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+  .case__lightbox-close:hover {
+    opacity: 1;
+  }
 }
 
 .case__shot-ph {
   width: 100%;
   aspect-ratio: 16 / 10;
-  border-radius: 10px;
+  border-radius: var(--r-panel);
   border: 1px solid var(--line);
 }
 
 .case__shot-ph {
-  background: #f4f4f7;
+  background: var(--paper-2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -460,8 +477,8 @@
 
 .case__cta {
   margin-top: 40px;
-  background: #0f0f17;
-  border-radius: 16px;
+  background: var(--panel-invert);
+  border-radius: var(--r-panel);
   padding: 30px 34px;
   display: flex;
   align-items: center;
@@ -473,20 +490,20 @@
 .case__cta-title {
   font-size: 18px;
   font-weight: 700;
-  color: #fff;
+  color: var(--panel-invert-ink);
 }
 
 .case__cta-text {
   font-size: 14px;
-  color: #b9b9cc;
+  color: var(--panel-invert-sub);
   margin: 4px 0 0;
 }
 
 .case__cta-btn {
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   padding: 12px 22px;
-  border-radius: 10px;
+  border-radius: var(--r-control);
   font-size: 14.5px;
   font-weight: 600;
   text-decoration: none;
