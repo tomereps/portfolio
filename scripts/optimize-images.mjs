@@ -12,11 +12,6 @@ import { mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 
 const JOBS = [
-  // hero: renders at ~440px wide. Flipped so the strip anchors the page edge
-  // and the paper negative space faces the copy column.
-  { in: 'src/assets/hero/hero-raw.png', out: 'src/assets/hero/hero.webp', width: 880, flop: true },
-  { in: 'src/assets/hero/hero-raw.png', out: 'src/assets/hero/hero-sm.webp', width: 560, flop: true },
-
   // card previews: render at 549x288
   { in: 'src/assets/Stents/OG_IMAGE.png', out: 'src/assets/Stents/preview.webp', width: 1100 },
   { in: 'src/assets/Sakemly/OG_IMAGE.png', out: 'src/assets/Sakemly/preview.webp', width: 1100 },
