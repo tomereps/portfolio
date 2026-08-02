@@ -3,6 +3,60 @@ import { useParams, Link } from 'react-router-dom';
 import { shipped, getProject } from '../data/projects';
 import './CaseStudy.css';
 
+const iconProps = {
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 1.6,
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
+};
+
+/* one icon per recurring case-study section label, keyed by the exact
+   label string used in src/data/projects.js */
+const SECTION_ICONS = {
+  'The problem': (
+    <svg {...iconProps}>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="2.4" />
+      <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
+    </svg>
+  ),
+  'What it does': (
+    <svg {...iconProps}>
+      <rect x="9" y="3" width="6" height="5" rx="1" />
+      <rect x="3" y="15" width="6" height="5" rx="1" />
+      <rect x="15" y="15" width="6" height="5" rx="1" />
+      <path d="M12 8v4M6 12v3M18 12v3M6 12h12" />
+    </svg>
+  ),
+  'Scope & tradeoffs': (
+    <svg {...iconProps}>
+      <path d="M12 3v17M8 20h8" />
+      <path d="M4 7h6M14 7h6" />
+      <path d="M4 7 1.5 12a2.5 2.5 0 0 0 5 0Z" />
+      <path d="M20 7 17.5 12a2.5 2.5 0 0 0 5 0Z" />
+    </svg>
+  ),
+  Challenges: (
+    <svg {...iconProps}>
+      <path d="M3 20 9.5 9l3 4.5L15.5 10 21 20Z" />
+      <path d="M15.5 10V6h4l-2 2 2 2h-4Z" />
+    </svg>
+  ),
+  'Tech stack': (
+    <svg {...iconProps}>
+      <path d="M9 8 5 12l4 4M15 8l4 4-4 4" />
+    </svg>
+  ),
+  'Where it stands': (
+    <svg {...iconProps}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M14.5 9.5 13 13l-3.5 1.5L11 11Z" />
+    </svg>
+  ),
+};
+
 /* renders whichever content shape a section carries */
 function SectionContent({ section }) {
   if (section.bullets) {
@@ -163,7 +217,14 @@ export default function CaseStudy() {
         {cs.sections.map((s) => (
           <section className="case__section" key={s.num}>
             <div className="case__section-head">
-              <h2 className="case__section-label">{s.label}</h2>
+              <h2 className="case__section-label">
+                {SECTION_ICONS[s.label] && (
+                  <span className="case__section-icon" aria-hidden="true">
+                    {SECTION_ICONS[s.label]}
+                  </span>
+                )}
+                {s.label}
+              </h2>
               <p className="case__section-lead">{s.lead}</p>
             </div>
             {hasBody(s) && (

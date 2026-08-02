@@ -15,20 +15,24 @@
   display: grid;
   grid-template-columns: 380px 1fr;
   gap: 48px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .about__text {
   max-width: 640px;
 }
 
-/* film-frame portrait — a single contact-sheet cell, the one pop of color */
+/* film-frame portrait — a single contact-sheet cell, the one pop of color.
+   stretched to match the bio column's height, image cropping via object-fit
+   rather than dictating the row height from its own natural aspect ratio */
 .about__portrait {
   margin: 0;
   max-width: 380px;
+  height: 100%;
 }
 
 .about__frame {
+  height: 100%;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--r-frame);
@@ -39,7 +43,8 @@
 .about__img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   border-radius: var(--r-frame);
 }
 
