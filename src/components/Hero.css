@@ -1,75 +1,21 @@
 /* ------------------------------------------------------------------ */
-/*  Hero: headline, lede, CTA over a faint circuit-trace texture that    */
-/*  bleeds off the right edge. The texture is masked to fade before the  */
-/*  type, so it stays atmosphere and never fights legibility.            */
+/*  Hero: headline + lede, centered in a fixed-height section.           */
+/*  (Circuit-trace texture removed for now - see Hero.jsx for where the  */
+/*  asset lives if we bring it back.)                                    */
 /* ------------------------------------------------------------------ */
 .hero {
   position: relative;
-  /* fixed section height; the copy is centered within it rather than pinned
-     to the top. 504px was the height the hero had when it still held the
-     CTA; +77px added (52+25) to give the texture more room before it's
-     clipped (that space is coming out of Work's top padding next, not
-     adding net dead space). */
+  /* kept at the height it was tuned to with the texture, so nothing below
+     (Work's padding, etc.) shifts as a side effect of this removal */
   min-height: 581px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* clip the texture to the section box so it dissolves at the bottom rather
-     than hanging into the next section; also stops any horizontal scrollbar */
-  overflow: clip;
   padding: 40px 0;
-}
-
-/* the fade belongs to the section, not the texture: a scrim pinned to the
-   hero's bottom edge that the traces slide under and dissolve into the page.
-   Sits above the texture but below the copy (which is z-index 1). */
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 30%;
-  /* caps at 75% paper (not full), so the traces settle to ~25% visible at
-     the bottom instead of vanishing completely */
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    color-mix(in srgb, var(--paper) 75%, transparent)
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* trace texture, right side only, behind the content. The webp is
-   transparent black lines (background keyed out), so it just needs faint
-   opacity in light mode and an invert to light lines in dark mode. No
-   blend mode and no visible image box. */
-.hero__bg {
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: min(80%, 1200px);
-  pointer-events: none;
-  background: url(/texture.webp) no-repeat right center / cover;
-  /* nudged left and down, scaled down 10% from the bottom-left so the top
-     traces drop clear of the headline (out from under the "products" s) */
-  transform-origin: left bottom;
-  transform: translate(-30px, 100px) scale(0.9);
-  opacity: 0.6;
-  /* only the left fade lives on the texture (to clear the type); the bottom
-     fade is now the section scrim (.hero::after) */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 8%, #000 40%);
-  mask-image: linear-gradient(to right, transparent 0%, transparent 8%, #000 40%);
-}
-
-@media (prefers-color-scheme: dark) {
-  .hero__bg {
-    filter: invert(1);
-    opacity: 0.66;
-  }
 }
 
 .hero__inner {
   position: relative;
-  z-index: 1;
   /* full width so, as a flex item, it doesn't shrink to its content; the
      .shell max-width + auto margins then re-center it on the page grid */
   width: 100%;
@@ -77,12 +23,170 @@
 }
 
 .hero__title {
+  position: relative;
   margin: 0;
   font-weight: 700;
   font-size: clamp(40px, 6.5vw, 80px);
-  line-height: 1.03;
+  line-height: 1.18;
   letter-spacing: -0.035em;
   color: var(--ink);
+}
+
+.hero__line {
+  display: block;
+}
+
+/* highlighter mark behind the word: a real background + padding (the
+   standard technique), not a box-shadow trick. inline-block so the padding
+   is real and the line naturally makes room for it (line-height grows a
+   little to fit, which is expected for a highlighted word).
+   --accent-highlight-text is a darker shade chosen for contrast against
+   THIS fill specifically, not the same --accent used in the plain
+   headline - a fill that's genuinely visible and text that reads on it
+   can't both also match --accent's contrast-on-paper values. */
+.hero__accent-word {
+  display: inline-block;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent-highlight) 15%, transparent);
+  border-radius: 0;
+  padding: 0.1em 0.16em;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Glitch-resolve on the first line. The real .hero__line--first below     */
+/*  is untouched, calm, and static from frame one; these two duplicates     */
+/*  are positioned relative to .hero__title (not nested inside the real     */
+/*  line) and sit over it as noise that clears away on load - the sentence  */
+/*  resolves out of static into something that was already clear.          */
+/* ------------------------------------------------------------------ */
+.hero__glitch-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  color: var(--ink);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__glitch-layer {
+    display: block;
+  }
+  .hero__glitch-layer--a {
+    z-index: 1;
+    animation: hero-glitch-a 0.6s steps(2, jump-none) both;
+  }
+  .hero__glitch-layer--b {
+    z-index: 1;
+    animation: hero-glitch-b 0.6s steps(3, jump-none) 0.04s both;
+  }
+  /* thin torn slices sit above the broader noise layers */
+  .hero__glitch-slice--a {
+    z-index: 2;
+    animation: hero-glitch-slice-a 0.6s steps(1, jump-none) 0.1s both;
+  }
+  .hero__glitch-slice--b {
+    z-index: 2;
+    animation: hero-glitch-slice-b 0.6s steps(1, jump-none) 0.26s both;
+  }
+}
+
+/* each slice clips to one thin horizontal band of the line and snaps that
+   band sideways then back - the strip tears away from the rest of the type
+   for a beat before settling, distinct from the broader blur/jitter above */
+.hero__glitch-slice {
+  clip-path: inset(0 0 100% 0);
+}
+
+@keyframes hero-glitch-slice-a {
+  0% {
+    opacity: 0.9;
+    clip-path: inset(18% 0 62% 0);
+    transform: translateX(-16px);
+  }
+  50% {
+    opacity: 0.9;
+    clip-path: inset(18% 0 62% 0);
+    transform: translateX(11px);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes hero-glitch-slice-b {
+  0% {
+    opacity: 0.85;
+    clip-path: inset(58% 0 20% 0);
+    transform: translateX(13px);
+  }
+  50% {
+    opacity: 0.85;
+    clip-path: inset(58% 0 20% 0);
+    transform: translateX(-9px);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes hero-glitch-a {
+  0% {
+    opacity: 0.85;
+    clip-path: inset(0 0 78% 0);
+    transform: translateX(-6px);
+    filter: blur(1px);
+  }
+  25% {
+    opacity: 0.8;
+    clip-path: inset(32% 0 40% 0);
+    transform: translateX(5px);
+  }
+  50% {
+    opacity: 0.7;
+    clip-path: inset(60% 0 10% 0);
+    transform: translateX(-3px);
+  }
+  75% {
+    opacity: 0.4;
+    clip-path: inset(10% 0 65% 0);
+    transform: translateX(2px);
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-glitch-b {
+  0% {
+    opacity: 0.6;
+    clip-path: inset(45% 0 0 0);
+    transform: translateX(4px);
+  }
+  30% {
+    opacity: 0.55;
+    clip-path: inset(5% 0 55% 0);
+    transform: translateX(-4px);
+  }
+  60% {
+    opacity: 0.3;
+    clip-path: inset(70% 0 5% 0);
+    transform: translateX(3px);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+    transform: translateX(0);
+  }
 }
 
 .hero__lede {
@@ -93,14 +197,36 @@
   margin: 28px 0 0;
 }
 
-/* Below ~1100px the body copy widens into the texture's space and the traces
-   would run through the paragraph. There isn't room for both, so the type
-   owns narrower screens and the texture is a wide-viewport enhancement. */
-@media (max-width: 1100px) {
-  .hero__bg {
-    display: none;
+/* ------------------------------------------------------------------ */
+/*  Entrance. Line 1 is static (its own entrance is the glitch-resolve      */
+/*  above); line 2 lands as that resolves, lede follows. First-load only;   */
+/*  disabled under reduced motion.                                          */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__line:not(.hero__line--first),
+  .hero__lede {
+    animation: hero-rise 0.6s var(--ease) both;
   }
-  /* no texture here, so drop the reserved height and let the copy set it */
+  .hero__line:not(.hero__line--first) {
+    animation-delay: 0.5s;
+  }
+  .hero__lede {
+    animation-delay: 0.68s;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 1100px) {
   .hero {
     min-height: 0;
   }

@@ -5,7 +5,7 @@
 /* ------------------------------------------------------------------ */
 /*  Design tokens.                                                     */
 /*                                                                     */
-/*  Palette: near-monochrome paper, single indigo accent. Color        */
+/*  Palette: near-monochrome paper, single amber accent. Color         */
 /*  discipline is the point: he's a colorist.                          */
 /*                                                                     */
 /*  Radius rule (one system, no exceptions):                           */
@@ -24,8 +24,10 @@
   --paper: #fbfbfd;
   --paper-2: #f4f4f8; /* section tint, same family as --paper */
   --paper-blur: rgb(251 251 253 / 0.94); /* sticky nav: near-solid so small nav text keeps contrast over scrolling content */
-  --accent: #4f46e5;
-  --accent-soft: #eceafe;
+  --accent: #9c620d; /* 4.88:1 on --paper, 4.59:1 on --paper-2 (Skills section bg) - the accent shows as text on both */
+  --accent-soft: #fdf6ed; /* badge backgrounds - stays this pale so badge TEXT reads clearly on top */
+  --accent-highlight: #e4bb67; /* warmer gold marker fill */
+  --accent-highlight-text: #744606; /* darker than --accent - this is text-on-highlight, contrast-checked against --accent-highlight (4.32:1), not against paper */
   --on-accent: #fbfbfd; /* text sitting ON an accent fill, not beside it */
   --ok: #1e874b; /* shipped-status only, never decoration */
   --danger: #b3261e;
@@ -62,8 +64,10 @@
     --paper: #101014;
     --paper-2: #16161c;
     --paper-blur: rgb(16 16 20 / 0.94);
-    --accent: #8b83ff; /* 6.1:1 on --paper; #4f46e5 only manages 3.0:1 */
-    --accent-soft: #1c1a35;
+    --accent: #efa639; /* 9.21:1 on --paper */
+    --accent-soft: #372a15;
+    --accent-highlight: #6b542e; /* 2.65:1 vs --paper */
+    --accent-highlight-text: #f7d297; /* 4.99:1 vs --accent-highlight, not vs paper */
     --on-accent: #101014; /* the lightened accent needs dark text on top */
     --ok: #4ade80;
     --danger: #ff8a80;
