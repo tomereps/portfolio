@@ -70,25 +70,33 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  /* the calm real line stays hidden until the glitch has mostly cleared,
+     then fades in - so the noise reads as concealing the text first,
+     rather than just floating on top of text that was visible the whole
+     time. no motion/no-js/SEO still get the line immediately (this rule
+     only exists inside the motion-enabled media query). */
+  .hero__line--first {
+    animation: hero-first-reveal 0.4s var(--ease) 0.7s both;
+  }
   .hero__glitch-layer {
     display: block;
   }
   .hero__glitch-layer--a {
     z-index: 1;
-    animation: hero-glitch-a 0.6s steps(2, jump-none) both;
+    animation: hero-glitch-a 0.95s steps(3, jump-none) both;
   }
   .hero__glitch-layer--b {
     z-index: 1;
-    animation: hero-glitch-b 0.6s steps(3, jump-none) 0.04s both;
+    animation: hero-glitch-b 1s steps(4, jump-none) 0.1s both;
   }
   /* thin torn slices sit above the broader noise layers */
   .hero__glitch-slice--a {
     z-index: 2;
-    animation: hero-glitch-slice-a 0.6s steps(1, jump-none) 0.1s both;
+    animation: hero-glitch-slice-a 0.55s steps(1, jump-none) 0.25s both;
   }
   .hero__glitch-slice--b {
     z-index: 2;
-    animation: hero-glitch-slice-b 0.6s steps(1, jump-none) 0.26s both;
+    animation: hero-glitch-slice-b 0.55s steps(1, jump-none) 0.5s both;
   }
 }
 
@@ -101,14 +109,14 @@
 
 @keyframes hero-glitch-slice-a {
   0% {
-    opacity: 0.9;
+    opacity: 1;
     clip-path: inset(18% 0 62% 0);
-    transform: translateX(-16px);
+    transform: translateX(-30px);
   }
   50% {
-    opacity: 0.9;
+    opacity: 1;
     clip-path: inset(18% 0 62% 0);
-    transform: translateX(11px);
+    transform: translateX(22px);
   }
   100% {
     opacity: 0;
@@ -119,14 +127,14 @@
 
 @keyframes hero-glitch-slice-b {
   0% {
-    opacity: 0.85;
+    opacity: 0.95;
     clip-path: inset(58% 0 20% 0);
-    transform: translateX(13px);
+    transform: translateX(25px);
   }
   50% {
-    opacity: 0.85;
+    opacity: 0.95;
     clip-path: inset(58% 0 20% 0);
-    transform: translateX(-9px);
+    transform: translateX(-18px);
   }
   100% {
     opacity: 0;
@@ -137,50 +145,47 @@
 
 @keyframes hero-glitch-a {
   0% {
-    opacity: 0.85;
+    opacity: 0.95;
     clip-path: inset(0 0 78% 0);
-    transform: translateX(-6px);
-    filter: blur(1px);
+    transform: translateX(-14px);
   }
   25% {
-    opacity: 0.8;
+    opacity: 0.9;
     clip-path: inset(32% 0 40% 0);
-    transform: translateX(5px);
+    transform: translateX(11px);
   }
   50% {
-    opacity: 0.7;
+    opacity: 0.8;
     clip-path: inset(60% 0 10% 0);
-    transform: translateX(-3px);
+    transform: translateX(-8px);
   }
   75% {
-    opacity: 0.4;
+    opacity: 0.5;
     clip-path: inset(10% 0 65% 0);
-    transform: translateX(2px);
-    filter: blur(0.5px);
+    transform: translateX(5px);
   }
   100% {
     opacity: 0;
     clip-path: inset(0 0 100% 0);
     transform: translateX(0);
-    filter: blur(0);
   }
 }
 
 @keyframes hero-glitch-b {
   0% {
-    opacity: 0.6;
+    opacity: 0.7;
     clip-path: inset(45% 0 0 0);
-    transform: translateX(4px);
+    transform: translateX(9px);
   }
   30% {
-    opacity: 0.55;
+    opacity: 0.65;
     clip-path: inset(5% 0 55% 0);
-    transform: translateX(-4px);
+    transform: translateX(-9px);
   }
   60% {
-    opacity: 0.3;
+    opacity: 0.4;
     clip-path: inset(70% 0 5% 0);
-    transform: translateX(3px);
+    transform: translateX(7px);
   }
   100% {
     opacity: 0;
@@ -202,16 +207,23 @@
 /*  above); line 2 lands as that resolves, lede follows. First-load only;   */
 /*  disabled under reduced motion.                                          */
 /* ------------------------------------------------------------------ */
+/* both share the same softer, slightly overshooting ease - noticeably
+   eased rather than the sharper deceleration the rest of the site uses */
 @media (prefers-reduced-motion: no-preference) {
-  .hero__line:not(.hero__line--first),
   .hero__lede {
-    animation: hero-rise 0.6s var(--ease) both;
+    animation: hero-rise 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 1.3s both;
   }
   .hero__line:not(.hero__line--first) {
-    animation-delay: 0.5s;
+    animation: hero-rise 1.3s cubic-bezier(0.34, 1.56, 0.64, 1) 0.95s both;
   }
-  .hero__lede {
-    animation-delay: 0.68s;
+}
+
+@keyframes hero-first-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
