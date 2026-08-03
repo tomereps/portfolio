@@ -63,9 +63,15 @@
   position: absolute;
   top: 0;
   left: 0;
+  /* match the real line's box exactly so it wraps the same way at any
+     width - without this, an absolutely positioned span with no width
+     constraint just shrink-wraps to one line regardless of viewport,
+     so on mobile (where the real text wraps to two lines) the glitch
+     would resolve as one line and then jump to two - a layout pop */
+  width: 100%;
   display: none;
   color: var(--ink);
-  white-space: nowrap;
+  white-space: normal;
   pointer-events: none;
 }
 
