@@ -16,8 +16,28 @@ import './ReelTeaser.css';
 const MAX_THUMBS = 5;
 
 export default function ReelTeaser() {
-  // nothing to show and nothing worth linking to
-  if (reel.length === 0) return null;
+  /* Empty reel: announce it rather than hide it, matching the nav chip and the
+     /reel placeholder. A static card, not a link, because clicking through to
+     a second "coming soon" would be a dead end. Swaps to the poster strip on
+     its own once the manifest has clips. */
+  if (reel.length === 0) {
+    return (
+      <>
+        <div className="work__head work__head--sub">
+          <h2 className="work__title">AI generations</h2>
+          <span className="work__count">shot tests &amp; motion studies</span>
+        </div>
+
+        <div className="reelteaser reelteaser--soon">
+          <span className="reelteaser__soon-tag mono">Coming soon</span>
+          <p className="reelteaser__soon-text">
+            A reel of generated shots, look tests and motion studies. The first clips are being cut
+            now.
+          </p>
+        </div>
+      </>
+    );
+  }
 
   const thumbs = reel.slice(0, MAX_THUMBS);
   const rest = reel.length - thumbs.length;
