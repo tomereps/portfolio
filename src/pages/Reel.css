@@ -1,0 +1,125 @@
+/* ------------------------------------------------------------------ */
+/*  Reel page: header + masonry wall.                                  */
+/*                                                                     */
+/*  Layout is CSS multi-column, not grid row-spans. Generated clips     */
+/*  arrive in whatever aspect the model produced, and columns let each  */
+/*  tile keep its true shape with no cropping and no per-breakpoint     */
+/*  span arithmetic. Reading order runs down each column, which is how  */
+/*  a gallery is scanned anyway.                                       */
+/* ------------------------------------------------------------------ */
+.reel {
+  padding: 34px 28px 80px;
+}
+
+.reel__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+  margin-bottom: 26px;
+}
+
+.reel__title {
+  font-size: 26px;
+  color: var(--ink);
+  margin: 0 0 6px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.reel__lede {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--sub);
+}
+
+.reel__count {
+  font-size: 12px;
+  color: var(--sub);
+  white-space: nowrap;
+}
+
+/* coming-soon placeholder, shown only while the manifest is empty */
+.reel__soon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 48px 32px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--r-panel);
+  background: var(--paper-2);
+}
+
+.reel__soon-tag {
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 4px 9px;
+  border-radius: var(--r-control);
+}
+
+.reel__soon-text {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--sub);
+}
+
+.reel__soon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.reel__soon-link span {
+  transition: transform var(--dur) var(--ease);
+}
+
+.reel__soon-link:hover span {
+  transform: translateX(4px);
+}
+
+.reel__grid {
+  columns: 3;
+  column-gap: 20px;
+}
+
+/* the Reveal wrapper is the column item, so the break rule lives here */
+.reel__cell {
+  break-inside: avoid;
+  /* a transformed element can still be split by some engines; forcing a new
+     stacking context keeps the tile whole while it animates in */
+  display: block;
+  margin: 0 0 20px;
+}
+
+@media (max-width: 1000px) {
+  .reel__grid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .reel {
+    padding: 26px 18px 60px;
+  }
+  .reel__head {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .reel__grid {
+    columns: 1;
+  }
+}

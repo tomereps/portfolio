@@ -1,0 +1,94 @@
+/* ------------------------------------------------------------------ */
+/*  Reel teaser: poster strip linking from Work to /reel.              */
+/*                                                                     */
+/*  Borrows the card's border/radius language so it reads as a sibling  */
+/*  of the project cards rather than a banner bolted underneath.        */
+/* ------------------------------------------------------------------ */
+.reelteaser {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r-panel);
+  overflow: hidden;
+  background: var(--paper-2);
+  transition:
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.reelteaser:hover {
+  border-color: var(--line-strong);
+  box-shadow: 0 10px 30px rgb(var(--shadow) / 0.07);
+}
+
+.reelteaser__strip {
+  display: grid;
+  /* equal columns however many thumbs there are, so the strip never
+     depends on the clip count to stay balanced */
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 1px;
+  background: var(--line);
+}
+
+.reelteaser__thumb {
+  display: block;
+  width: 100%;
+  height: 168px;
+  object-fit: cover;
+  /* generated clips vary wildly in aspect; cover keeps the strip a clean
+     band and the real shape is preserved on the reel page itself */
+  background: var(--paper-2);
+}
+
+.reelteaser__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 16px;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.reelteaser__label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.reelteaser__rest {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--faint);
+}
+
+.reelteaser__arrow {
+  color: var(--accent);
+  font-size: 15px;
+  transition: transform var(--dur) var(--ease);
+}
+
+.reelteaser:hover .reelteaser__arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  /* five thumbs at phone width are slivers; two rows of larger frames
+     read as actual footage */
+  .reelteaser__strip {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .reelteaser__thumb {
+    height: 108px;
+  }
+
+  /* an odd last thumb spans the full width rather than leaving a hole */
+  .reelteaser__thumb:last-child:nth-child(odd) {
+    grid-column: span 2;
+  }
+}

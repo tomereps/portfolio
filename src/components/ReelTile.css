@@ -1,0 +1,133 @@
+/* ------------------------------------------------------------------ */
+/*  One reel tile: media surface + caption bar.                        */
+/* ------------------------------------------------------------------ */
+.reeltile {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-panel);
+  background: var(--paper-2);
+  overflow: hidden;
+  transition:
+    border-color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.reeltile:hover {
+  border-color: var(--line-strong);
+}
+
+/* The whole media area is the button that opens the clip. */
+.reeltile__surface {
+  display: block;
+  position: relative;
+  width: 100%;
+  /* reserved from the manifest's real dimensions, so nothing reflows on load */
+  aspect-ratio: var(--aspect);
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background: var(--paper-2);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.reeltile__surface:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-radius: 0;
+}
+
+.reeltile__poster,
+.reeltile__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* The poster sits underneath permanently. The video paints over it once it
+   has frames, so there is no flash of empty box between the two. */
+.reeltile__video {
+  z-index: 1;
+}
+
+.reeltile__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgb(var(--shadow) / 0);
+  transition: background var(--dur) var(--ease);
+}
+
+.reeltile__surface:hover .reeltile__scrim {
+  background: rgb(var(--shadow) / 0.08);
+}
+
+.reeltile__bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.reeltile__title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reeltile__tool {
+  font-size: 11px;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+/* pushes the speaker to the right edge whether or not a tool label exists */
+.reeltile__sound {
+  margin-left: auto;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-control);
+  background: transparent;
+  color: var(--sub);
+  cursor: pointer;
+  transition:
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+
+.reeltile__sound svg {
+  width: 16px;
+  height: 16px;
+}
+
+.reeltile__sound:hover {
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+
+/* audible: the one place the accent appears in the grid, so it reads as
+   state rather than decoration */
+.reeltile__sound[aria-pressed='true'] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.reeltile__sound:active {
+  transform: translateY(1px);
+}

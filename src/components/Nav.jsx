@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { reel } from '../data/reel';
 import './Nav.css';
 import cvUrl from '../../TomerEP_CV.pdf';
 
@@ -22,6 +24,12 @@ export default function Nav() {
               {l}
             </a>
           ))}
+          {/* a route, not a section: routed so it does not reload the app */}
+          <Link className="nav__link" to="/reel">
+            Reel
+            {/* flags the placeholder so the click is not a surprise */}
+            {reel.length === 0 && <span className="nav__soon mono">soon</span>}
+          </Link>
         </nav>
 
         <a className="nav__cta" href={cvUrl} download="Tomer-Epshtein-CV.pdf">

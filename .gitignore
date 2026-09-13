@@ -30,3 +30,6 @@ agent/
 .claude/settings.local.json
 .impeccable/
 skills-lock.json
+
+# Raw AI generations (20MB+ masters). Encoded derivatives go to public/reel/.
+media/

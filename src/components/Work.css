@@ -11,6 +11,12 @@
   margin-bottom: 28px;
 }
 
+/* the second band in the section needs air above it; the first sits right
+   under the hero and supplies its own */
+.work__head--sub {
+  margin-top: 44px;
+}
+
 .work__title {
   font-size: 26px;
   color: var(--ink);

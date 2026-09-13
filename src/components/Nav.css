@@ -61,6 +61,18 @@
   transition: color 0.2s ease;
 }
 
+/* "soon" chip beside the Reel link while the reel is empty */
+.nav__soon {
+  margin-left: 6px;
+  padding: 1px 5px;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  vertical-align: 1px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: var(--r-control);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .nav__link:hover {
     color: var(--ink);

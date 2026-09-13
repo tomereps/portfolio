@@ -1,5 +1,6 @@
 import ProjectCard from './ProjectCard';
 import Reveal from './Reveal';
+import ReelTeaser from './ReelTeaser';
 import { shipped } from '../data/projects';
 import './Work.css';
 
@@ -18,6 +19,11 @@ export default function Work() {
           </Reveal>
         ))}
       </div>
+
+      {/* second band under the same #work anchor: work is not only products */}
+      <Reveal>
+        <ReelTeaser />
+      </Reveal>
     </section>
   );
 }
