@@ -8,13 +8,11 @@ import './Reel.css';
 /*
  * The reel: a wall of AI generations.
  *
- * The page owns two pieces of state the tiles cannot own individually:
- *   soloId  - which clip is audible. Exactly one, ever, because a grid of
- *             clips all unmuting at once is unusable.
- *   openId  - which clip is in the lightbox.
+ * Tiles play short silent previews. Opening one loads the full piece, with
+ * sound, from Vercel Blob in the lightbox. That split is what lets long
+ * episodes sit in the grid without the page streaming all of them.
  */
 export default function Reel() {
-  const [soloId, setSoloId] = useState(null);
   const [openId, setOpenId] = useState(null);
 
   // routed page: arrive at the top, same as the case-study routes
@@ -24,11 +22,6 @@ export default function Reel() {
 
   const openIndex = reel.findIndex((c) => c.id === openId);
   const open = openIndex >= 0 ? reel[openIndex] : null;
-
-  // the lightbox carries its own audio, so nothing in the grid should be loud
-  useEffect(() => {
-    if (open) setSoloId(null);
-  }, [open]);
 
   const step = useCallback(
     (dir) => {
@@ -46,8 +39,8 @@ export default function Reel() {
           <h1 className="reel__title">Reel</h1>
           <p className="reel__lede">
             Generated shots, look tests and motion studies.
-            {/* the sound hint only means something once there is a tile to tap */}
-            {reel.length > 0 && ' Sound is off by default. Tap the speaker on any tile, or open one for the full frame.'}
+            {/* the playback hint only means something once there is a tile */}
+            {reel.length > 0 && ' Tiles play silent previews. Open one to watch the full piece with sound.'}
           </p>
         </div>
         {reel.length > 0 && (
@@ -76,13 +69,12 @@ export default function Reel() {
       ) : (
         <div className="reel__grid">
           {reel.map((clip, i) => (
-            <Reveal key={clip.id} delay={Math.min(i, 6) * 70} className={`reel__cell reel__cell--${clip.orientation}`}>
-              <ReelTile
-                clip={clip}
-                solo={soloId === clip.id}
-                onSolo={setSoloId}
-                onOpen={(c) => setOpenId(c.id)}
-              />
+            <Reveal
+              key={clip.id}
+              delay={Math.min(i, 6) * 70}
+              className={`reel__cell reel__cell--${clip.orientation}`}
+            >
+              <ReelTile clip={clip} onOpen={(c) => setOpenId(c.id)} />
             </Reveal>
           ))}
         </div>

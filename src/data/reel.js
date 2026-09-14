@@ -2,8 +2,14 @@
 /*  Reel: AI generations.                                              */
 /*                                                                     */
 /*  reel-manifest.json is MACHINE-WRITTEN by scripts/optimize-videos    */
-/*  (ids, paths, real dimensions, durations). Never hand-edit it: the   */
+/*  (ids, URLs, real dimensions, durations). Never hand-edit it: the    */
 /*  next encode overwrites it.                                          */
+/*                                                                     */
+/*  Each clip has two videos:                                          */
+/*    preview  short silent loop, committed under public/reel/, played  */
+/*             by the grid tiles                                       */
+/*    src      the full piece with sound, hosted on Vercel Blob, loaded */
+/*             only when the lightbox opens                            */
 /*                                                                     */
 /*  Copy lives in META below, keyed by clip id, so re-encoding never    */
 /*  clobbers what you wrote. A clip with no META entry still renders;   */
@@ -11,13 +17,8 @@
 /* ------------------------------------------------------------------ */
 import manifest from './reel-manifest.json';
 
-/* Clips are served from public/reel/ while the folder stays small. When it
-   passes ~50MB, upload public/reel/ to Vercel Blob and set this to the bucket
-   origin (no trailing slash) - nothing else in the app has to change. */
-export const REEL_BASE = '';
-
 const META = {
-  // '01-neon-drift': { title: 'Neon Drift', tool: 'Veo 3', note: 'Camera test' },
+  // 'Julius_Ep01': { title: 'Julius, Episode 1', tool: 'Veo 3', note: '' },
 };
 
 /* '02-paper-bloom' -> 'Paper Bloom'. Leading sort-order digits are dropped so
@@ -42,8 +43,6 @@ export const reel = manifest.map((clip) => {
   return {
     ...clip,
     ...meta,
-    src: REEL_BASE + clip.src,
-    poster: REEL_BASE + clip.poster,
     title: meta.title ?? titleFromId(clip.id),
     orientation: orientation(clip.width, clip.height),
   };

@@ -33,3 +33,8 @@ skills-lock.json
 
 # Raw AI generations (20MB+ masters). Encoded derivatives go to public/reel/.
 media/
+
+# Vercel CLI link metadata (vercel link / vercel env pull)
+.vercel
+
+.env*

@@ -90,44 +90,46 @@
   white-space: nowrap;
 }
 
-/* pushes the speaker to the right edge whether or not a tool label exists */
-.reeltile__sound {
+/* runtime of the full piece; margin-left:auto pins it right whether or not a
+   tool label exists */
+.reeltile__dur {
   margin-left: auto;
   flex: none;
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  padding: 0;
+  font-size: 11.5px;
+  color: var(--sub);
+  padding: 2px 7px;
   border: 1px solid var(--line);
   border-radius: var(--r-control);
-  background: transparent;
-  color: var(--sub);
-  cursor: pointer;
-  transition:
-    color var(--dur) var(--ease),
-    border-color var(--dur) var(--ease),
-    background var(--dur) var(--ease);
 }
 
-.reeltile__sound svg {
+/* Play badge: tells the viewer the silent loop opens into the full piece.
+   Fixed light-on-dark because it sits over footage in both themes. */
+.reeltile__play {
+  position: absolute;
+  z-index: 3;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #fbfbfd;
+  background: rgb(19 19 26 / 0.55);
+  backdrop-filter: blur(6px);
+  transition:
+    background var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.reeltile__play svg {
   width: 16px;
   height: 16px;
+  margin-left: 2px; /* optical centering of the triangle */
 }
 
-.reeltile__sound:hover {
-  color: var(--ink);
-  border-color: var(--line-strong);
-}
-
-/* audible: the one place the accent appears in the grid, so it reads as
-   state rather than decoration */
-.reeltile__sound[aria-pressed='true'] {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: var(--accent-soft);
-}
-
-.reeltile__sound:active {
-  transform: translateY(1px);
+.reeltile__surface:hover .reeltile__play {
+  background: var(--accent);
+  color: var(--on-accent);
+  transform: scale(1.06);
 }

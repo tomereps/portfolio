@@ -4,18 +4,19 @@ import './ReelTile.css';
 /*
  * One clip in the reel grid.
  *
- * Three things make a wall of video cheap enough to ship:
- *   1. No <video src> until the tile is within 300px of the viewport, so a
- *      20-clip page opens with zero video requests.
- *   2. Playback only while on screen; scrolling past pauses and frees decode.
- *   3. The poster is a plain <img> underneath, so the tile is never blank and
- *      the aspect box is reserved from the manifest's real dimensions.
+ * The tile plays the clip's PREVIEW: a short silent loop committed to the
+ * repo. The full piece, with sound, lives on Vercel Blob and only loads when
+ * the viewer opens the lightbox. So a grid of long episodes costs a few small
+ * loops, not a stream of every episode.
  *
- * Audio: tiles autoplay MUTED because every browser blocks audible autoplay.
- * The speaker button is the user gesture that unmutes, and the parent enforces
- * one audible clip at a time.
+ * Three more things keep a wall of video cheap:
+ *   1. No <video src> until the tile is within 300px of the viewport, so the
+ *      page opens with zero video requests.
+ *   2. Playback only while on screen; scrolling past pauses and frees decode.
+ *   3. The poster is a plain <img> underneath, taken from the preview's first
+ *      frame, so the tile is never blank and there is no jump when it starts.
  */
-export default function ReelTile({ clip, solo, onSolo, onOpen }) {
+export default function ReelTile({ clip, onOpen }) {
   const wrapRef = useRef(null);
   const videoRef = useRef(null);
   const [armed, setArmed] = useState(false); // src attached
@@ -33,7 +34,7 @@ export default function ReelTile({ clip, solo, onSolo, onOpen }) {
   /* Two observers, because the two jobs need different margins and a single
      observer only gets one rootMargin.
 
-     Arming runs 300px ahead so the clip has begun buffering by the time it
+     Arming runs 300px ahead so the preview has begun buffering by the time it
      scrolls in. Playback uses a slightly INSET viewport and a zero threshold
      rather than a ratio: a tall portrait clip can be the only thing on screen
      and still never cover 40% of a short viewport, so a ratio test would leave
@@ -67,11 +68,6 @@ export default function ReelTile({ clip, solo, onSolo, onOpen }) {
     };
   }, []);
 
-  /* Read solo without depending on it: this effect is about visibility, and
-     re-running it on every mute change would restart playback needlessly. */
-  const soloRef = useRef(solo);
-  soloRef.current = solo;
-
   /* Play only while on screen. Reduced motion means the poster stays put
      until the viewer opens the clip deliberately. */
   useEffect(() => {
@@ -84,22 +80,8 @@ export default function ReelTile({ clip, solo, onSolo, onOpen }) {
       v.play().catch(() => {});
     } else {
       v.pause();
-      if (soloRef.current) onSolo(null); // scrolled away from the audible clip
     }
-  }, [armed, onScreen, reduced, onSolo]);
-
-  /* The parent owns which clip is audible; the element just follows. */
-  useEffect(() => {
-    const v = videoRef.current;
-    if (v) v.muted = !solo;
-  }, [solo]);
-
-  const toggleSound = (e) => {
-    e.stopPropagation(); // the tile itself opens the lightbox
-    const v = videoRef.current;
-    if (v && v.paused) v.play().catch(() => {});
-    onSolo(solo ? null : clip.id);
-  };
+  }, [armed, onScreen, reduced]);
 
   return (
     <figure
@@ -111,7 +93,7 @@ export default function ReelTile({ clip, solo, onSolo, onOpen }) {
         type="button"
         className="reeltile__surface"
         onClick={() => onOpen(clip)}
-        aria-label={`Open ${clip.title}`}
+        aria-label={`Play ${clip.title} with sound`}
       >
         <img className="reeltile__poster" src={clip.poster} alt="" loading="lazy" decoding="async" />
 
@@ -119,7 +101,7 @@ export default function ReelTile({ clip, solo, onSolo, onOpen }) {
           <video
             ref={videoRef}
             className="reeltile__video"
-            src={clip.src}
+            src={clip.preview}
             poster={clip.poster}
             loop
             muted
@@ -131,51 +113,28 @@ export default function ReelTile({ clip, solo, onSolo, onOpen }) {
         )}
 
         <span className="reeltile__scrim" aria-hidden="true" />
+
+        {/* play affordance: previews are silent, the full piece is one click away */}
+        <span className="reeltile__play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5.5v13l11-6.5Z" />
+          </svg>
+        </span>
       </button>
 
       <figcaption className="reeltile__bar">
         <span className="reeltile__title">{clip.title}</span>
         {clip.tool && <span className="reeltile__tool mono">{clip.tool}</span>}
-
-        <button
-          type="button"
-          className="reeltile__sound"
-          onClick={toggleSound}
-          aria-pressed={solo}
-          aria-label={solo ? `Mute ${clip.title}` : `Unmute ${clip.title}`}
-        >
-          {solo ? <SpeakerOn /> : <SpeakerOff />}
-        </button>
+        <span className="reeltile__dur mono">{formatDuration(clip.duration)}</span>
       </figcaption>
     </figure>
   );
 }
 
-const iconProps = {
-  viewBox: '0 0 24 24',
-  fill: 'none',
-  stroke: 'currentColor',
-  strokeWidth: 1.6,
-  strokeLinecap: 'round',
-  strokeLinejoin: 'round',
-  'aria-hidden': true,
-};
-
-function SpeakerOn() {
-  return (
-    <svg {...iconProps}>
-      <path d="M4 9.5h3L11.5 6v12L7 14.5H4Z" />
-      <path d="M15.5 9a4 4 0 0 1 0 6" />
-      <path d="M18 6.5a7.5 7.5 0 0 1 0 11" />
-    </svg>
-  );
-}
-
-function SpeakerOff() {
-  return (
-    <svg {...iconProps}>
-      <path d="M4 9.5h3L11.5 6v12L7 14.5H4Z" />
-      <path d="m16 9.5 4.5 5M20.5 9.5l-4.5 5" />
-    </svg>
-  );
+/* 105.96 -> '1:46', 6.01 -> '0:06' */
+function formatDuration(seconds) {
+  const total = Math.round(seconds || 0);
+  const m = Math.floor(total / 60);
+  const s = String(total % 60).padStart(2, '0');
+  return `${m}:${s}`;
 }
