@@ -106,6 +106,20 @@ textarea:focus-visible {
   border-radius: var(--r-control);
 }
 
+/* Anchor targets stop below the sticky nav instead of under it. The nav is
+   one row on desktop and two rows (brand + link strip) under 860px. */
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+/* measured: the two-row nav ends at ~109px on a phone; 124 keeps the same
+   ~16px breathing room the desktop offset gives */
+@media (max-width: 860px) {
+  section[id] {
+    scroll-margin-top: 124px;
+  }
+}
+
 /* shared centered container */
 .shell {
   max-width: var(--maxw);
