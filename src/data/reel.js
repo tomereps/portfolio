@@ -27,6 +27,7 @@ const FALLBACK_CATEGORY = 'Other';
 
 const META = {
   Julius_Ep01: { title: 'Julius, Episode 1', category: 'Episodic' },
+  Julius_Ep02_Dialogue_01: { title: 'Julius, Episode 2: Dialogue', category: 'Episodic' },
   // 'some-clip': { title: 'Title', category: 'Shot tests', tool: 'Veo 3', note: '' },
 };
 

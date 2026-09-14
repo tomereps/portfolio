@@ -90,20 +90,36 @@
   white-space: nowrap;
 }
 
-/* Narrow portrait tiles on a phone are ~160px wide: let the title take two
-   lines instead of truncating "Julius, Episode 1" to "Julius, Epi...". */
+/* Portrait tiles are narrow at every size (~200px on desktop, ~160px on a
+   phone), so a title like "Julius, Episode 2: Dialogue" gets two lines
+   instead of an ellipsis. Clamped at two so the bar stays compact. */
+.reeltile__bar {
+  align-items: flex-start;
+}
+
+.reeltile__title {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  line-height: 1.3;
+}
+
 @media (max-width: 640px) {
+  /* ~160px is too narrow for a two-line title AND the runtime badge side by
+     side: give the title the full width and drop the runtime under it */
   .reeltile__bar {
-    align-items: flex-start;
+    flex-wrap: wrap;
+    row-gap: 6px;
   }
 
   .reeltile__title {
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    line-height: 1.3;
+    flex-basis: 100%;
+  }
+
+  .reeltile__dur {
+    margin-left: 0;
   }
 
   /* the tool label would squeeze the title back to nothing at this width */
