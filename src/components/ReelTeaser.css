@@ -31,6 +31,12 @@
   background: var(--line);
 }
 
+/* one poster + its AI / No AI badge; the cell is the grid item */
+.reelteaser__cell {
+  position: relative;
+  display: block;
+}
+
 .reelteaser__thumb {
   display: block;
   width: 100%;
@@ -39,6 +45,31 @@
   /* generated clips vary wildly in aspect; cover keeps the strip a clean
      band and the real shape is preserved on the reel page itself */
   background: var(--paper-2);
+}
+
+/* same badge language as the reel tiles; fixed colors over footage */
+.reelteaser__kind {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--r-control);
+  backdrop-filter: blur(6px);
+}
+
+.reelteaser__kind--ai {
+  color: #fbfbfd;
+  background: rgb(19 19 26 / 0.55);
+}
+
+.reelteaser__kind--vfx {
+  color: #13131a;
+  background: #efa639;
 }
 
 .reelteaser__bar {
@@ -122,8 +153,8 @@
     height: 108px;
   }
 
-  /* an odd last thumb spans the full width rather than leaving a hole */
-  .reelteaser__thumb:last-child:nth-child(odd) {
+  /* an odd last poster spans the full width rather than leaving a hole */
+  .reelteaser__cell:last-child:nth-child(odd) {
     grid-column: span 2;
   }
 }

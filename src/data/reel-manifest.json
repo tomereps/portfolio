@@ -1,5 +1,15 @@
 [
   {
+    "id": "COMP_REEL",
+    "src": "https://uze0spgssh2ouq5r.public.blob.vercel-storage.com/reel/COMP_REEL-21445dfb15.mp4",
+    "hash": "21445dfb15",
+    "preview": "/reel/COMP_REEL-preview.mp4",
+    "poster": "/reel/COMP_REEL.webp",
+    "width": 1280,
+    "height": 720,
+    "duration": 95.81
+  },
+  {
     "id": "Julius_Ep01",
     "src": "https://uze0spgssh2ouq5r.public.blob.vercel-storage.com/reel/Julius_Ep01-66b40fbb0a.mp4",
     "hash": "66b40fbb0a",

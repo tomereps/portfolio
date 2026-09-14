@@ -171,3 +171,32 @@
   color: var(--on-accent);
   transform: scale(1.06);
 }
+
+/* AI / No AI badge, top-left over the footage. Present on every tile so a
+   clip seen out of its section context still says what it is. Fixed colors
+   because it sits over video in both themes. */
+.reeltile__kind {
+  position: absolute;
+  z-index: 3;
+  top: 10px;
+  left: 10px;
+  padding: 3px 7px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--r-control);
+  backdrop-filter: blur(6px);
+}
+
+.reeltile__kind--ai {
+  color: #fbfbfd;
+  background: rgb(19 19 26 / 0.55);
+}
+
+/* the non-AI work is the claim worth making loudly: amber fill */
+.reeltile__kind--vfx {
+  color: #13131a;
+  background: #efa639;
+}

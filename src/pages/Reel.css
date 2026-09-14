@@ -117,6 +117,40 @@
   color: var(--faint);
 }
 
+/* AI / No AI chip beside the section title */
+.reel__kind {
+  align-self: center;
+  padding: 2px 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--r-control);
+  white-space: nowrap;
+}
+
+.reel__kind--ai {
+  color: var(--sub);
+  border: 1px solid var(--line-strong);
+}
+
+/* non-AI work stated loudly, in the page's one accent */
+.reel__kind--vfx {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+}
+
+/* one line under the heading saying plainly how the section was made */
+.reel__section-blurb {
+  margin: -8px 0 16px;
+  max-width: 64ch;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--sub);
+}
+
 /* ---- equal-height rows -------------------------------------------- */
 /* Every tile starts at ROW HEIGHT tall: its flex-basis is its aspect ratio
    (--ar = width / height) times --row-h, and the media box keeps that ratio.

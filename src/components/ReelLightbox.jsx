@@ -101,6 +101,9 @@ export default function ReelLightbox({ clip, onClose, onStep }) {
 
         <div className="reelbox__meta">
           <span className="reelbox__title">{clip.title}</span>
+          {clip.kindLabel && (
+            <span className={`reelbox__kind reelbox__kind--${clip.kind}`}>{clip.kindLabel}</span>
+          )}
           {clip.tool && <span className="reelbox__tool mono">{clip.tool}</span>}
           {clip.note && <span className="reelbox__note">{clip.note}</span>}
         </div>

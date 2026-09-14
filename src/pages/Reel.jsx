@@ -42,7 +42,8 @@ export default function Reel() {
         <div>
           <h1 className="reel__title">Reel</h1>
           <p className="reel__lede">
-            Generated shots, look tests and motion studies.
+            AI-generated series and traditional VFX compositing. Every section and clip is marked
+            AI or No AI.
             {/* the playback hint only means something once there is a tile */}
             {reel.length > 0 && ' Tiles play silent previews. Open one to watch the full piece with sound.'}
           </p>
@@ -79,10 +80,16 @@ export default function Reel() {
                 <h2 id={headingId} className="reel__section-title">
                   {section.name}
                 </h2>
+                {/* AI or not, stated at the section level: the one fact a
+                    viewer must never have to guess about this work */}
+                {section.kindBadge && (
+                  <span className={`reel__kind reel__kind--${section.kind}`}>{section.kindBadge}</span>
+                )}
                 <span className="reel__section-count mono">
                   {section.clips.length} clip{section.clips.length === 1 ? '' : 's'}
                 </span>
               </div>
+              {section.blurb && <p className="reel__section-blurb">{section.blurb}</p>}
 
               <div className="reel__grid">
                 {section.clips.map((clip, i) => (

@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------ */
-/*  Reel: AI generations.                                              */
+/*  Reel: AI generations and traditional VFX work.                     */
 /*                                                                     */
 /*  reel-manifest.json is MACHINE-WRITTEN by scripts/optimize-videos    */
 /*  (ids, URLs, real dimensions, durations). Never hand-edit it: the    */
@@ -13,14 +13,32 @@
 /*                                                                     */
 /*  Copy and filing live in META below, keyed by clip id (the source    */
 /*  filename without extension), so re-encoding never clobbers them.   */
-/*  A clip with no META entry still renders: its title comes from the   */
-/*  filename and it lands in the fallback category.                    */
 /* ------------------------------------------------------------------ */
 import manifest from './reel-manifest.json';
 
-/* Section order on the reel page. A category used in META but missing here
-   still shows up, after these, in the order it is first used. */
-const CATEGORY_ORDER = ['Episodic'];
+/* How a piece was made. Stated on the section, on every tile and in the
+   lightbox, because whether work is AI-generated must never be left for the
+   viewer to guess. */
+const KINDS = {
+  ai: { badge: 'AI', label: 'Generated with AI' },
+  vfx: { badge: 'No AI', label: 'Traditional VFX compositing, no AI' },
+};
+
+/* Categories in section order. Each one declares its kind. A category used
+   in META but missing here still gets a section (after these), but carries
+   NO kind badge until it is added, rather than guessing a wrong one. */
+const CATEGORIES = [
+  {
+    name: 'Episodic',
+    kind: 'ai',
+    blurb: 'AI-generated series with recurring characters and continuity across episodes.',
+  },
+  {
+    name: 'Compositing',
+    kind: 'vfx',
+    blurb: 'Traditional VFX compositing. No generative AI was used in this work.',
+  },
+];
 
 /* where clips without a category go; always the last section */
 const FALLBACK_CATEGORY = 'Other';
@@ -28,8 +46,18 @@ const FALLBACK_CATEGORY = 'Other';
 const META = {
   Julius_Ep01: { title: 'Julius, Episode 1', category: 'Episodic' },
   Julius_Ep02_Dialogue_01: { title: 'Julius, Episode 2: Dialogue', category: 'Episodic' },
-  // 'some-clip': { title: 'Title', category: 'Shot tests', tool: 'Veo 3', note: '' },
+  COMP_REEL: { title: 'Compositing Reel', category: 'Compositing' },
+  // 'some-clip': { title: 'Title', category: 'Episodic', tool: 'Veo 3', note: '' },
 };
+
+const categoryInfo = new Map(CATEGORIES.map((c) => [c.name, c]));
+
+/* kind fields for a category; empty when the category declares none */
+function kindFields(categoryName) {
+  const kind = categoryInfo.get(categoryName)?.kind;
+  const k = KINDS[kind];
+  return k ? { kind, kindBadge: k.badge, kindLabel: k.label } : { kind: null, kindBadge: '', kindLabel: '' };
+}
 
 /* '02-paper-bloom' -> 'Paper Bloom'. Leading sort-order digits are dropped so
    you can control order by filename without it showing up in the UI. */
@@ -50,17 +78,20 @@ function orientation(w, h) {
 
 const clips = manifest.map((clip) => {
   const meta = META[clip.id] ?? {};
+  const category = meta.category?.trim() || FALLBACK_CATEGORY;
   return {
     ...clip,
     ...meta,
     title: meta.title ?? titleFromId(clip.id),
-    category: meta.category?.trim() || FALLBACK_CATEGORY,
+    category,
+    ...kindFields(category),
     orientation: orientation(clip.width, clip.height),
   };
 });
 
-/* Clips grouped for display: known categories first, then any new ones in
-   first-use order, then the fallback. Empty categories are never listed. */
+/* Clips grouped for display: declared categories first, in CATEGORIES order,
+   then undeclared ones in first-use order, then the fallback. Empty
+   categories are never listed. */
 export const reelSections = (() => {
   const byCategory = new Map();
   for (const clip of clips) {
@@ -68,16 +99,22 @@ export const reelSections = (() => {
     byCategory.get(clip.category).push(clip);
   }
 
+  const order = CATEGORIES.map((c) => c.name);
   const rank = (name) => {
     if (name === FALLBACK_CATEGORY) return Number.MAX_SAFE_INTEGER;
-    const i = CATEGORY_ORDER.indexOf(name);
-    return i === -1 ? CATEGORY_ORDER.length : i;
+    const i = order.indexOf(name);
+    return i === -1 ? order.length : i;
   };
 
-  // Array.prototype.sort is stable, so unlisted categories keep first-use order
+  // Array.prototype.sort is stable, so undeclared categories keep first-use order
   return [...byCategory.entries()]
     .sort(([a], [b]) => rank(a) - rank(b))
-    .map(([name, items]) => ({ name, clips: items }));
+    .map(([name, items]) => ({
+      name,
+      blurb: categoryInfo.get(name)?.blurb ?? '',
+      ...kindFields(name),
+      clips: items,
+    }));
 })();
 
 /* Flat list in DISPLAY order (section by section), so the lightbox's
