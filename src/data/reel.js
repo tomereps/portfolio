@@ -25,6 +25,22 @@ const CATEGORIES = [
     name: 'Episodic',
     blurb: 'AI-generated series with recurring characters and continuity across episodes.',
   },
+  /* Ready for upcoming work: hidden until the first clip is filed under one.
+     The blurbs assume AI-generated work; if a clip in one of these is
+     traditional, change its blurb (or file it under Compositing) first. */
+  {
+    name: 'Short film',
+    blurb: 'Standalone AI-generated narrative pieces.',
+  },
+  {
+    name: 'Commercial',
+    blurb: 'AI-generated spec ads and brand work.',
+  },
+  {
+    name: 'Exploration / Look tests',
+    blurb: 'AI-generated style frames, worlds and motion studies, not finished pieces.',
+  },
+  /* traditional VFX closes the reel, after all the AI work */
   {
     name: 'Compositing',
     blurb: 'Traditional VFX compositing. No generative AI was used in this work.',
