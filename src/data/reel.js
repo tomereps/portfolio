@@ -16,26 +16,17 @@
 /* ------------------------------------------------------------------ */
 import manifest from './reel-manifest.json';
 
-/* How a piece was made. Stated on the section, on every tile and in the
-   lightbox, because whether work is AI-generated must never be left for the
-   viewer to guess. */
-const KINDS = {
-  ai: { badge: 'AI', label: 'Generated with AI' },
-  vfx: { badge: 'No AI', label: 'Traditional VFX compositing, no AI' },
-};
-
-/* Categories in section order. Each one declares its kind. A category used
-   in META but missing here still gets a section (after these), but carries
-   NO kind badge until it is added, rather than guessing a wrong one. */
+/* Categories in section order. The blurb is the one line under the section
+   heading, and it is where a section says how its work was made (AI or
+   traditional VFX), so give every new category one. A category used in META
+   but missing here still gets a section, after these, with no blurb. */
 const CATEGORIES = [
   {
     name: 'Episodic',
-    kind: 'ai',
     blurb: 'AI-generated series with recurring characters and continuity across episodes.',
   },
   {
     name: 'Compositing',
-    kind: 'vfx',
     blurb: 'Traditional VFX compositing. No generative AI was used in this work.',
   },
 ];
@@ -51,13 +42,6 @@ const META = {
 };
 
 const categoryInfo = new Map(CATEGORIES.map((c) => [c.name, c]));
-
-/* kind fields for a category; empty when the category declares none */
-function kindFields(categoryName) {
-  const kind = categoryInfo.get(categoryName)?.kind;
-  const k = KINDS[kind];
-  return k ? { kind, kindBadge: k.badge, kindLabel: k.label } : { kind: null, kindBadge: '', kindLabel: '' };
-}
 
 /* '02-paper-bloom' -> 'Paper Bloom'. Leading sort-order digits are dropped so
    you can control order by filename without it showing up in the UI. */
@@ -78,13 +62,11 @@ function orientation(w, h) {
 
 const clips = manifest.map((clip) => {
   const meta = META[clip.id] ?? {};
-  const category = meta.category?.trim() || FALLBACK_CATEGORY;
   return {
     ...clip,
     ...meta,
     title: meta.title ?? titleFromId(clip.id),
-    category,
-    ...kindFields(category),
+    category: meta.category?.trim() || FALLBACK_CATEGORY,
     orientation: orientation(clip.width, clip.height),
   };
 });
@@ -112,7 +94,6 @@ export const reelSections = (() => {
     .map(([name, items]) => ({
       name,
       blurb: categoryInfo.get(name)?.blurb ?? '',
-      ...kindFields(name),
       clips: items,
     }));
 })();

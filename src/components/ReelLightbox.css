@@ -66,26 +66,6 @@
   color: var(--accent-highlight);
 }
 
-/* how the clip was made, on the dark scrim in both themes */
-.reelbox__kind {
-  padding: 2px 8px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.03em;
-  border-radius: var(--r-control);
-}
-
-.reelbox__kind--ai {
-  color: #d9d9e4;
-  border: 1px solid rgb(251 251 253 / 0.28);
-}
-
-.reelbox__kind--vfx {
-  color: #13131a;
-  background: #efa639;
-  font-weight: 600;
-}
-
 .reelbox__note {
   font-size: 12.5px;
   color: #b9b9cc;

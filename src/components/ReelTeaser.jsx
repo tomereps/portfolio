@@ -60,22 +60,14 @@ export default function ReelTeaser() {
       >
         <span className="reelteaser__strip">
           {thumbs.map((clip) => (
-            /* each poster carries the same AI / No AI badge as its tile, so the
-               home strip never shows mixed work without saying which is which */
-            <span key={clip.id} className="reelteaser__cell">
-              <img
-                className="reelteaser__thumb"
-                src={clip.poster}
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-              {clip.kindBadge && (
-                <span className={`reelteaser__kind reelteaser__kind--${clip.kind}`}>
-                  {clip.kindBadge}
-                </span>
-              )}
-            </span>
+            <img
+              key={clip.id}
+              className="reelteaser__thumb"
+              src={clip.poster}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
           ))}
         </span>
 

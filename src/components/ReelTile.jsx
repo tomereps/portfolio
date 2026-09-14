@@ -93,7 +93,7 @@ export default function ReelTile({ clip, onOpen }) {
         type="button"
         className="reeltile__surface"
         onClick={() => onOpen(clip)}
-        aria-label={`Play ${clip.title} with sound. ${clip.kindLabel}`}
+        aria-label={`Play ${clip.title} with sound`}
       >
         <img className="reeltile__poster" src={clip.poster} alt="" loading="lazy" decoding="async" />
 
@@ -113,14 +113,6 @@ export default function ReelTile({ clip, onOpen }) {
         )}
 
         <span className="reeltile__scrim" aria-hidden="true" />
-
-        {/* AI / No AI on every tile; the button's aria-label carries the full
-            wording for screen readers, so the short badge is hidden from them */}
-        {clip.kindBadge && (
-          <span className={`reeltile__kind reeltile__kind--${clip.kind}`} aria-hidden="true">
-            {clip.kindBadge}
-          </span>
-        )}
 
         {/* play affordance: previews are silent, the full piece is one click away */}
         <span className="reeltile__play" aria-hidden="true">
