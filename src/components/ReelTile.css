@@ -90,6 +90,28 @@
   white-space: nowrap;
 }
 
+/* Narrow portrait tiles on a phone are ~160px wide: let the title take two
+   lines instead of truncating "Julius, Episode 1" to "Julius, Epi...". */
+@media (max-width: 640px) {
+  .reeltile__bar {
+    align-items: flex-start;
+  }
+
+  .reeltile__title {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    line-height: 1.3;
+  }
+
+  /* the tool label would squeeze the title back to nothing at this width */
+  .reeltile__tool {
+    display: none;
+  }
+}
+
 /* runtime of the full piece; margin-left:auto pins it right whether or not a
    tool label exists */
 .reeltile__dur {

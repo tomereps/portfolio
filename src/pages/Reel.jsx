@@ -86,13 +86,18 @@ export default function Reel() {
 
               <div className="reel__grid">
                 {section.clips.map((clip, i) => (
-                  <Reveal
+                  /* The row item is a plain div, not the Reveal wrapper:
+                     Reveal owns its own inline style for the stagger delay,
+                     and --ar (width / height) has to live on the flex item. */
+                  <div
                     key={clip.id}
-                    delay={Math.min(i, 6) * 70}
                     className={`reel__cell reel__cell--${clip.orientation}`}
+                    style={{ '--ar': clip.width / clip.height }}
                   >
-                    <ReelTile clip={clip} onOpen={(c) => setOpenId(c.id)} />
-                  </Reveal>
+                    <Reveal delay={Math.min(i, 6) * 70}>
+                      <ReelTile clip={clip} onOpen={(c) => setOpenId(c.id)} />
+                    </Reveal>
+                  </div>
                 ))}
               </div>
             </section>

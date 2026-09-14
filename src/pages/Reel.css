@@ -1,11 +1,11 @@
 /* ------------------------------------------------------------------ */
-/*  Reel page: header + masonry wall.                                  */
+/*  Reel page: header + category sections of equal-height rows.        */
 /*                                                                     */
-/*  Layout is CSS multi-column, not grid row-spans. Generated clips     */
-/*  arrive in whatever aspect the model produced, and columns let each  */
-/*  tile keep its true shape with no cropping and no per-breakpoint     */
-/*  span arithmetic. Reading order runs down each column, which is how  */
-/*  a gallery is scanned anyway.                                       */
+/*  Generated clips arrive in whatever aspect the model produced.       */
+/*  Equal-height rows let each tile keep its true shape with no         */
+/*  cropping, while a portrait clip can no longer grow taller than the  */
+/*  screen the way it did in equal-width columns. Reading order runs    */
+/*  left to right, row by row.                                         */
 /* ------------------------------------------------------------------ */
 .reel {
   padding: 34px 28px 80px;
@@ -117,23 +117,46 @@
   color: var(--faint);
 }
 
+/* ---- equal-height rows -------------------------------------------- */
+/* Every tile starts at ROW HEIGHT tall: its flex-basis is its aspect ratio
+   (--ar = width / height) times --row-h, and the media box keeps that ratio.
+   Leftover space in a row is shared out in proportion to --ar too, so tiles
+   in the same row widen by the same factor and stay equal in height. A
+   portrait clip is narrow, a landscape one wide, and nothing is cropped. */
 .reel__grid {
-  columns: 3;
-  column-gap: 20px;
+  --row-h: 360px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-/* the Reveal wrapper is the column item, so the break rule lives here */
+/* The last row would otherwise stretch its few tiles across the full width
+   and blow them up. This invisible item soaks up that space instead, so the
+   last row stays at row height, left-aligned. */
+.reel__grid::after {
+  content: '';
+  flex-grow: 1000000;
+}
+
 .reel__cell {
-  break-inside: avoid;
-  /* a transformed element can still be split by some engines; forcing a new
-     stacking context keeps the tile whole while it animates in */
-  display: block;
-  margin: 0 0 20px;
+  flex-grow: var(--ar);
+  flex-shrink: 1;
+  flex-basis: calc(var(--ar) * var(--row-h));
+  min-width: 0;
+  /* Two limits on width, whichever is smaller:
+     - 100%: a clip wider than the container shrinks to fit instead of
+       overflowing; its height follows because the media box keeps its ratio.
+     - 1.25 x its base width: without this, a tile stranded on a row by
+       itself (common on a phone, where a landscape clip will not fit beside
+       a portrait one) stretches to fill the row and grows far taller than
+       row height. A row may end a little short of the right edge instead. */
+  max-width: min(100%, calc(var(--ar) * var(--row-h) * 1.25));
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 860px) {
   .reel__grid {
-    columns: 2;
+    --row-h: 300px;
+    gap: 16px;
   }
 }
 
@@ -145,7 +168,10 @@
     flex-wrap: wrap;
     gap: 8px;
   }
+  /* width is scarce on a phone; a portrait tile at this height is still wide
+     enough to carry its title, while landscape clips shrink to full width */
   .reel__grid {
-    columns: 1;
+    --row-h: 280px;
+    gap: 14px;
   }
 }
