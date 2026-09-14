@@ -91,6 +91,32 @@
   transform: translateX(4px);
 }
 
+/* ---- category sections ------------------------------------------- */
+.reel__section + .reel__section {
+  margin-top: 40px;
+}
+
+.reel__section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* smaller than the page title: these file clips, they do not compete with it */
+.reel__section-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.reel__section-count {
+  font-size: 11.5px;
+  color: var(--faint);
+}
+
 .reel__grid {
   columns: 3;
   column-gap: 20px;

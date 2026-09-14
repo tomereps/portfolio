@@ -2,15 +2,19 @@ import { useCallback, useEffect, useState } from 'react';
 import Reveal from '../components/Reveal';
 import ReelTile from '../components/ReelTile';
 import ReelLightbox from '../components/ReelLightbox';
-import { reel } from '../data/reel';
+import { reel, reelSections } from '../data/reel';
 import './Reel.css';
 
 /*
- * The reel: a wall of AI generations.
+ * The reel: a wall of AI generations, filed by category.
  *
  * Tiles play short silent previews. Opening one loads the full piece, with
  * sound, from Vercel Blob in the lightbox. That split is what lets long
  * episodes sit in the grid without the page streaming all of them.
+ *
+ * Previous/next in the lightbox walks the flat `reel` list, which is already
+ * in section order, so stepping past the last clip of one category moves on
+ * to the first clip of the next.
  */
 export default function Reel() {
   const [openId, setOpenId] = useState(null);
@@ -67,17 +71,33 @@ export default function Reel() {
           </a>
         </section>
       ) : (
-        <div className="reel__grid">
-          {reel.map((clip, i) => (
-            <Reveal
-              key={clip.id}
-              delay={Math.min(i, 6) * 70}
-              className={`reel__cell reel__cell--${clip.orientation}`}
-            >
-              <ReelTile clip={clip} onOpen={(c) => setOpenId(c.id)} />
-            </Reveal>
-          ))}
-        </div>
+        reelSections.map((section) => {
+          const headingId = `reel-cat-${section.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+          return (
+            <section key={section.name} className="reel__section" aria-labelledby={headingId}>
+              <div className="reel__section-head">
+                <h2 id={headingId} className="reel__section-title">
+                  {section.name}
+                </h2>
+                <span className="reel__section-count mono">
+                  {section.clips.length} clip{section.clips.length === 1 ? '' : 's'}
+                </span>
+              </div>
+
+              <div className="reel__grid">
+                {section.clips.map((clip, i) => (
+                  <Reveal
+                    key={clip.id}
+                    delay={Math.min(i, 6) * 70}
+                    className={`reel__cell reel__cell--${clip.orientation}`}
+                  >
+                    <ReelTile clip={clip} onOpen={(c) => setOpenId(c.id)} />
+                  </Reveal>
+                ))}
+              </div>
+            </section>
+          );
+        })
       )}
 
       {open && <ReelLightbox clip={open} onClose={() => setOpenId(null)} onStep={step} />}

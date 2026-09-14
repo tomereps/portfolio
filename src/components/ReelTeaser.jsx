@@ -51,7 +51,7 @@ export default function ReelTeaser() {
         </span>
       </div>
 
-      <Link className="reelteaser" to="/reel" aria-label={`Open the reel, ${reel.length} clips`}>
+      <Link className="reelteaser" to="/reel" aria-label={`Open the reel, ${reel.length} clip${reel.length === 1 ? '' : 's'}`}>
         <span className="reelteaser__strip">
           {thumbs.map((clip) => (
             <img
