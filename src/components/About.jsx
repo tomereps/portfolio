@@ -35,8 +35,8 @@ export default function About() {
             do their best work.
           </p>
           <p className="about__body">
-            That curiosity led me into product management and product
-            development. Today I build AI products from idea to launch,
+            That curiosity led me into product development. Today I build AI
+            products from idea to launch,
             combining hands-on production experience with a deep interest in
             user experience and design.
           </p>

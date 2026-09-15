@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { reel } from '../data/reel';
 import './Nav.css';
-import cvUrl from '../../TomerEP_CV.pdf';
 
 const LINKS = ['Work', 'About', 'Skills', 'Contact'];
 
@@ -14,7 +13,7 @@ export default function Nav() {
           <a className="nav__name" href="/">
             Tomer Epshtein<span>.</span>
           </a>
-          <span className="nav__tagline">product · creative solutions · vfx</span>
+          <span className="nav__tagline">product · AI workflows · vfx</span>
         </div>
 
         {/* section links: inline on desktop, a scrollable strip on mobile */}
@@ -32,7 +31,7 @@ export default function Nav() {
           </Link>
         </nav>
 
-        <a className="nav__cta" href={cvUrl} download="Tomer-Epshtein-CV.pdf">
+        <a className="nav__cta" href="/Tomer_Epshtein_CV.pdf" download="Tomer_Epshtein_CV.pdf">
           Download CV
         </a>
       </div>
