@@ -20,6 +20,16 @@
     "duration": 105.96
   },
   {
+    "id": "Julius_Ep01_Bloopers",
+    "src": "https://uze0spgssh2ouq5r.public.blob.vercel-storage.com/reel/Julius_Ep01_Bloopers-42021b5500.mp4",
+    "hash": "42021b5500",
+    "preview": "/reel/Julius_Ep01_Bloopers-preview.mp4",
+    "poster": "/reel/Julius_Ep01_Bloopers.webp",
+    "width": 720,
+    "height": 1280,
+    "duration": 29.97
+  },
+  {
     "id": "Julius_Ep02_Dialogue_01",
     "src": "https://uze0spgssh2ouq5r.public.blob.vercel-storage.com/reel/Julius_Ep02_Dialogue_01-deeeab7303.mp4",
     "hash": "deeeab7303",
@@ -28,5 +38,15 @@
     "width": 720,
     "height": 1280,
     "duration": 34.05
+  },
+  {
+    "id": "Julius_Ep02_Dolabella",
+    "src": "https://uze0spgssh2ouq5r.public.blob.vercel-storage.com/reel/Julius_Ep02_Dolabella-afc21d9d5d.mp4",
+    "hash": "afc21d9d5d",
+    "preview": "/reel/Julius_Ep02_Dolabella-preview.mp4",
+    "poster": "/reel/Julius_Ep02_Dolabella.webp",
+    "width": 720,
+    "height": 1280,
+    "duration": 39.62
   }
 ]
