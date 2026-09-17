@@ -50,13 +50,17 @@ const CATEGORIES = [
 /* where clips without a category go; always the last section */
 const FALLBACK_CATEGORY = 'Other';
 
+/* `order` sets a clip's position inside its section (lower comes first).
+   Reorder by changing these numbers, not by renaming files: a rename makes
+   a new clip id, which re-uploads the full video. Clips with no `order` sit
+   after the ordered ones, sorted by filename. */
 const META = {
-  Julius_Ep01: { title: 'Julius, Episode 1', category: 'Episodic' },
-  Julius_Ep02_Bloopers: { title: 'Julius, Episode 2: Bloopers', category: 'Episodic' },
-  Julius_Ep02_Dialogue_01: { title: 'Julius, Episode 2: Dialogue', category: 'Episodic' },
-  Julius_Ep02_Dolabella: { title: 'Julius, Episode 2: Dolabella', category: 'Episodic' },
-  COMP_REEL: { title: 'Compositing Reel', category: 'Compositing' },
-  // 'some-clip': { title: 'Title', category: 'Episodic', tool: 'Veo 3', note: '' },
+  Julius_Ep01: { title: 'Julius, Episode 1', category: 'Episodic', order: 1 },
+  Julius_Ep02_Dialogue_01: { title: 'Julius, Episode 2: Dialogue', category: 'Episodic', order: 2 },
+  Julius_Ep02_Dolabella: { title: 'Julius, Episode 2: Dolabella', category: 'Episodic', order: 3 },
+  Julius_Ep02_Bloopers: { title: 'Julius, Episode 2: Bloopers', category: 'Episodic', order: 4 },
+  COMP_REEL: { title: 'Compositing Reel', category: 'Compositing', order: 1 },
+  // 'some-clip': { title: 'Title', category: 'Episodic', order: 5, tool: 'Veo 3', note: '' },
 };
 
 const categoryInfo = new Map(CATEGORIES.map((c) => [c.name, c]));
@@ -89,6 +93,11 @@ const clips = manifest.map((clip) => {
   };
 });
 
+/* within a section: explicit `order` first, then unordered clips in manifest
+   (filename) order. Array.prototype.sort is stable, so ties keep that order. */
+const byOrder = (a, b) =>
+  (Number.isFinite(a.order) ? a.order : Infinity) - (Number.isFinite(b.order) ? b.order : Infinity);
+
 /* Clips grouped for display: declared categories first, in CATEGORIES order,
    then undeclared ones in first-use order, then the fallback. Empty
    categories are never listed. */
@@ -106,13 +115,12 @@ export const reelSections = (() => {
     return i === -1 ? order.length : i;
   };
 
-  // Array.prototype.sort is stable, so undeclared categories keep first-use order
   return [...byCategory.entries()]
     .sort(([a], [b]) => rank(a) - rank(b))
     .map(([name, items]) => ({
       name,
       blurb: categoryInfo.get(name)?.blurb ?? '',
-      clips: items,
+      clips: [...items].sort(byOrder),
     }));
 })();
 
