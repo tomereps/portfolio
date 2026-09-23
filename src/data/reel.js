@@ -59,6 +59,11 @@ const META = {
   Julius_Ep02_Dialogue_01: { title: 'Julius, Episode 2: Dialogue', category: 'Episodic', order: 2 },
   Julius_Ep02_Dolabella: { title: 'Julius, Episode 2: Dolabella', category: 'Episodic', order: 3 },
   Julius_Ep02_Bloopers: { title: 'Julius, Episode 2: Bloopers', category: 'Episodic', order: 4 },
+  TheMatterhorn_Ep01_Hook: {
+    title: 'The Matterhorn, Episode 1: Hook',
+    category: 'Episodic',
+    order: 5,
+  },
   COMP_REEL: { title: 'Compositing Reel', category: 'Compositing', order: 1 },
   // 'some-clip': { title: 'Title', category: 'Episodic', order: 5, tool: 'Veo 3', note: '' },
 };
