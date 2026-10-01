@@ -97,6 +97,46 @@ function DemoVideo({ video, projectName }) {
   );
 }
 
+function Screenshots({ project, stacked, onOpen }) {
+  if (!project.screenshots) return null;
+
+  return (
+    <section className="case__shots-section">
+      <h2 className="case__deep-title">Inside the app</h2>
+      <div
+        className={`case__shots${
+          stacked ? ' case__shots--stacked' : project.shotLayout === 'wide' ? ' case__shots--wide' : ''
+        }`}
+      >
+        {project.screenshots.map((s, i) => (
+          <figure className="case__shot" key={s.caption || i}>
+            {s.src ? (
+              <button
+                type="button"
+                className="case__shot-btn"
+                onClick={() => onOpen(i)}
+                aria-label={`View ${s.caption || 'screenshot'} full screen`}
+              >
+                <img
+                  className="case__shot-img"
+                  src={s.src}
+                  alt={s.caption || `${project.name} screenshot`}
+                />
+                <span className="case__shot-expand" aria-hidden>
+                  ⤢
+                </span>
+              </button>
+            ) : (
+              <div className="case__shot-ph">Screenshot</div>
+            )}
+            {s.caption && <figcaption className="case__shot-cap">{s.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 /* renders whichever content shape a section carries */
 function SectionContent({ section }) {
   if (section.bullets) {
@@ -253,7 +293,14 @@ export default function CaseStudy() {
         </Link>
       )}
 
-      <DemoVideo video={project.demoVideo} projectName={project.name} />
+      {project.demoVideo ? (
+        <div className="case__media-row">
+          <DemoVideo video={project.demoVideo} projectName={project.name} />
+          <Screenshots project={project} stacked onOpen={setLightbox} />
+        </div>
+      ) : (
+        <DemoVideo video={project.demoVideo} projectName={project.name} />
+      )}
 
       <div className="case__sections">
         {cs.sections.map((s) => (
@@ -278,42 +325,8 @@ export default function CaseStudy() {
         ))}
       </div>
 
-      {project.screenshots && (
-        <section className="case__shots-section">
-          <h2 className="case__deep-title">Inside the app</h2>
-          <div
-            className={`case__shots${
-              project.shotLayout === 'wide' ? ' case__shots--wide' : ''
-            }`}
-          >
-            {project.screenshots.map((s, i) => (
-              <figure className="case__shot" key={s.caption || i}>
-                {s.src ? (
-                  <button
-                    type="button"
-                    className="case__shot-btn"
-                    onClick={() => setLightbox(i)}
-                    aria-label={`View ${s.caption || 'screenshot'} full screen`}
-                  >
-                    <img
-                      className="case__shot-img"
-                      src={s.src}
-                      alt={s.caption || `${project.name} screenshot`}
-                    />
-                    <span className="case__shot-expand" aria-hidden>
-                      ⤢
-                    </span>
-                  </button>
-                ) : (
-                  <div className="case__shot-ph">Screenshot</div>
-                )}
-                {s.caption && (
-                  <figcaption className="case__shot-cap">{s.caption}</figcaption>
-                )}
-              </figure>
-            ))}
-          </div>
-        </section>
+      {!project.demoVideo && (
+        <Screenshots project={project} onOpen={setLightbox} />
       )}
 
       {project.deepDive && (

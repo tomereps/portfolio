@@ -77,6 +77,24 @@
 }
 
 /* ---- demo video ----------------------------------------------------- */
+/* video on one side, "Inside the app" stacked vertically on the other -
+   only used when a project has a demo video; everyone else keeps the
+   screenshots gallery in its own full-width section further down */
+.case__media-row {
+  display: grid;
+  /* minmax(0, 1fr), not plain 1fr: a bare 1fr track still floors at its
+     content's min-content size, which let the video column collapse to
+     the width of its play-button overlay and dump all the space on the
+     screenshots column */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.case__media-row .case__shots-section {
+  margin-top: 0;
+}
+
 .case__demo-frame {
   margin-top: 18px;
   max-width: 800px;
@@ -423,6 +441,13 @@
   gap: 16px;
 }
 
+/* next to the demo video: one column, stacked - after --wide in source
+   order so it wins when both classes are on the element at once */
+.case__shots--stacked {
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
 .case__shot {
   margin: 0;
 }
@@ -676,5 +701,9 @@
   }
   .case__shots--wide {
     grid-template-columns: 1fr;
+  }
+  .case__media-row {
+    grid-template-columns: 1fr;
+    gap: 36px;
   }
 }
