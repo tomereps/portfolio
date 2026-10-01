@@ -80,13 +80,19 @@
 /* video on one side, "Inside the app" stacked vertically on the other -
    only used when a project has a demo video; everyone else keeps the
    screenshots gallery in its own full-width section further down */
+/* Column split is solved so three uncropped screenshots stacked in the
+   right column come out exactly as tall as the 16:9 video on the left.
+   With row width T, video column width W, column gap g = 32px, shot
+   gap s = 10px, shot aspect a = 1920/989, and each shot's 1px border
+   (2px of width, 2px of height):
+     video height = W * 9/16
+     shots height = 3 * ((T - g - W - 2) / a + 2) + 2s
+   Setting them equal: W = (T - g - 2 + 26a/3) / (1 + 3a/16)
+                         = (T - 17.17px) / 1.364
+   If the screenshots' aspect ratio or any gap changes, redo this. */
 .case__media-row {
   display: grid;
-  /* minmax(0, 1fr), not plain 1fr: a bare 1fr track still floors at its
-     content's min-content size, which let the video column collapse to
-     the width of its play-button overlay and dump all the space on the
-     screenshots column */
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: calc((100% - 17.17px) / 1.364) minmax(0, 1fr);
   gap: 32px;
   align-items: start;
 }
@@ -95,9 +101,13 @@
   margin-top: 0;
 }
 
+/* same top offset as .case__demo-frame so the two columns start level */
+.case__media-row .case__shots {
+  margin-top: 18px;
+}
+
 .case__demo-frame {
   margin-top: 18px;
-  max-width: 800px;
   position: relative;
   aspect-ratio: 16 / 9;
   border-radius: var(--r-panel);
@@ -441,36 +451,21 @@
   gap: 16px;
 }
 
-/* next to the demo video: one column, stacked, and the same total height
-   as the video - same aspect-ratio as .case__demo-frame, and since both
-   columns share the same width (case__media-row), that pins the height
-   to match without measuring anything in JS. Flex instead of grid rows so
-   the three shots can split that fixed height evenly. After --wide in
-   source order so it wins when both classes are on the element at once. */
+/* next to the demo video: one column, stacked, uncropped. Its total
+   height matches the video because .case__media-row sizes the columns
+   for it - keep the 10px gap in sync with the math there. After --wide
+   in source order so it wins on equal specificity. */
 .case__shots--stacked {
-  display: flex;
-  flex-direction: column;
-  aspect-ratio: 16 / 9;
+  grid-template-columns: 1fr;
   gap: 10px;
 }
 
 .case__shots--stacked .case__shot {
   position: relative;
-  flex: 1;
-  min-height: 0;
 }
 
-.case__shots--stacked .case__shot-btn {
-  height: 100%;
-}
-
-.case__shots--stacked .case__shot-img {
-  height: 100%;
-  object-fit: cover;
-}
-
-/* caption overlays the thumbnail instead of sitting below it - stacking
-   caption height on top of each third would blow past the video's height */
+/* caption overlays the thumbnail instead of sitting below it - caption
+   height under each shot would push the column past the video's height */
 .case__shots--stacked .case__shot-cap {
   position: absolute;
   left: 10px;
