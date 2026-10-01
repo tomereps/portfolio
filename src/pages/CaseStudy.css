@@ -441,11 +441,45 @@
   gap: 16px;
 }
 
-/* next to the demo video: one column, stacked - after --wide in source
-   order so it wins when both classes are on the element at once */
+/* next to the demo video: one column, stacked, and the same total height
+   as the video - same aspect-ratio as .case__demo-frame, and since both
+   columns share the same width (case__media-row), that pins the height
+   to match without measuring anything in JS. Flex instead of grid rows so
+   the three shots can split that fixed height evenly. After --wide in
+   source order so it wins when both classes are on the element at once. */
 .case__shots--stacked {
-  grid-template-columns: 1fr;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 16 / 9;
+  gap: 10px;
+}
+
+.case__shots--stacked .case__shot {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.case__shots--stacked .case__shot-btn {
+  height: 100%;
+}
+
+.case__shots--stacked .case__shot-img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* caption overlays the thumbnail instead of sitting below it - stacking
+   caption height on top of each third would blow past the video's height */
+.case__shots--stacked .case__shot-cap {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  margin-top: 0;
+  padding: 3px 8px;
+  background: rgba(15, 15, 23, 0.62);
+  color: #fff;
+  border-radius: var(--r-control);
 }
 
 .case__shot {
