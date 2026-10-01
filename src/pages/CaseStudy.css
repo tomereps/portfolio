@@ -79,6 +79,7 @@
 /* ---- demo video ----------------------------------------------------- */
 .case__demo-frame {
   margin-top: 18px;
+  max-width: 800px;
   position: relative;
   aspect-ratio: 16 / 9;
   border-radius: var(--r-panel);
