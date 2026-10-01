@@ -57,6 +57,46 @@ const SECTION_ICONS = {
   ),
 };
 
+/* poster + play button until clicked, so the video's bytes are never
+   requested unless the viewer actually wants to watch it */
+function DemoVideo({ video, projectName }) {
+  const [playing, setPlaying] = useState(false);
+
+  if (!video) return null;
+
+  return (
+    <section className="case__demo">
+      <h2 className="case__deep-title">Watch the demo</h2>
+      <div className="case__demo-frame">
+        {playing ? (
+          <video
+            className="case__demo-video"
+            src={video.src}
+            poster={video.poster}
+            controls
+            autoPlay
+            playsInline
+          />
+        ) : (
+          <button
+            type="button"
+            className="case__demo-play"
+            onClick={() => setPlaying(true)}
+            aria-label={`Play ${projectName} demo video`}
+          >
+            <img className="case__demo-poster" src={video.poster} alt="" />
+            <span className="case__demo-play-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7Z" />
+              </svg>
+            </span>
+          </button>
+        )}
+      </div>
+    </section>
+  );
+}
+
 /* renders whichever content shape a section carries */
 function SectionContent({ section }) {
   if (section.bullets) {
@@ -212,6 +252,8 @@ export default function CaseStudy() {
           <span aria-hidden>→</span>
         </Link>
       )}
+
+      <DemoVideo video={project.demoVideo} projectName={project.name} />
 
       <div className="case__sections">
         {cs.sections.map((s) => (

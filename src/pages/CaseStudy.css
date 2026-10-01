@@ -76,6 +76,90 @@
   margin-top: 30px;
 }
 
+/* ---- demo video ----------------------------------------------------- */
+.case__demo-frame {
+  margin-top: 18px;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-panel);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--panel-invert);
+}
+
+.case__demo-play {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.case__demo-poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.case__demo-play-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case__demo-play-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 9, 14, 0.28);
+  transition: background 0.18s ease;
+}
+
+/* the circle paints first (z-index below the triangle) - pseudo-elements
+   otherwise render after real children, which would bury the svg under it */
+.case__demo-play-icon::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--panel-invert-ink);
+  box-shadow: 0 10px 28px -10px rgb(0 0 0 / 0.5);
+  transition: transform 0.18s var(--ease);
+}
+
+.case__demo-play-icon svg {
+  position: relative;
+  z-index: 1;
+  width: 26px;
+  height: 26px;
+  margin-left: 3px; /* optical centering: the triangle's own weight sits left */
+  color: var(--panel-invert);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .case__demo-play:hover .case__demo-play-icon::before {
+    background: rgba(9, 9, 14, 0.4);
+  }
+  .case__demo-play:hover .case__demo-play-icon::after {
+    transform: scale(1.06);
+  }
+}
+
+.case__demo-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--panel-invert);
+}
+
 .case__eyebrow {
   display: inline-flex;
   align-items: center;

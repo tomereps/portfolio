@@ -24,6 +24,10 @@ export const shipped = [
     heroBg: '#080808',
     accent: '#f5a623',
     shotLayout: 'wide',
+    demoVideo: {
+      src: '/stents/stents-demo.mp4',
+      poster: '/stents/stents-demo-poster.webp',
+    },
     screenshots: [
       { src: stNodeGraph, caption: 'Node canvas' },
       { src: stStoryboard, caption: 'Storyboard & render' },
