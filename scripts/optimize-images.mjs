@@ -15,6 +15,7 @@ const JOBS = [
   // card previews: render at 549x288
   { in: 'src/assets/Stents/OG_IMAGE.png', out: 'src/assets/Stents/preview.webp', width: 1100 },
   { in: 'src/assets/Sakemly/OG_IMAGE.png', out: 'src/assets/Sakemly/preview.webp', width: 1100 },
+  { in: 'src/assets/MindGarden/OG_IMAGE.png', out: 'src/assets/MindGarden/preview.webp', width: 1100 },
 
   // portrait: renders at 358px
   { in: 'src/assets/profile.png', out: 'src/assets/profile.webp', width: 720 },
@@ -27,6 +28,9 @@ const JOBS = [
   { in: 'src/assets/Sakemly/shot_topics.jpeg', out: 'src/assets/Sakemly/shot_topics.webp', width: 945 },
   { in: 'src/assets/Sakemly/shot_todos.jpeg', out: 'src/assets/Sakemly/shot_todos.webp', width: 945 },
   { in: 'src/assets/Sakemly/shot_reminders.jpeg', out: 'src/assets/Sakemly/shot_reminders.webp', width: 945 },
+  { in: 'src/assets/MindGarden/Screenshots/Home.png', out: 'src/assets/MindGarden/Screenshots/Home.webp', width: 1920 },
+  { in: 'src/assets/MindGarden/Screenshots/Pairs.png', out: 'src/assets/MindGarden/Screenshots/Pairs.webp', width: 1920 },
+  { in: 'src/assets/MindGarden/Screenshots/Progress.png', out: 'src/assets/MindGarden/Screenshots/Progress.webp', width: 1920 },
 ];
 
 const kb = (bytes) => `${(bytes / 1024).toFixed(0)}KB`;

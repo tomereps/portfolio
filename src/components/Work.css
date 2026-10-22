@@ -33,7 +33,7 @@
 
 .work__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 22px;
   margin-bottom: 0;
 }
@@ -47,7 +47,8 @@
   flex: 1;
 }
 
-@media (max-width: 860px) {
+/* below three comfortable cards, one per row (two would leave the third alone) */
+@media (max-width: 960px) {
   .work__grid {
     grid-template-columns: 1fr;
   }

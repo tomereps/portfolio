@@ -14,6 +14,10 @@ import ssReminders from '../assets/Sakemly/shot_reminders.webp';
 import stNodeGraph from '../assets/Stents/Screenshots/NodeGraph.webp';
 import stStoryboard from '../assets/Stents/Screenshots/Storyboard_Render.webp';
 import stEdit from '../assets/Stents/Screenshots/Edit.webp';
+import mindGardenOg from '../assets/MindGarden/preview.webp';
+import mgHome from '../assets/MindGarden/Screenshots/Home.webp';
+import mgPairs from '../assets/MindGarden/Screenshots/Pairs.webp';
+import mgProgress from '../assets/MindGarden/Screenshots/Progress.webp';
 
 export const shipped = [
   {
@@ -74,6 +78,61 @@ export const shipped = [
         { num: '04', label: 'Challenges', lead: 'Raw AI output is unpredictable; most of the work was making it consistent.', columns: [{ title: 'The hard parts', items: ['Character drift between shots', 'Swapping characters while keeping their pose', 'Automating workflows in unexpected environments', 'Complex branching logic'] }, { title: 'How I fixed it', items: ['Reference locking & seed control', 'Pose-locked composition with reference swaps', 'Reusable, composable node pipelines', 'Simplified data model'] }] },
         { num: 'tech', label: 'Tech stack', lead: 'The tools I reached for to build it end-to-end, solo.', tech: ['React', 'React Flow', 'Supabase', 'fal.ai', 'Three.js', 'Polar', 'Resend', 'PostHog'] },
         { num: '05', label: 'Where it stands', lead: 'Live, in use, and still moving.', features: [{ title: 'Live', desc: 'stents.ai is live and used in real projects.' }, { title: 'Growing', desc: 'New features and models added regularly.' }, { title: 'Next', desc: 'Team collaboration, advanced editing and more control.' }] },
+      ],
+    },
+  },
+  {
+    slug: 'mind-garden',
+    name: 'Mind Garden',
+    status: 'Live',
+    desc: 'A ten-minute daily brain-training routine for older adults, with Noa, a voiced guide, explaining every game out loud.',
+    image: mindGardenOg,
+    heroBg: '#14504C',
+    accent: '#E07A5F',
+    shotLayout: 'wide',
+    screenshots: [
+      { src: mgHome, caption: 'Home: Noa greets by name' },
+      { src: mgPairs, caption: 'A game in progress' },
+      { src: mgProgress, caption: 'Progress & program' },
+    ],
+    website: 'https://ginatmind.com',
+    demo: '',
+    deepDive: {
+      tagline:
+        'The product thinking behind Mind Garden, a training routine built for one person, then opened to everyone.',
+      prd: [
+        { label: 'Vision', body: 'A short daily brain-training routine an older adult can run on their own, guided by a voice that explains everything, so practice becomes a habit rather than a test.' },
+        { label: 'Target user', body: 'Hebrew-speaking adults over 65, many new to apps, training on a tablet at home, and the adult children who set it up for them and follow along.' },
+        { label: 'The problem', body: 'Brain-training apps are built for people who already live in apps.', items: ['Text-heavy instructions, read fast', 'Difficulty jumps that feel like failing a test', 'Little or nothing in Hebrew', 'No gentle way for family to follow along'] },
+        { label: 'Core requirements', items: ['Every instruction spoken aloud in natural Hebrew, by one consistent guide', 'Three short games a day, about ten minutes, on a 12-week program', 'Levels that rise only after two strong rounds, and only when the person agrees', 'Large type and targets, and no time pressure outside the speed games', 'Progress synced across devices, with a view-only family link'] },
+        { label: 'Out of scope (deliberate)', items: ['Leaderboards, streak pressure and competitive scores', 'Medical or cognitive-outcome claims', 'A native app: the web runs on whatever tablet the family already has'] },
+        { label: 'Key decisions & tradeoffs', items: ['Pre-recorded voice over live text-to-speech: natural Hebrew with no wait, at the cost of re-recording when copy changes', 'One speed-of-processing game in every session and monthly booster weeks, following the ACTIVE trial, over an ever-growing game catalogue', 'Hebrew in three grammatical forms (feminine, masculine, plural), chosen at sign-up, because every line speaks to the user directly', 'Its own accounts table in an existing Supabase project, behind a server secret, over a new paid project'] },
+        { label: 'Success metrics', body: 'Adherence over engagement: trainings completed against the days the person planned each week, and how many are still training at week 4 and week 12.' },
+        { label: 'Risks & open questions', items: ['Will people keep the habit without someone nudging them?', 'Research shows gains on trained tasks, much less beyond them', 'Re-recording cost as copy and grammatical forms grow', 'Older devices and slow connections'] },
+      ],
+      competitors: [
+        { name: 'Lumosity / Elevate', note: 'Polished and broad, but designed for app-fluent younger adults: text-first, score-driven and English-first.' },
+        { name: 'BrainHQ', note: 'The research-backed option, built on the speed training the ACTIVE trial studied, but dense, clinical in tone and English-first.' },
+        { name: 'Puzzle & crossword apps', note: 'Familiar and loved, but with no program, progression or guidance.' },
+      ],
+      positioning:
+        'Mind Garden competes on guidance, not game count: a voice that explains everything in natural Hebrew, levels the person controls, and a program shaped by research, for the people most apps were never designed for.',
+    },
+    caseStudy: {
+      intro: 'Mind Garden is a ten-minute daily brain-training routine for older adults, with Noa, a voiced guide, explaining every game out loud.',
+      overview: 'It started as an app for one person: my mother. Brain-training apps assume a younger, app-fluent user, so I built one around her: three short games a day, every instruction spoken in natural Hebrew, and levels that only rise when she chooses. Then I opened it to everyone, in Hebrew and English.',
+      meta: [
+        { label: 'My role', value: 'Product Builder' },
+        { label: 'Team', value: 'Solo Project' },
+        { label: 'Industry', value: 'Health & wellbeing · Older adults' },
+      ],
+      sections: [
+        { num: '01', label: 'The problem', lead: 'Brain training is built for people who already live in apps.', bullets: ['Text-heavy instructions, read fast', 'Difficulty jumps that feel like failing a test', 'Little or nothing in Hebrew', 'No gentle way for family to follow along'] },
+        { num: '02', label: 'What it does', lead: 'A short daily session, guided from the first tap.', features: [{ title: 'A voiced guide', desc: 'Noa explains every game and cheers you on, out loud.' }, { title: '21 games', desc: 'Memory, attention, speed and language, unlocking week by week.' }, { title: 'Levels you choose', desc: 'Two strong rounds earn a harder level; you decide whether to take it.' }, { title: 'Family link', desc: 'Progress syncs across devices, and family can follow along.' }] },
+        { num: '03', label: 'Scope & tradeoffs', lead: 'Every feature had to protect a calm ten-minute session.', columns: [{ title: 'Cut', items: ['Scores, leaderboards and streak pressure', 'Timers on games where speed is not the skill', 'Automatic level jumps', 'Outcome claims'] }, { title: 'Why', items: ['Pressure turns practice into a test', 'Speed only where speed is trained', 'The person stays in control', 'Built on research, but promising nothing'] }] },
+        { num: '04', label: 'Challenges', lead: 'Making a voice-first app feel natural in Hebrew was most of the work.', columns: [{ title: 'The hard parts', items: ['Text-to-speech mispronouncing Hebrew words', 'Clipped endings and audible breaths', 'Every line addresses the user in a gendered form', 'Copy edits silently going out of sync with the audio'] }, { title: 'How I fixed it', items: ['Per-line pronunciation overrides with vowel marks', 'Waveform-level trims and targeted re-takes', 'Feminine, masculine and plural text and voice, chosen at sign-up', 'Text fingerprints: a recording plays only while it matches its line'] }] },
+        { num: 'tech', label: 'Tech stack', lead: 'A light, no-build stack, so one person can ship and change it fast.', tech: ['Vanilla JS', 'Vercel', 'Supabase', 'ElevenLabs', 'Resend'] },
+        { num: '05', label: 'Where it stands', lead: 'Live, and still growing.', features: [{ title: 'Live', desc: 'ginatmind.com is live, in Hebrew and English.' }, { title: 'Open to all', desc: 'Built for one person, now open to anyone, free.' }, { title: 'Next', desc: 'Masculine and plural narration, a landing page, and game demos.' }] },
       ],
     },
   },

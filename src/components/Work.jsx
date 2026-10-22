@@ -9,7 +9,7 @@ export default function Work() {
     <section id="work" className="work shell">
       <div className="work__head">
         <h2 className="work__title">Shipped products</h2>
-        <span className="work__count">two products · shipped end-to-end</span>
+        <span className="work__count">three products · shipped end-to-end</span>
       </div>
 
       <div className="work__grid">
