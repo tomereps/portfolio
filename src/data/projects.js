@@ -87,8 +87,9 @@ export const shipped = [
     status: 'Live',
     desc: 'A ten-minute daily brain-training routine for older adults, with Noa, a voiced guide, explaining every game out loud.',
     image: mindGardenOg,
-    heroBg: '#14504C',
-    accent: '#E07A5F',
+    heroBg: '#F7F3EB',
+    heroTheme: 'light',
+    accent: '#1E6B66',
     shotLayout: 'wide',
     screenshots: [
       { src: mgHome, caption: 'Home: Noa greets by name' },

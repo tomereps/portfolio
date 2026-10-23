@@ -227,7 +227,7 @@ export default function CaseStudy() {
 
       <div className="case__top">
       <div
-        className="case__hero"
+        className={`case__hero${project.heroTheme === 'light' ? ' case__hero--light' : ''}`}
         style={project.heroBg ? { background: project.heroBg } : undefined}
       >
         <div className="case__hero-text">

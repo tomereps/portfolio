@@ -269,6 +269,14 @@
   font-weight: 500;
 }
 
+/* light hero: for a project whose own site is light, so the panel can match its screenshot */
+.case__hero--light .case__eyebrow { color: #4E5B5D; }
+.case__hero--light .case__title { color: #1E6B66; }
+.case__hero--light .case__intro { color: #4E5B5D; }
+.case__hero--light .case__btn--primary { color: #fff; }
+.case__hero--light .case__btn--ghost { color: #1E2A2C; border-color: rgb(30 42 44 / 0.2); }
+.case__hero--light .case__hero-img { border-radius: 10px; box-shadow: 0 0 0 1px rgb(30 42 44 / 0.08), 0 12px 30px rgb(30 42 44 / 0.08); }
+
 .case__hero-img {
   display: block;
   width: 100%;
