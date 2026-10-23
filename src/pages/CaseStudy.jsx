@@ -299,7 +299,8 @@ export default function CaseStudy() {
           <Screenshots project={project} stacked onOpen={setLightbox} />
         </div>
       ) : (
-        <DemoVideo video={project.demoVideo} projectName={project.name} />
+        // no demo video: the screenshots take its place, right after the overview
+        <Screenshots project={project} onOpen={setLightbox} />
       )}
 
       <div className="case__sections">
@@ -324,10 +325,6 @@ export default function CaseStudy() {
           </section>
         ))}
       </div>
-
-      {!project.demoVideo && (
-        <Screenshots project={project} onOpen={setLightbox} />
-      )}
 
       {project.deepDive && (
         <Link className="case__deeper case__deeper--foot" to={`/work/${project.slug}/deep`}>
